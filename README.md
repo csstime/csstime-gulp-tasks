@@ -22,7 +22,16 @@ public/ #destination directory for built project
 		└──svg
 ```
 
-To require these tasks use plugin `gulp-task-loader`.
+To require these tasks use `gulp-task-loader` plugin:
+```
+// gulpfile.js in your project
+'use strict';
+
+var gulp = require('gulp'),
+	taskLoader = require('gulp-task-loader');
+
+taskLoader('./node_modules/csstime-gulp-tasks/tasks');
+```
 
 Available tasks:
 
