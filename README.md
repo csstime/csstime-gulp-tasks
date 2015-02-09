@@ -27,7 +27,7 @@ public/ #destination directory for built project
 ```
 
 To require these tasks use `gulp-task-loader` plugin:
-```
+```javascript
 // gulpfile.js in your project
 'use strict';
 
