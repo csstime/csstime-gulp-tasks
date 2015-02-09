@@ -1,0 +1,15 @@
+{
+	"name": "csstime-gulp-tasks",
+	"version": "0.1.0",
+	"author": "Julia Rechkunova",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:csstime/csstime-gulp-tasks.git"
+	},
+	"dependencies": {
+
+	},
+	"engines": {
+		"node": "^0.10.26"
+	}
+}
