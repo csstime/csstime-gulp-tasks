@@ -1,11 +1,11 @@
 # csstime-gulp-tasks
-Gulp tasks to build your project.
+Prepared Gulp tasks to build your project.
 
 ```
 npm install csstime-gulp-tasks --save-dev
 ```
 
-If your project has following structure you can use these tasks.
+If your project has following structure you can use these tasks or some of them.
 
 ```
 gulpfile.js
@@ -32,9 +32,9 @@ To require these tasks use `gulp-task-loader` plugin:
 'use strict';
 
 var gulp = require('gulp'),
-	taskLoader = require('gulp-task-loader');
+	tasksLoader = require('gulp-task-loader');
 
-taskLoader('./node_modules/csstime-gulp-tasks/tasks');
+tasksLoader('./node_modules/csstime-gulp-tasks/tasks');
 ```
 
 Here is available tasks which you can see after `gulp --tasks`:
