@@ -1,4 +1,5 @@
-var config = require('../config.json');
+var config = require('../config.json'),
+	gulp = require('gulp');
 
 module.exports = function () {
 	return gulp.src(config.commonAssetsDir)
