@@ -1,6 +1,10 @@
 # csstime-gulp-tasks
 Gulp tasks to build your project.
 
+```
+npm install csstime-gulp-tasks --save-dev
+```
+
 If your project has following structure you can use these tasks.
 
 ```
@@ -33,7 +37,7 @@ var gulp = require('gulp'),
 taskLoader('./node_modules/csstime-gulp-tasks/tasks');
 ```
 
-Available tasks:
+Here is available tasks which you can see after `gulp --tasks`:
 
 `csstime-publish-assets` - publish main assets (`/assets`) to destination directory (`/public`) without any changes
 
