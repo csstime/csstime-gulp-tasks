@@ -38,6 +38,8 @@ csstime.loadGulpTasks();
 
 Here is available tasks which you can see after `gulp --tasks`:
 
-`csstime-publish-assets` - publish main assets (`/assets`) to destination directory (`/public`) without any changes
+| Name						| Description										|
+|---------------------------|---------------------------------------------------|
+| `csstime-publish-assets`	| Publish main assets (`/assets`) to destination directory (`/public`) without any changes |
 
 
