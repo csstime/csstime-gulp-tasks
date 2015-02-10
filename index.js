@@ -15,7 +15,7 @@ function CssTime () {
  * Loads gulp tasks
  */
 CssTime.prototype.loadGulpTasks = function () {
-	tasksLoader();
+	tasksLoader('./gulp-tasks');
 };
 
 module.exports = new CssTime();
