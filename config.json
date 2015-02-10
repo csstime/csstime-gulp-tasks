@@ -2,7 +2,7 @@
 	"commonAssetsDir": "assets",
 	"componentsAssetsDir": "assets",
 	"destinationDir": "public",
-	"temporaryDir": "_cssstime-tmp_",
+	"temporaryDir": "_csstime-tmp_",
 	"lessDir": "less",
 	"lessIndexFile": "style.less",
 	"indexComponentName": "document"
