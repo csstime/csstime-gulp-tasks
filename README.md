@@ -2,7 +2,7 @@
 Prepared Gulp tasks to build your project.
 
 ```
-npm install csstime-gulp-tasks --save-dev
+npm install csstime-gulp-tasks
 ```
 
 If your project has following structure you can use these tasks or some of them.
@@ -26,15 +26,14 @@ public/ #destination directory for built project
 		└──svg
 ```
 
-To require these tasks use `gulp-task-loader` plugin:
+Just write this in your Gulpfile.js:
 ```javascript
-// gulpfile.js in your project
 'use strict';
 
 var gulp = require('gulp'),
-	tasksLoader = require('gulp-task-loader');
+	csstime = require('csstime-gulp-tasks');
 
-tasksLoader('./node_modules/csstime-gulp-tasks/tasks');
+csstime.loadGulpTasks();
 ```
 
 Here is available tasks which you can see after `gulp --tasks`:

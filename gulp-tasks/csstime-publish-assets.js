@@ -1,6 +1,6 @@
-var config = require('../config.json'),
+var gulp = require('gulp'),
 	path = require('path'),
-	gulp = require('gulp');
+	config = require('../config.json');
 
 module.exports = function () {
 	return gulp.src(path.join(config.commonAssetsDir, '**'))
