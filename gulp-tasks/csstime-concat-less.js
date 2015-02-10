@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
 	path = require('path'),
 	util = require('util'),
+	file = require('gulp-file'),
 	concat = require('gulp-concat'),
 	csstime = require('../index.js'),
 	config = require('../config.json');
