@@ -1,5 +1,9 @@
 {
 	"commonAssetsDir": "assets",
+	"componentsAssetsDir": "assets",
 	"destinationDir": "public",
-	"temporaryDir": "tmp"
+	"temporaryDir": "tmp",
+	"lessDir": "less",
+	"lessIndexFile": "style.less",
+	"indexComponentName": "document"
 }
