@@ -7,7 +7,7 @@ var gulp = require('gulp'),
 	csstime = require('../index.js'),
 	config = require('../config.json');
 
-var IMPORT_FORMAT = '@import "%s"',
+var IMPORT_FORMAT = '@import "./%s"',
 	FILE_FORMAT = "%s/%s/%s/%s/%s";
 
 module.exports = function () {

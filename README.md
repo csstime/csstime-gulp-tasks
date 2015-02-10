@@ -41,5 +41,10 @@ Here is available tasks which you can see after `gulp --tasks`:
 | Name						| Description										|
 |---------------------------|---------------------------------------------------|
 | `csstime-publish-assets`	| Publish main assets (`/assets`) to destination directory (`/public`) without any changes |
+| `csstime-compile-less`	| Publish compiled from less styles to destination directory (`/public`) with name style.css |
 
+Additional tasks which work with temporary directory:
 
+| Name						| Description										|
+|---------------------------|---------------------------------------------------|
+| `csstime-concat-less`		| Save style.less file with import-links to style.less for all components |

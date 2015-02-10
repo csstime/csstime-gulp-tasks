@@ -11,6 +11,7 @@
 		"gulp": "^3.8.11",
 		"gulp-concat": "^2.4.3",
 		"gulp-file": "^0.2.0",
+		"gulp-less": "^2.0.1",
 		"gulp-task-loader": "^1.0.8"
 	},
 	"engines": {
