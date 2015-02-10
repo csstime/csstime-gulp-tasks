@@ -7,7 +7,7 @@ var gulp = require('gulp'),
 	csstime = require('../index.js'),
 	config = require('../config.json');
 
-var IMPORT_FORMAT = '/* %s */\n@import "%s";',
+var IMPORT_FORMAT = '/*\n %s\n */\n@import "%s";',
 	FILE_FORMAT = "%s/%s/%s/%s/%s";
 
 module.exports = function () {
@@ -26,9 +26,9 @@ module.exports = function () {
 		if (!fs.existsSync(path.join(process.cwd(), importingFile))) {
 			return;
 		}
-		imports.push(util.format(IMPORT_FORMAT, importingFile));
+		imports.push(util.format(IMPORT_FORMAT, importingFile, importingFile));
 	});
 
-	return file(config.lessIndexFile, imports.join('\n'), {src: true})
+	return file(config.lessIndexFile, imports.join('\n\n'), {src: true})
 		.pipe(gulp.dest(path.join(config.destinationDir, config.temporaryDir)));
 };
