@@ -14,4 +14,4 @@ module.exports = function () {
 		.pipe(gulp.dest(config.destinationDir));
 };
 
-module.exports.dependencies = ['csstime-handle-less'];
+module.exports.dependencies = ['csstime-handle-css'];
