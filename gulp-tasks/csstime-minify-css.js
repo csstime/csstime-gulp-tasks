@@ -6,13 +6,12 @@ var gulp = require('gulp'),
 	config = require('../config.json');
 
 module.exports = function () {
-	var maxCompression = !config.useCssStructureMinimization;
 	return gulp.src(path.join(
 			config.destinationDir,
 			config.stylesFileName + '.css'
 		))
-		.pipe(csso(maxCompression))
+		.pipe(csso(!config.useCssStructureMinimization))
 		.pipe(gulp.dest(config.destinationDir));
 };
 
-module.exports.dependencies = ['csstime-compile-less'];
+module.exports.dependencies = ['csstime-handle-less'];
