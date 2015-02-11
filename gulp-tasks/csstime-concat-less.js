@@ -5,12 +5,11 @@ var gulp = require('gulp'),
 	util = require('util'),
 	fs = require('fs'),
 	file = require('gulp-file'),
-	concat = require('gulp-concat'),
 	csstime = require('../index.js'),
 	config = require('../config.json');
 
 var IMPORT_FORMAT = '/*\n * Styles of component "%s"\n */\n@import "%s";',
-	FILE_FORMAT = "%s/%s/%s/%s/%s";
+	FILE_FORMAT = '%s/%s/%s/%s/%s';
 
 module.exports = function () {
 	var components = csstime.getPublishedComponents(),

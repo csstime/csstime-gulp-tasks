@@ -9,7 +9,6 @@
 	},
 	"dependencies": {
 		"gulp": "^3.8.11",
-		"gulp-concat": "^2.4.3",
 		"gulp-csso": "^1.0.0",
 		"gulp-file": "^0.2.0",
 		"gulp-if": "^1.2.5",
@@ -19,5 +18,12 @@
 	},
 	"engines": {
 		"node": "^0.10.26"
+	},
+	"devDependencies": {
+		"jscs": "^1.11.2",
+		"jshint": "^2.6.0"
+	},
+	"scripts": {
+		"lint": "./node_modules/.bin/jshint ./ && ./node_modules/.bin/jscs ./"
 	}
 }
