@@ -8,5 +8,6 @@
 	"stylesFileName": "style",
 	"indexComponentName": "document",
 
-	"useCssPleeease": true
+	"useCssPleeease": true,
+	"enableCssStructureMinimization": false
 }

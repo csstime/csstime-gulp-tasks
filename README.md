@@ -42,6 +42,7 @@ Here is available tasks which you can see after `gulp --tasks`:
 |---------------------------|---------------------------------------------------|
 | `csstime-publish-assets`	| Publish main assets (`/assets`) to destination directory (`/public`) without any changes |
 | `csstime-compile-less`	| Publish compiled less styles to destination directory (`/public`) with name style.css |
+| `csstime-minify-css`		| Minify css in destination directory (`/public`) with name style.css |
 
 Additional tasks which work with temporary directory:
 
