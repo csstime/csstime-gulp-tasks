@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
 	path = require('path'),
 	pleeease = require('gulp-pleeease'),
-	pleeeaseConfig = require('./.pleeeaserc.json'),
+	pleeeaseConfig = require('../.pleeeaserc.json'),
 	config = require('../config.json');
 
 module.exports = function () {
