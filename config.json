@@ -1,4 +1,5 @@
 {
+	"cdnPath": "/cdn/",
 	"commonAssetsDir": "assets",
 	"componentsAssetsDir": "assets",
 	"destinationDir": "public",
@@ -6,8 +7,11 @@
 	"lessDir": "less",
 
 	"stylesFileName": "style",
+	"spritesFileName": "sprites",
+
 	"indexComponentName": "document",
 
+	"useImageSprites": true,
 	"useCssPleeease": true,
 	"enableCssStructureMinimization": false
 }
