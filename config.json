@@ -1,9 +1,11 @@
 {
 	"cdnPath": "/cdn/",
+
 	"commonAssetsDir": "assets",
 	"componentsAssetsDir": "assets",
 	"destinationDir": "public",
 	"temporaryDir": "__csstime-tmp",
+	"spritesDir": "sprites",
 	"lessDir": "less",
 
 	"stylesFileName": "style",

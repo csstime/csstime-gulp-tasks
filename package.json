@@ -14,7 +14,8 @@
 		"gulp-if": "^1.2.5",
 		"gulp-less": "^2.0.1",
 		"gulp-pleeease": "^1.1.0",
-		"gulp-task-loader": "^1.0.8"
+		"gulp-task-loader": "^1.0.8",
+		"gulp.spritesmith": "^2.5.1"
 	},
 	"engines": {
 		"node": "^0.10.26"
