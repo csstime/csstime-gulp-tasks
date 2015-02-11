@@ -1,16 +1,16 @@
 var gulp = require('gulp'),
 	path = require('path'),
-	less = require('gulp-less'),
+	pleeease = require('gulp-pleeease'),
+	pleeeaseConfig = require('./.pleeeaserc.json'),
 	config = require('../config.json');
 
 module.exports = function () {
 	return gulp.src(path.join(
 			config.destinationDir,
-			config.temporaryDir,
-			config.stylesFileName + '.less'
+			config.stylesFileName + '.css'
 		))
-		.pipe(less())
+		.pipe(pleeease(pleeeaseConfig))
 		.pipe(gulp.dest(config.destinationDir));
 };
 
-module.exports.dependencies = ['csstime-concat-less'];
+module.exports.dependencies = ['csstime-compile-less'];

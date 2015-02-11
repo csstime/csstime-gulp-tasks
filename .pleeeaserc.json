@@ -1,0 +1,9 @@
+{
+	"autoprefixer": {
+		"browsers": ["> 1%", "last 2 versions", "Firefox ESR", "Opera 12.1", "IE 9"],
+		"cascade": true
+	},
+	"filters": true,
+	"opacity": true,
+	"minifier": false
+}

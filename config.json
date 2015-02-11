@@ -4,6 +4,6 @@
 	"destinationDir": "public",
 	"temporaryDir": "__csstime-tmp",
 	"lessDir": "less",
-	"lessIndexFile": "style.less",
+	"stylesFileName": "style",
 	"indexComponentName": "document"
 }
