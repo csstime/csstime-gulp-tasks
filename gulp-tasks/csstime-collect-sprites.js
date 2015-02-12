@@ -12,7 +12,7 @@ module.exports = function () {
 			config.componentsAssetsDir,
 			'*',
 			config.spritesDir,
-			'*',
+			'**',
 			'*.png'
 		))
 		.pipe(spritesmith({
