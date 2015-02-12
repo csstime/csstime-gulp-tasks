@@ -12,7 +12,10 @@ module.exports = function () {
 			config.stylesFileName + '.less'
 		))
 		.pipe(less())
-		.pipe(gulp.dest(config.destinationDir));
+		.pipe(gulp.dest(path.join(
+			config.destinationDir,
+			config.staticDir
+		)));
 };
 
 module.exports.dependencies = ['csstime-concat-less'];

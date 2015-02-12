@@ -10,7 +10,7 @@ var gulp = require('gulp'),
 
 var IMPORT_SPRITES_FORMAT = '/*\n * Sprites\n */\n@import "%s";',
 	IMPORT_FORMAT = '/*\n * Styles of component "%s"\n */\n@import "%s";',
-	BASE_VARIABLES = '@CDN: "%s";',
+	BASE_VARIABLES = '@CDN: "/%s/";',
 	SPRITES_VARIABLES = '@SPRITES_IMAGE: "%s";';
 
 module.exports = function () {
@@ -18,7 +18,7 @@ module.exports = function () {
 		imports = [];
 
 	// variables
-	imports.push(util.format(BASE_VARIABLES, config.cdnPath));
+	imports.push(util.format(BASE_VARIABLES, config.staticDir));
 
 	// sprites
 	if (config.useImageSprites) {
@@ -51,8 +51,15 @@ module.exports = function () {
 	});
 
 	// create file
-	return file(config.stylesFileName + '.less', imports.join('\n\n'), {src: true})
-		.pipe(gulp.dest(path.join(config.destinationDir, config.temporaryDir)));
+	return file(
+			config.stylesFileName + '.less',
+			imports.join('\n\n'),
+			{src: true}
+		)
+		.pipe(gulp.dest(path.join(
+			config.destinationDir,
+			config.temporaryDir
+		)));
 };
 
 if (config.useImageSprites) {

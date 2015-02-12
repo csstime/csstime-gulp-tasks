@@ -30,7 +30,10 @@ module.exports = function () {
 			padding: spritesmithConfig.padding
 		}));
 
-	spriteData.img.pipe(gulp.dest(config.destinationDir));
+	spriteData.img.pipe(gulp.dest(path.join(
+		config.destinationDir,
+		config.staticDir
+	)));
 
 	return spriteData.css.pipe(gulp.dest(path.join(
 		config.destinationDir,

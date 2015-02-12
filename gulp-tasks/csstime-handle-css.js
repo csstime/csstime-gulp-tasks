@@ -10,10 +10,14 @@ var gulp = require('gulp'),
 module.exports = function () {
 	return gulp.src(path.join(
 			config.destinationDir,
+			config.staticDir,
 			config.stylesFileName + '.css'
 		))
 		.pipe(gulpif(config.useCssPleeease, pleeease(pleeeaseConfig)))
-		.pipe(gulp.dest(config.destinationDir));
+		.pipe(gulp.dest(path.join(
+			config.destinationDir,
+			config.staticDir
+		)));
 };
 
 module.exports.dependencies = ['csstime-compile-less'];

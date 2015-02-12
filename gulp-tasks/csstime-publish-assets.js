@@ -6,5 +6,8 @@ var gulp = require('gulp'),
 
 module.exports = function () {
 	return gulp.src(path.join(config.commonAssetsDir, '**'))
-		.pipe(gulp.dest(config.destinationDir));
+		.pipe(gulp.dest(path.join(
+			config.destinationDir,
+			config.staticDir
+		)));
 };
