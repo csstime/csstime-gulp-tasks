@@ -54,3 +54,7 @@ module.exports = function () {
 	return file(config.stylesFileName + '.less', imports.join('\n\n'), {src: true})
 		.pipe(gulp.dest(path.join(config.destinationDir, config.temporaryDir)));
 };
+
+if (config.useImageSprites) {
+	module.exports.dependencies = ['csstime-collect-sprites'];
+}

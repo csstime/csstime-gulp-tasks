@@ -4,7 +4,10 @@ var gulp = require('gulp'),
 	path = require('path'),
 	spritesmith = require('gulp.spritesmith'),
 	spritesmithConfig = require('../.spritesmith.json'),
+	packageConfig = require('./package.json'),
 	config = require('../config.json');
+
+var NODE_MODULES_DIR = 'node_modules';
 
 module.exports = function () {
 	var spriteData = gulp.src(path.join(
@@ -19,7 +22,11 @@ module.exports = function () {
 			imgName: config.spritesFileName + '.png',
 			cssName: config.spritesFileName + '.less',
 			algorithm: spritesmithConfig.algorithm,
-			cssTemplate: spritesmithConfig.cssTemplate,
+			cssTemplate: path.join(
+				NODE_MODULES_DIR,
+				packageConfig.name,
+				spritesmithConfig.cssTemplate
+			),
 			padding: spritesmithConfig.padding
 		}));
 
