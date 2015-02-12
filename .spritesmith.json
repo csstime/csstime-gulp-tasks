@@ -1,5 +1,5 @@
 {
-	"padding": "10",
+	"padding": 10,
 	"algorithm": "binary-tree",
 	"cssTemplate": ".sprite.less.mustache"
 }

@@ -27,7 +27,6 @@ module.exports = function () {
 
 	return spriteData.css.pipe(gulp.dest(path.join(
 		config.destinationDir,
-		config.temporaryDir,
-		config.spritesFileName + '.less'
+		config.temporaryDir
 	)));
 };
