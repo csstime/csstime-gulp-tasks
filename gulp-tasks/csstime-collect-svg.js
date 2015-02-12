@@ -4,10 +4,10 @@ var gulp = require('gulp'),
 	path = require('path'),
 	config = require('../config.json'),
 	svgmin = require('gulp-svgmin'),
-	svgminConfig = require(config + '.svgmin.json'),
+	svgminConfig = require(config.configsPath + '.svgmin.json'),
 	raster = require('gulp-raster'),
 	imagemin = require('gulp-imagemin'),
-	imageminConfig = require(config + '.imagemin.json'),
+	imageminConfig = require(config.configsPath + '.imagemin.json'),
 	rename = require('gulp-rename'),
 	gulpif = require('gulp-if');
 
