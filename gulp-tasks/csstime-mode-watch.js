@@ -16,5 +16,5 @@ module.exports = function () {
 		'csstime-process-static'
 	);
 
-	gutil.log('Csstime', 'Watch mode', gutil.colors.magenta());
+	gutil.log(gutil.colors.magenta('csstime:', 'watch mode'));
 };

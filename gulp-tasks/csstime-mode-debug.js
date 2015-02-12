@@ -3,7 +3,7 @@
 var gutil = require('gulp-util');
 
 module.exports = function () {
-	gutil.log('Csstime', 'Debug mode', gutil.colors.yellow());
+	gutil.log(gutil.colors.yellow('csstime:', 'debug mode'));
 };
 
 module.exports.dependencies = [
