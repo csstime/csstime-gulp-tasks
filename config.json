@@ -21,6 +21,7 @@
 
 	"useImageSprites": true,
 	"useImageOptimization": true,
+	"useSvgOptimization": true,
 	"useSvgRasterization": true,
 	"useCssPleeease": true,
 	"enableCssStructureMinimization": false,
