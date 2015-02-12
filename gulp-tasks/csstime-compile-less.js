@@ -7,14 +7,14 @@ var gulp = require('gulp'),
 
 module.exports = function () {
 	return gulp.src(path.join(
-			config.destinationDir,
+			config.publicRootDir,
 			config.temporaryDir,
 			config.stylesFileName + '.less'
 		))
 		.pipe(less())
 		.pipe(gulp.dest(path.join(
-			config.destinationDir,
-			config.staticDir
+			config.publicRootDir,
+			config.componentsDir
 		)));
 };
 

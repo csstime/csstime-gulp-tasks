@@ -15,8 +15,8 @@ var NODE_MODULES_DIR = 'node_modules',
 
 module.exports = function () {
 	var spriteData = gulp.src(path.join(
-			config.destinationDir,
-			config.componentsAssetsDir,
+			config.publicRootDir,
+			config.componentsDir,
 			'*',
 			config.spritesDir,
 			'**',
@@ -41,12 +41,12 @@ module.exports = function () {
 			imagemin(imageminConfig)
 		))
 		.pipe(gulp.dest(path.join(
-			config.destinationDir,
-			config.staticDir
+			config.publicRootDir,
+			config.componentsDir
 		)));
 
 	return spriteData.css.pipe(gulp.dest(path.join(
-		config.destinationDir,
+		config.publicRootDir,
 		config.temporaryDir
 	)));
 };

@@ -9,14 +9,14 @@ var gulp = require('gulp'),
 
 module.exports = function () {
 	return gulp.src(path.join(
-			config.destinationDir,
-			config.staticDir,
+			config.publicRootDir,
+			config.componentsDir,
 			config.stylesFileName + '.css'
 		))
 		.pipe(gulpif(config.useCssPleeease, pleeease(pleeeaseConfig)))
 		.pipe(gulp.dest(path.join(
-			config.destinationDir,
-			config.staticDir
+			config.publicRootDir,
+			config.componentsDir
 		)));
 };
 

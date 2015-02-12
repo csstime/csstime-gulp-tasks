@@ -36,8 +36,8 @@ CssTime.prototype.loadGulpTasks = function () {
 CssTime.prototype.getPublishedComponents = function () {
 	var publishedComponentsDir = path.join(
 				process.cwd(),
-				config.destinationDir,
-				config.componentsAssetsDir
+				config.publicRootDir,
+				config.componentsDir
 			);
 
 	if (!fs.existsSync(publishedComponentsDir)) {

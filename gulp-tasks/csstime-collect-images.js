@@ -9,8 +9,8 @@ var gulp = require('gulp'),
 
 module.exports = function () {
 	return gulp.src(path.join(
-			config.destinationDir,
-			config.componentsAssetsDir,
+			config.publicRootDir,
+			config.componentsDir,
 			'*',
 			config.imagesDir,
 			'**'
@@ -20,7 +20,7 @@ module.exports = function () {
 			imagemin(imageminConfig)
 		))
 		.pipe(gulp.dest(path.join(
-			config.destinationDir,
-			config.staticDir
+			config.publicRootDir,
+			config.componentsDir
 		)));
 };

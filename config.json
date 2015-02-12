@@ -1,8 +1,8 @@
 {
-	"commonAssetsDir": "assets",
-	"componentsAssetsDir": "assets",
-	"destinationDir": "public",
 	"staticDir": "static",
+	"publicRootDir": "public",
+
+	"componentsDir": "assets",
 	"temporaryDir": "__csstime-tmp",
 
 	"spritesDir": "sprites",
@@ -21,5 +21,5 @@
 	"useCssPleeease": true,
 	"enableCssStructureMinimization": false,
 
-	"configsPath": "./configs/"
+	"configsPath": "../configs/"
 }

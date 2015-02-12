@@ -18,7 +18,7 @@ module.exports = function () {
 		imports = [];
 
 	// variables
-	imports.push(util.format(BASE_VARIABLES, config.staticDir));
+	imports.push(util.format(BASE_VARIABLES, config.componentsDir));
 
 	// sprites
 	if (config.useImageSprites) {
@@ -28,7 +28,7 @@ module.exports = function () {
 		));
 
 		var importingSpriteFile = path.join(
-			config.destinationDir,
+			config.publicRootDir,
 			config.temporaryDir,
 			config.spritesFileName + '.less'
 		);
@@ -38,8 +38,8 @@ module.exports = function () {
 	// less
 	components.forEach(function (component) {
 		var importingFile = path.join(
-			config.destinationDir,
-			config.componentsAssetsDir,
+			config.publicRootDir,
+			config.componentsDir,
 			component,
 			config.lessDir,
 			config.stylesFileName + '.less'
@@ -57,7 +57,7 @@ module.exports = function () {
 			{src: true}
 		)
 		.pipe(gulp.dest(path.join(
-			config.destinationDir,
+			config.publicRootDir,
 			config.temporaryDir
 		)));
 };

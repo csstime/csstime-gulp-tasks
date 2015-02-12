@@ -9,23 +9,26 @@ If your project has following structure you can use these tasks or some of them.
 
 ```
 gulpfile.js
-assets/ #always stored in a repository
-├──fonts/
+static/ #always stored in a repository
 ├──favicon.ico
 ├──robots.txt
 └──...
 public/ #destination directory for built project
 └──assets/
-	└──componentA
+	└──document
+		├──fonts/
 		├──sprites
 		└──less
 			└──styles.less
 		└──svg
-	└──componentB
+	└──componentA
 		├──sprites
 		└──less
         	└──styles.less
 		└──svg
+	└──componentB
+    		└──less
+            	└──styles.less
 ```
 
 Just write this in your Gulpfile.js:
@@ -42,10 +45,10 @@ Here is available tasks which you can see after `gulp --tasks`:
 
 | Name						| Description										|
 |---------------------------|---------------------------------------------------|
-| `csstime-publish-assets`	| Publish main assets (`/assets`) to destination directory (`/public`) without any changes |
-| `csstime-compile-less`	| Publish compiled less styles to destination directory (`/public`) with name style.css |
-| `csstime-handle-css`		| Handle css (css.pleeease) in destination directory (`/public`) with name style.css |
-| `csstime-minify-css`		| Minify css (csso) in destination directory (`/public`) with name style.css |
+| `csstime-copy-static	`	| Copy static files (`/static`) to public directory (`/public`) without any changes |
+| `csstime-compile-less`	| Publish compiled less styles to public directory (`/public`) with name style.css |
+| `csstime-handle-css`		| Handle css (css.pleeease) in public directory (`/public`) with name style.css |
+| `csstime-minify-css`		| Minify css (csso) in public directory (`/public`) with name style.css |
 
 Additional tasks which work with temporary directory:
 
