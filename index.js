@@ -18,17 +18,22 @@ module.exports = {
 	 */
 	loadGulpTasks: function (options) {
 		if (options) {
-			options.keys().forEach(function (key) {
-				if (key in currentConfig) {
+			Object.keys(options).forEach(function (key) {
+				if (!(key in currentConfig)) {
 					return;
 				}
 				currentConfig[key] = options[key];
 			});
 		}
 
-		fs.writeSync(
-			path.join('.', CONFIG_FILE_NAME),
-			JSON.stringify(currentConfig)
+		fs.writeFileSync(
+			path.join(
+				process.cwd(),
+				NODE_MODULES_DIR,
+				packageConfig.name,
+				CONFIG_FILE_NAME
+			),
+			JSON.stringify(currentConfig, null, '\t')
 		);
 
 		tasksLoader(
