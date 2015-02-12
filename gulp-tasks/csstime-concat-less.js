@@ -14,7 +14,7 @@ var IMPORT_SPRITES_FORMAT = '/*\n * Sprites\n */\n@import "%s";',
 	SPRITES_VARIABLES = '@SPRITES_IMAGE: "%s";';
 
 module.exports = function () {
-	var components = components.getNames(),
+	var componentsNames = components.getNames(),
 		imports = [];
 
 	// variables
@@ -36,7 +36,7 @@ module.exports = function () {
 	}
 
 	// less
-	components.forEach(function (component) {
+	componentsNames.forEach(function (component) {
 		var importingFile = path.join(
 			config.publicRootDir,
 			config.componentsDir,
