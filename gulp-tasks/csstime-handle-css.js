@@ -2,10 +2,10 @@
 
 var gulp = require('gulp'),
 	path = require('path'),
-	gulpif = require('gulp-if'),
 	config = require('../config.json'),
+	gulpif = require('gulp-if'),
 	pleeease = require('gulp-pleeease'),
-	pleeeaseConfig = require('../.pleeeaserc.json');
+	pleeeaseConfig = require(config.configsPath + '.pleeeaserc.json');
 
 module.exports = function () {
 	return gulp.src(path.join(

@@ -2,12 +2,16 @@
 
 var gulp = require('gulp'),
 	path = require('path'),
+	config = require('../config.json'),
+	gulpif = require('gulp-if'),
+	imagemin = require('gulp-imagemin'),
+	imageminConfig = require(config.configsPath + '.imagemin.json'),
 	spritesmith = require('gulp.spritesmith'),
-	spritesmithConfig = require('../.spritesmith.json'),
-	packageConfig = require('../package.json'),
-	config = require('../config.json');
+	spritesmithConfig = require(config.configsPath + '.spritesmith.json'),
+	packageConfig = require('../package.json');
 
-var NODE_MODULES_DIR = 'node_modules';
+var NODE_MODULES_DIR = 'node_modules',
+	CONFIGS_DIR = 'configs';
 
 module.exports = function () {
 	var spriteData = gulp.src(path.join(
@@ -25,15 +29,21 @@ module.exports = function () {
 			cssTemplate: path.join(
 				NODE_MODULES_DIR,
 				packageConfig.name,
+				CONFIGS_DIR,
 				spritesmithConfig.cssTemplate
 			),
 			padding: spritesmithConfig.padding
 		}));
 
-	spriteData.img.pipe(gulp.dest(path.join(
-		config.destinationDir,
-		config.staticDir
-	)));
+	spriteData.img
+		.pipe(gulpif(
+			config.useImageOptimization,
+			imagemin(imageminConfig)
+		))
+		.pipe(gulp.dest(path.join(
+			config.destinationDir,
+			config.staticDir
+		)));
 
 	return spriteData.css.pipe(gulp.dest(path.join(
 		config.destinationDir,

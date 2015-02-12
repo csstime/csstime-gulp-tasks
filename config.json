@@ -16,6 +16,10 @@
 	"indexComponentName": "document",
 
 	"useImageSprites": true,
+	"useImageOptimization": true,
+	"useSvgRasterization": true,
 	"useCssPleeease": true,
-	"enableCssStructureMinimization": false
+	"enableCssStructureMinimization": false,
+
+	"configsPath": "./configs/"
 }
