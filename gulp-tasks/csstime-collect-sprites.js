@@ -4,7 +4,7 @@ var gulp = require('gulp'),
 	path = require('path'),
 	spritesmith = require('gulp.spritesmith'),
 	spritesmithConfig = require('../.spritesmith.json'),
-	packageConfig = require('./package.json'),
+	packageConfig = require('../package.json'),
 	config = require('../config.json');
 
 var NODE_MODULES_DIR = 'node_modules';
