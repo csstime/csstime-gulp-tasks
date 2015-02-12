@@ -1,13 +1,11 @@
 'use strict';
 
-var gulp = require('gulp'),
-	path = require('path'),
-	config = require('../config.json');
+var gutil = require('gulp-util');
 
 module.exports = function () {
-	return gulp.src(path.join(config.staticRootDir, '**'))
-		.pipe(gulp.dest(path.join(
-			config.publicRootDir,
-			config.destinationDir
-		)));
+	gutil.log(gutil.colors.gray('csstime:', 'statics were rebuilt'));
 };
+
+module.exports.dependencies = [
+	'csstime-copy-static'
+];

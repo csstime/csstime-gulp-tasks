@@ -7,14 +7,14 @@ var gulp = require('gulp'),
 
 module.exports = function () {
 	gulp.watch(
-		path.join(config.publicRootDir, config.componentsDir),
-		'csstime-process-assets'
+		path.join(config.publicRootDir, config.componentsDir, '**', '*'),
+		['csstime-process-assets']
 	);
 
 	gulp.watch(
-		config.staticRootDir,
-		'csstime-process-static'
+		path.join(config.staticRootDir, '**', '*'),
+		['csstime-process-static']
 	);
 
-	gutil.log(gutil.colors.magenta('csstime:', 'watch mode'));
+	gutil.log(gutil.colors.blue('csstime:', 'watch mode'));
 };
