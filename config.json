@@ -4,7 +4,10 @@
 	"destinationDir": "public",
 	"staticDir": "static",
 	"temporaryDir": "__csstime-tmp",
+
 	"spritesDir": "sprites",
+	"imagesDir": "images",
+	"svgDir": "svg",
 	"lessDir": "less",
 
 	"stylesFileName": "styles",
