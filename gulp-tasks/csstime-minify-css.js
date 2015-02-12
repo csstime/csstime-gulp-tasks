@@ -2,7 +2,7 @@
 
 var gulp = require('gulp'),
 	path = require('path'),
-	csstime = require('../index'),
+	time = require('../lib/time'),
 	header = require('gulp-header'),
 	csso = require('gulp-csso'),
 	gulpif = require('gulp-if'),
@@ -16,8 +16,8 @@ module.exports = function () {
 		))
 		.pipe(csso(!config.useCssStructureMinimization))
 		.pipe(gulpif(
-			config.stylesBanner,
-			header(config.stylesBanner + '\n' + csstime.captureNow())
+			config.stylesBanner && (typeof config.stylesBanner === 'string'),
+			header(config.stylesBanner.replace('<%now%>', time.captureNow()))
 		))
 		.pipe(gulp.dest(path.join(
 			config.publicRootDir,

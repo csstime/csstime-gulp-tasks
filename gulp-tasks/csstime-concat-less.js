@@ -5,7 +5,7 @@ var gulp = require('gulp'),
 	util = require('util'),
 	fs = require('fs'),
 	file = require('gulp-file'),
-	csstime = require('../index.js'),
+	components = require('../lib/components'),
 	config = require('../config.json');
 
 var IMPORT_SPRITES_FORMAT = '/*\n * Sprites\n */\n@import "%s";',
@@ -14,7 +14,7 @@ var IMPORT_SPRITES_FORMAT = '/*\n * Sprites\n */\n@import "%s";',
 	SPRITES_VARIABLES = '@SPRITES_IMAGE: "%s";';
 
 module.exports = function () {
-	var components = csstime.getPublishedComponents(),
+	var components = components.getNames(),
 		imports = [];
 
 	// variables

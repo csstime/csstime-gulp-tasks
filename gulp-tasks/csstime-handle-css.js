@@ -5,7 +5,7 @@ var gulp = require('gulp'),
 	config = require('../config.json'),
 	gulpif = require('gulp-if'),
 	concat = require('gulp-concat'),
-	csstime = require('../index'),
+	time = require('../lib/time'),
 	header = require('gulp-header'),
 	pleeease = require('gulp-pleeease'),
 	pleeeaseConfig = require(config.configsPath + '.pleeeaserc.json');
@@ -29,8 +29,8 @@ module.exports = function () {
 		.pipe(concat(config.stylesFileName + '.css'))
 		.pipe(gulpif(config.useCssPleeease, pleeease(pleeeaseConfig)))
 		.pipe(gulpif(
-			config.stylesBanner,
-			header(config.stylesBanner + '\n' + csstime.captureNow())
+			config.stylesBanner && (typeof config.stylesBanner === 'string'),
+			header(config.stylesBanner.replace('<%now%>', time.captureNow()))
 		))
 		.pipe(gulp.dest(path.join(
 			config.publicRootDir,
