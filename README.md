@@ -18,11 +18,13 @@ public/ #destination directory for built project
 └──assets/
 	└──componentA
 		├──sprites
-		├──less
+		└──less
+			└──styles.less
 		└──svg
 	└──componentB
 		├──sprites
-		├──less
+		└──less
+        	└──styles.less
 		└──svg
 ```
 

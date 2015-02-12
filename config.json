@@ -7,7 +7,7 @@
 	"spritesDir": "sprites",
 	"lessDir": "less",
 
-	"stylesFileName": "style",
+	"stylesFileName": "styles",
 	"spritesFileName": "sprites",
 
 	"indexComponentName": "document",
