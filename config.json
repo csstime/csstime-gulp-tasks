@@ -26,6 +26,8 @@
 	"useCssPleeease": true,
 	"enableCssStructureMinimization": false,
 
+	"stylesBanner": "csstime",
+
 	"configsPath": "../configs/",
 	"cdnPath": "/static/assets/"
 }

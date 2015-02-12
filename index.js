@@ -59,4 +59,16 @@ CssTime.prototype.getPublishedComponents = function () {
 	return directories;
 };
 
+/**
+ * Gets current date and time
+ * @returns {string}
+ */
+CssTime.prototype.captureNow = function () {
+	var now = new Date(),
+		date = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate(),
+		time = now.getHours() + ':' + now.getMinutes();
+
+	return date + ' ' + time;
+};
+
 module.exports = new CssTime();

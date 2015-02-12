@@ -18,3 +18,8 @@ module.exports = function () {
 
 	gutil.log(gutil.colors.blue('csstime:', 'watch mode'));
 };
+
+module.exports.dependencies = [
+	'csstime-process-static',
+	'csstime-process-assets'
+];
