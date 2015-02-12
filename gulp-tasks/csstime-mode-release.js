@@ -1,7 +1,9 @@
 'use strict';
 
-module.exports = function () {
+var gulp = require('gulp');
 
+module.exports = function () {
+	gulp.run('csstime-remove-tmp');
 };
 
 module.exports.dependencies = [

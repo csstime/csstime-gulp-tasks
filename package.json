@@ -18,6 +18,7 @@
 		"gulp-pleeease": "^1.1.0",
 		"gulp-raster": "^0.1.0",
 		"gulp-rename": "^1.2.0",
+		"gulp-rimraf": "^0.1.1",
 		"gulp-svgmin": "^1.1.0",
 		"gulp-task-loader": "^1.0.8",
 		"gulp.spritesmith": "^2.5.1",
