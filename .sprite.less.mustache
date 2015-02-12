@@ -1,15 +1,6 @@
-/*
- * Sprite Meta info
- */
-
 {{#items}}
 @sprite-{{name}}: {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total_width}} {{px.total_height}} '{{{escaped_image}}}' '{{{source_image}}}';
 {{/items}}
-
-
-/*
- * Sprite Mixins
- */
 
 .mixin-sprite-position(@sprite) {
 	@sprite-offset-x: ~`"@{sprite}".split(', ')[2]`;
@@ -45,13 +36,20 @@
 	.mixin-sprite-height(@@sprite);
 }
 
-.mixin-sprite-background() {
+.mixin-sprites-url() {
 	background-image: url('@{CDN}@{SPRITES_IMAGE}');
 }
 
 /*
- * Use following to set background image in your component
+ * Sets background-image url
  *	.icon {
- *		.mixin-sprite-background();
+ *		.mixin-sprites-url();
+ *	}
+ */
+
+/*
+ * Sets sprite attributes
+ *	.icon--twitter {
+ *		.mixin-sprite('twitter');
  *	}
  */
