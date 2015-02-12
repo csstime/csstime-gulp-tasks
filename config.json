@@ -9,7 +9,10 @@
 	"spritesDir": "sprites",
 	"imagesDir": "images",
 	"svgDir": "svg",
+	"fontsDir": "fonts",
 	"lessDir": "less",
+	"cssDir": "css",
+	"otherDir": "other",
 
 	"stylesFileName": "styles",
 	"spritesFileName": "sprites",
@@ -22,5 +25,6 @@
 	"useCssPleeease": true,
 	"enableCssStructureMinimization": false,
 
-	"configsPath": "../configs/"
+	"configsPath": "../configs/",
+	"cdnPath": "/static/assets/"
 }

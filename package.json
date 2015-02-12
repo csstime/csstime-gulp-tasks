@@ -9,6 +9,7 @@
 	},
 	"dependencies": {
 		"gulp": "^3.8.11",
+		"gulp-concat": "^2.4.3",
 		"gulp-csso": "^1.0.0",
 		"gulp-file": "^0.2.0",
 		"gulp-if": "^1.2.5",

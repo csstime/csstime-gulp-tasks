@@ -15,20 +15,22 @@ static/ #always stored in a repository
 └──...
 public/ #destination directory for built project
 └──assets/
-	└──document
+	└──document/
+		├──other/
 		├──fonts/
-		├──sprites
-		└──less
+		├──images/
+		├──sprites/
+		└──less/
 			└──styles.less
-		└──svg
-	└──componentA
-		├──sprites
-		└──less
+		└──svg/
+	└──componentA/
+		├──sprites/
+		└──less/
         	└──styles.less
-		└──svg
-	└──componentB
-    		└──less
-            	└──styles.less
+		└──svg/
+	└──componentB/
+		└──css/
+			└──styles.css
 ```
 
 Just write this in your Gulpfile.js:

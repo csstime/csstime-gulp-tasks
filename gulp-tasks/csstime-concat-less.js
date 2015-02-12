@@ -18,7 +18,7 @@ module.exports = function () {
 		imports = [];
 
 	// variables
-	imports.push(util.format(BASE_VARIABLES, config.componentsDir));
+	imports.push(util.format(BASE_VARIABLES, config.cdnPath));
 
 	// sprites
 	if (config.useImageSprites) {
