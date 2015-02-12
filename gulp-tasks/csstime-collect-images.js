@@ -21,6 +21,7 @@ module.exports = function () {
 		))
 		.pipe(gulp.dest(path.join(
 			config.publicRootDir,
+			config.destinationDir,
 			config.componentsDir
 		)));
 };

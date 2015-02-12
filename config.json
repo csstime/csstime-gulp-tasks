@@ -1,7 +1,8 @@
 {
-	"staticDir": "static",
+	"staticRootDir": "static",
 	"publicRootDir": "public",
 
+	"destinationDir": "static",
 	"componentsDir": "assets",
 	"temporaryDir": "__csstime-tmp",
 

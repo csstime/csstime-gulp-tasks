@@ -10,13 +10,13 @@ var gulp = require('gulp'),
 module.exports = function () {
 	return gulp.src(path.join(
 			config.publicRootDir,
-			config.componentsDir,
+			config.destinationDir,
 			config.stylesFileName + '.css'
 		))
 		.pipe(gulpif(config.useCssPleeease, pleeease(pleeeaseConfig)))
 		.pipe(gulp.dest(path.join(
 			config.publicRootDir,
-			config.componentsDir
+			config.destinationDir
 		)));
 };
 

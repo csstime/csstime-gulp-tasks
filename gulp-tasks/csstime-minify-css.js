@@ -8,13 +8,13 @@ var gulp = require('gulp'),
 module.exports = function () {
 	return gulp.src(path.join(
 			config.publicRootDir,
-			config.componentsDir,
+			config.destinationDir,
 			config.stylesFileName + '.css'
 		))
 		.pipe(csso(!config.useCssStructureMinimization))
 		.pipe(gulp.dest(path.join(
 			config.publicRootDir,
-			config.componentsDir
+			config.destinationDir
 		)));
 };
 

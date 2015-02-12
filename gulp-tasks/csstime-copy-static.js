@@ -5,6 +5,9 @@ var gulp = require('gulp'),
 	config = require('../config.json');
 
 module.exports = function () {
-	return gulp.src(path.join(config.staticDir, '**'))
-		.pipe(gulp.dest(config.publicRootDir));
+	return gulp.src(path.join(config.staticRootDir, '**'))
+		.pipe(gulp.dest(path.join(
+			config.publicRootDir,
+			config.destinationDir
+		)));
 };
