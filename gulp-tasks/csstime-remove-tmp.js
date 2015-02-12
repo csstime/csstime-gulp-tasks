@@ -12,3 +12,7 @@ module.exports = function () {
 		))
 		.pipe(rimraf({read: false}));
 };
+
+module.exports.dependencies = [
+	'csstime-process-assets'
+];

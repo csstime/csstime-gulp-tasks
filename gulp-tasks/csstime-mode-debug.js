@@ -1,7 +1,9 @@
 'use strict';
 
-module.exports = function () {
+var gutil = require('gulp-util');
 
+module.exports = function () {
+	gutil.log('Csstime', 'Debug mode', gutil.colors.yellow());
 };
 
 module.exports.dependencies = [

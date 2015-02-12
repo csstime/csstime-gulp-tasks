@@ -2,6 +2,7 @@
 
 var gulp = require('gulp'),
 	path = require('path'),
+	gutil = require('gulp-util'),
 	config = require('../config.json');
 
 module.exports = function () {
@@ -14,4 +15,6 @@ module.exports = function () {
 		config.staticRootDir,
 		'csstime-process-static'
 	);
+
+	gutil.log('Csstime', 'Watch mode', gutil.colors.magenta());
 };

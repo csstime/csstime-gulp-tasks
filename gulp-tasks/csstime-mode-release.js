@@ -1,12 +1,14 @@
 'use strict';
 
-var gulp = require('gulp');
+var gutil = require('gulp-util');
 
 module.exports = function () {
-	gulp.run('csstime-remove-tmp');
+	gutil.log('Csstime', 'Release mode', gutil.colors.green());
 };
 
 module.exports.dependencies = [
-	'csstime-mode-debug',
-	'csstime-minify-css'
+	'csstime-process-static',
+	'csstime-process-assets',
+	'csstime-minify-css',
+	'csstime-remove-tmp'
 ];

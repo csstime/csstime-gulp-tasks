@@ -21,6 +21,7 @@
 		"gulp-rimraf": "^0.1.1",
 		"gulp-svgmin": "^1.1.0",
 		"gulp-task-loader": "^1.0.8",
+		"gulp-util": "^3.0.3",
 		"gulp.spritesmith": "^2.5.1",
 		"svgo": "^0.5.0"
 	},
