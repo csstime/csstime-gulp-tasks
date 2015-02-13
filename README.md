@@ -45,18 +45,18 @@ csstime.loadGulpTasks();
 
 Here is available tasks which you can see after `gulp --tasks`:
 
-| Name						| Direction														| Result																| Description										|
-|---------------------------|---------------------------------------------------------------|-----------------------------------------------------------------------|---------------------------------------------------|
-| `csstime-copy-static`		| `/static` => `/public/static`									| same files															| Copy static files without any changes				|
-| `csstime-collect-sprites`	| `/public/assets/*/sprites` => `/public`						| `__csstime-tmp/sprites.less` and `static/assets/sprites.png`			| Build and optimize sprites						|
-| `csstime-collect-images`	| `/public/assets/*/images` => `/public/static/assets/*/images`	| optimized images														| Copy and optimize images							|
-| `csstime-collect-fonts`	| `/public/assets/*/fonts` => `/public/static/assets/*/fonts`	| same fonts															| Copy fonts										|
-| `csstime-collect-other`	| `/public/assets/*/other` => `/public/static/assets/*/other`	| same files															| Copy files										|
-| `csstime-concat-less`		| `/public/assets/*/less` => `/public/__csstime-tmp`			| `styles.less`															| Create main less file with import references		|
-| `csstime-compile-less`	| `/public/__csstime-tmp` => `/public/static`					| compiled `styles.css`													| Compile less										|
-| `csstime-handle-css`		| `/public/static` => `/public/static`							| processed `styles.css`												| Handle css (css.pleeease) 						|
-| `csstime-minify-css`		| `/public/static` => `/public/static`							| minified `styles.css`													| Minify css (csso)									|
-| `csstime-remove-tmp`		| `/public/__csstime-tmp`										| 																		| Remove temporary files							|
+| Name						| Direction and description																				| Result																|
+|---------------------------|-------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| `csstime-copy-static`		| `/static` => `/public/static`<br>Copy static files without any changes								| same files															|
+| `csstime-collect-sprites`	| `/public/assets/*/sprites` => `/public`<br>Build and optimize sprites									| `__csstime-tmp/sprites.less`<br>`static/assets/sprites.png`			|
+| `csstime-collect-images`	| `/public/assets/*/images` => `/public/static/assets/*/images`<br>Copy and optimize images				| optimized images														|
+| `csstime-collect-fonts`	| `/public/assets/*/fonts` => `/public/static/assets/*/fonts`<br>Copy fonts								| same fonts															|
+| `csstime-collect-other`	| `/public/assets/*/other` => `/public/static/assets/*/other`<br>Copy files								| same files															|
+| `csstime-concat-less`		| `/public/assets/*/less` => `/public/__csstime-tmp`<br>Create main less file with import references	| `styles.less`															|
+| `csstime-compile-less`	| `/public/__csstime-tmp` => `/public/static`<br>Compile less											| compiled `styles.css`													|
+| `csstime-handle-css`		| `/public/static` => `/public/static`<br>Handle css (css.pleeease)										| processed `styles.css`												|
+| `csstime-minify-css`		| `/public/static` => `/public/static`<br>Minify css (csso)												| minified `styles.css`													|
+| `csstime-remove-tmp`		| `/public/__csstime-tmp`<br>Remove temporary files														| 																		|
 
 
 Combining tasks:
