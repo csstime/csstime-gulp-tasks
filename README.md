@@ -63,14 +63,14 @@ Combining tasks:
 
 | Name						| Dependencies																															|
 |---------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| `csstime-process-static`	| `csstime-copy-static`																													|
-| `csstime-process-assets`	| `csstime-handle-css`,<br>`csstime-collect-images`,<br>`csstime-collect-fonts`,<br>`csstime-collect-svg`,<br>`csstime-collect-other`	|
+| **csstime-process-static**| `csstime-copy-static`																													|
+| **csstime-process-assets**| `csstime-handle-css`,<br>`csstime-collect-images`,<br>`csstime-collect-fonts`,<br>`csstime-collect-svg`,<br>`csstime-collect-other`	|
 
 
 High level tasks:
 
 | Name						| Dependencies																												|
 |---------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| `csstime-mode-release`	| `csstime-process-static`,<br>`csstime-process-assets`,<br>`csstime-minify-css`,<br>`csstime-remove-tmp`					|
-| `csstime-mode-debug`		| `csstime-process-static`,<br>`csstime-process-assets`																		|
-| `csstime-mode-watch`		| `csstime-process-static`,<br>`csstime-process-assets`																		|
+| **csstime-mode-release**	| `csstime-process-static`,<br>`csstime-process-assets`,<br>`csstime-minify-css`,<br>`csstime-remove-tmp`					|
+| **csstime-mode-debug**	| `csstime-process-static`,<br>`csstime-process-assets`																		|
+| **csstime-mode-watch**	| `csstime-process-static`,<br>`csstime-process-assets`																		|
