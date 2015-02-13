@@ -102,7 +102,7 @@ Also you can pass custom config in `csstime.loadGulpTasks(config);` to override 
 	"useImageOptimization": true, // see gulp-imagemin
 	"useSvgOptimization": true, // see gulp-svgmin
 	"useSvgRasterization": true, // see gulp-raster
-	"useNormalizeCss": true, // see normalize.css
+	"useNormalizeCss": false, // see normalize.css
 	"useCssPleeease": true, // see gulp-pleeease
 	"enableCssStructureMinimization": false, // see gulp-csso
 
