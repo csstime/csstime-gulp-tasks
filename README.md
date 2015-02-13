@@ -45,15 +45,32 @@ csstime.loadGulpTasks();
 
 Here is available tasks which you can see after `gulp --tasks`:
 
-| Name						| Description										|
-|---------------------------|---------------------------------------------------|
-| `csstime-copy-static	`	| Copy static files (`/static`) to public directory (`/public`) without any changes |
-| `csstime-compile-less`	| Publish compiled less styles to public directory (`/public`) with name style.css |
-| `csstime-handle-css`		| Handle css (css.pleeease) in public directory (`/public`) with name style.css |
-| `csstime-minify-css`		| Minify css (csso) in public directory (`/public`) with name style.css |
+| Name						| Direction														| Result																| Description										|
+|---------------------------|---------------------------------------------------------------|-----------------------------------------------------------------------|---------------------------------------------------|
+| `csstime-copy-static`		| `/static` => `/public/static`									| same files															| Copy static files without any changes				|
+| `csstime-collect-sprites`	| `/public/assets/*/sprites` => `/public`						| `__csstime-tmp/sprites.less` and `static/assets/sprites.png`			| Build and optimize sprites						|
+| `csstime-collect-images`	| `/public/assets/*/images` => `/public/static/assets/*/images`	| optimized images														| Copy and optimize images							|
+| `csstime-collect-fonts`	| `/public/assets/*/fonts` => `/public/static/assets/*/fonts`	| same fonts															| Copy fonts										|
+| `csstime-collect-other`	| `/public/assets/*/other` => `/public/static/assets/*/other`	| same files															| Copy files										|
+| `csstime-concat-less`		| `/public/assets/*/less` => `/public/__csstime-tmp`			| `styles.less`															| Create main less file with import references		|
+| `csstime-compile-less`	| `/public/__csstime-tmp` => `/public/static`					| compiled `styles.css`													| Compile less										|
+| `csstime-handle-css`		| `/public/static` => `/public/static`							| processed `styles.css`												| Handle css (css.pleeease) 						|
+| `csstime-minify-css`		| `/public/static` => `/public/static`							| minified `styles.css`													| Minify css (csso)									|
+| `csstime-remove-tmp`		| `/public/__csstime-tmp`										| 																		| Remove temporary files							|
 
-Additional tasks which work with temporary directory:
 
-| Name						| Description										|
-|---------------------------|---------------------------------------------------|
-| `csstime-concat-less`		| Save style.less file with import-links to style.less for all components |
+Combining tasks:
+
+| Name						| Dependencies																												|
+|---------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| `csstime-process-static`	| `csstime-copy-static`																										|
+| `csstime-process-assets`	| `csstime-handle-css`, `csstime-collect-images`, `csstime-collect-fonts`, `csstime-collect-svg`, `csstime-collect-other`	|
+
+
+High level tasks:
+
+| Name						| Dependencies																												|
+|---------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| `csstime-mode-release`	| `csstime-process-static`, `csstime-process-assets`, `csstime-minify-css`, `csstime-remove-tmp`							|
+| `csstime-mode-debug`		| `csstime-process-static`, `csstime-process-assets`																		|
+| `csstime-mode-watch`		| `csstime-process-static`, `csstime-process-assets`																		|
