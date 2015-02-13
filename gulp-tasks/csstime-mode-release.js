@@ -1,9 +1,9 @@
 'use strict';
 
-var gutil = require('gulp-util');
+var logger = require('../lib/logger');
 
 module.exports = function () {
-	gutil.log(gutil.colors.green('csstime:', 'release mode'));
+	logger.write('release mode', 'green');
 };
 
 module.exports.dependencies = [

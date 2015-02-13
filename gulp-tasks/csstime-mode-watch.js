@@ -2,7 +2,7 @@
 
 var gulp = require('gulp'),
 	path = require('path'),
-	gutil = require('gulp-util'),
+	logger = require('../lib/logger'),
 	config = require('../config.json');
 
 module.exports = function () {
@@ -16,7 +16,7 @@ module.exports = function () {
 		['csstime-process-static']
 	);
 
-	gutil.log(gutil.colors.blue('csstime:', 'watch mode'));
+	logger.write('watch mode', 'blue');
 };
 
 module.exports.dependencies = [

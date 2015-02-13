@@ -3,7 +3,7 @@
 var gulp = require('gulp'),
 	path = require('path'),
 	fs = require('fs'),
-	gutil = require('gulp-util'),
+	logger = require('./lib/logger'),
 	currentConfig = require('./default.config.json'),
 	packageConfig = require('./package.json'),
 	tasksLoader = require('gulp-task-loader');
@@ -23,11 +23,12 @@ module.exports = {
 				if (!(key in currentConfig)) {
 					return;
 				}
+				if (currentConfig[key] === options[key]) {
+					return;
+				}
 				currentConfig[key] = options[key];
-				gutil.log(gutil.colors.gray(
-					'csstime:',
-					'custom config option {' + key + ': ' + String(options[key]) + '}')
-				);
+				logger.write('custom config option {' +
+					key + ': ' + String(options[key]) + '}');
 			});
 		}
 
