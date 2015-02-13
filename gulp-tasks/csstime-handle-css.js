@@ -11,7 +11,7 @@ var gulp = require('gulp'),
 	pleeeaseConfig = require(config.configsPath + '.pleeeaserc.json'),
 	packageConfig = require('../package.json');
 
-var NODE_MODULES = 'mode_modules',
+var NODE_MODULES = 'node_modules',
 	NORMALIZE_CSS = 'normalize.css';
 
 module.exports = function () {
@@ -19,7 +19,6 @@ module.exports = function () {
 	// add normalize.css
 	if (config.useNormalizeCss) {
 		sources.push(path.join(
-			process.cwd(),
 			NODE_MODULES,
 			packageConfig.name,
 			NODE_MODULES,
