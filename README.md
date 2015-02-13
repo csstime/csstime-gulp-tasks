@@ -61,16 +61,16 @@ Here is available tasks which you can see after `gulp --tasks`:
 
 Combining tasks:
 
-| Name						| Dependencies																												|
-|---------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| `csstime-process-static`	| `csstime-copy-static`																										|
-| `csstime-process-assets`	| `csstime-handle-css`, `csstime-collect-images`, `csstime-collect-fonts`, `csstime-collect-svg`, `csstime-collect-other`	|
+| Name						| Dependencies																															|
+|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| `csstime-process-static`	| `csstime-copy-static`																													|
+| `csstime-process-assets`	| `csstime-handle-css`,<br>`csstime-collect-images`,<br>`csstime-collect-fonts`,<br>`csstime-collect-svg`,<br>`csstime-collect-other`	|
 
 
 High level tasks:
 
 | Name						| Dependencies																												|
 |---------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| `csstime-mode-release`	| `csstime-process-static`, `csstime-process-assets`, `csstime-minify-css`, `csstime-remove-tmp`							|
-| `csstime-mode-debug`		| `csstime-process-static`, `csstime-process-assets`																		|
-| `csstime-mode-watch`		| `csstime-process-static`, `csstime-process-assets`																		|
+| `csstime-mode-release`	| `csstime-process-static`,<br>`csstime-process-assets`,<br>`csstime-minify-css`,<br>`csstime-remove-tmp`					|
+| `csstime-mode-debug`		| `csstime-process-static`,<br>`csstime-process-assets`																		|
+| `csstime-mode-watch`		| `csstime-process-static`,<br>`csstime-process-assets`																		|
