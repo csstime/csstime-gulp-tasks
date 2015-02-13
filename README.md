@@ -74,3 +74,40 @@ High level tasks:
 | `csstime-mode-release`	| `csstime-process-static`,<br>`csstime-process-assets`,<br>`csstime-minify-css`,<br>`csstime-remove-tmp`					|
 | `csstime-mode-debug`		| `csstime-process-static`,<br>`csstime-process-assets`																		|
 | `csstime-mode-watch`		| `csstime-process-static`,<br>`csstime-process-assets`																		|
+
+Also you can pass custom config in `csstime.loadGulpTasks(config);` to override default params:
+```javascript
+{
+	"staticRootDir": "static",
+	"publicRootDir": "public",
+
+	"destinationDir": "static",
+	"componentsDir": "assets",
+	"temporaryDir": "__csstime-tmp",
+
+	"spritesDir": "sprites",
+	"imagesDir": "images",
+	"svgDir": "svg",
+	"fontsDir": "fonts",
+	"lessDir": "less",
+	"cssDir": "css",
+	"otherDir": "other",
+
+	"stylesFileName": "styles",
+	"spritesFileName": "sprites",
+
+	"indexComponentName": "document",
+
+	"useImageSprites": true,
+	"useImageOptimization": true,
+	"useSvgOptimization": true,
+	"useSvgRasterization": true,
+	"useCssPleeease": true,
+	"enableCssStructureMinimization": false,
+
+	"stylesBanner": "/**\n * csstime\n * <%now%>\n */\n",
+
+	"configsPath": "../configs/", // configs for gulp plugins
+	"cdnPath": "/static/assets/" // used in urls in css
+}
+```
