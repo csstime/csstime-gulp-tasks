@@ -98,16 +98,16 @@ Also you can pass custom config in `csstime.loadGulpTasks(config);` to override 
 
 	"indexComponentName": "document",
 
-	"useImageSprites": true,
-	"useImageOptimization": true,
-	"useSvgOptimization": true,
-	"useSvgRasterization": true,
-	"useCssPleeease": true,
-	"enableCssStructureMinimization": false,
+	"useImageSprites": true, // see gulp.spritesmith
+	"useImageOptimization": true, // see gulp-imagemin
+	"useSvgOptimization": true, // see gulp-svgmin
+	"useSvgRasterization": true, // see gulp-raster
+	"useCssPleeease": true, // see gulp-pleeease
+	"enableCssStructureMinimization": false, // see gulp-csso
 
-	"stylesBanner": "/**\n * csstime\n * <%now%>\n */\n",
+	"stylesBanner": "/**\n * csstime\n * <%now%>\n */\n", // header in style.css, see gulp-header
 
-	"configsPath": "../configs/", // configs for gulp plugins
-	"cdnPath": "/static/assets/" // used in urls in css
+	"configsPath": "../configs/", // path to configs for gulp plugins
+	"cdnPath": "/static/assets/" // used in urls for sprites in css
 }
 ```
