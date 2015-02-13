@@ -111,3 +111,25 @@ Also you can pass custom config in `csstime.loadGulpTasks(config);` to override 
 	"cdnPath": "/static/assets/" // used in urls for sprites in css
 }
 ```
+
+After `csstime-mode-release` you will get following structure:
+```
+gulpfile.js
+static/ #without changes
+public/
+└──assets/ #without changes
+└──static/ #all generated files here
+	├──favicon.ico
+    ├──robots.txt
+    ├──...
+	├──styles.css
+	└──assets/
+		├──sprites.png
+		└──document/ #without less, css, sprites
+			├──other/
+			├──fonts/
+			├──images/
+			└──svg/
+		└──componentA/
+			└──svg/
+```
