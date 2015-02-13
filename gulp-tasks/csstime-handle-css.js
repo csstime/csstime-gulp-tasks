@@ -8,24 +8,40 @@ var gulp = require('gulp'),
 	time = require('../lib/time'),
 	header = require('gulp-header'),
 	pleeease = require('gulp-pleeease'),
-	pleeeaseConfig = require(config.configsPath + '.pleeeaserc.json');
+	pleeeaseConfig = require(config.configsPath + '.pleeeaserc.json'),
+	packageConfig = require('../package.json');
+
+var NODE_MODULES = 'mode_modules',
+	NORMALIZE_CSS = 'normalize.css';
 
 module.exports = function () {
-	return gulp.src(
-		[
-			path.join(
-				config.publicRootDir,
-				config.destinationDir,
-				config.stylesFileName + '.css'
-			),
-			path.join(
-				config.publicRootDir,
-				config.componentsDir,
-				'*',
-				config.cssDir,
-				config.stylesFileName + '.css'
-			)
-		])
+	var sources = [];
+	// add normalize.css
+	if (config.useNormalizeCss) {
+		sources.push(path.join(
+			process.cwd(),
+			NODE_MODULES,
+			packageConfig.name,
+			NODE_MODULES,
+			NORMALIZE_CSS,
+			NORMALIZE_CSS
+		));
+	}
+	// add styles.css compiled from less
+	sources.push(path.join(
+		config.publicRootDir,
+		config.destinationDir,
+		config.stylesFileName + '.css'
+	));
+	// collect styles.css from all components
+	sources.push(path.join(
+		config.publicRootDir,
+		config.componentsDir,
+		'*',
+		config.cssDir,
+		config.stylesFileName + '.css'
+	));
+	return gulp.src(sources)
 		.pipe(concat(config.stylesFileName + '.css'))
 		.pipe(gulpif(config.useCssPleeease, pleeease(pleeeaseConfig)))
 		.pipe(gulpif(

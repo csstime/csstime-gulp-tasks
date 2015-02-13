@@ -23,6 +23,7 @@
 	"useImageOptimization": true,
 	"useSvgOptimization": true,
 	"useSvgRasterization": true,
+	"useNormalizeCss": true,
 	"useCssPleeease": true,
 	"enableCssStructureMinimization": false,
 
