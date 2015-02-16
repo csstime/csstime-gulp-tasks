@@ -51,3 +51,7 @@ module.exports = function () {
 		config.temporaryDir
 	)));
 };
+
+module.exports.dependencies = [
+	'csstime-remove-sprites'
+];

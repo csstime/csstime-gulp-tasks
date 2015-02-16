@@ -57,6 +57,8 @@ Here is available tasks which you can see after `gulp --tasks`:
 | `csstime-handle-css`		| `/public/assets/*/css` => `/public/static`<br>Collect styles.css<br>`/public/static` => `/public/static`<br>Handle css (css.pleeease), add Normalize.css	| append styles from `assets/*/css`<br>and processed `styles.css`	|
 | `csstime-minify-css`		| `/public/static` => `/public/static`<br>Minify css (csso)												| minified `styles.css`													|
 | `csstime-remove-tmp`		| `/public/__csstime-tmp`<br>Remove temporary files														| 																		|
+| `csstime-remove-styles`	| `/public/__csstime-tmp/styles.less`,<br>`/public/static/styles.css`<br>Remove styles files			| 																		|
+| `csstime-remove-sprites`	| `/public/__csstime-tmp/sprites.less`,<br>`/public/static/assets/sprites.png`<br>Remove sprites files	| 																		|
 
 
 Combining tasks:

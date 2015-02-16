@@ -54,6 +54,10 @@ module.exports = function () {
 		)));
 };
 
+module.exports.dependencies = [
+	'csstime-remove-styles'
+];
+
 if (config.useImageSprites) {
 	module.exports.dependencies = ['csstime-collect-sprites'];
 }
