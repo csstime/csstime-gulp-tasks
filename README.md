@@ -59,6 +59,7 @@ Here is available tasks which you can see after `gulp --tasks`:
 | `csstime-remove-tmp`		| `/public/__csstime-tmp`<br>Remove temporary files														| 																		|
 | `csstime-remove-styles`	| `/public/__csstime-tmp/styles.less`,<br>`/public/static/styles.css`<br>Remove styles files			| 																		|
 | `csstime-remove-sprites`	| `/public/__csstime-tmp/sprites.less`,<br>`/public/static/assets/sprites.png`<br>Remove sprites files	| 																		|
+| `csstime-clean`			| `/public/__csstime-tmp`,<br>`/public/static`<br>Remove created directories														| 																		|
 
 
 Combining tasks:
