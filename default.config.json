@@ -27,7 +27,7 @@
 	"useCssPleeease": true,
 	"enableCssStructureMinimization": false,
 
-	"stylesBanner": "/**\n * csstime\n * <%now%>\n */\n",
+	"banner": "/**\n * csstime\n * <%now%>\n */\n",
 
 	"configsPath": "../configs/",
 	"cdnPath": "/static/assets/"

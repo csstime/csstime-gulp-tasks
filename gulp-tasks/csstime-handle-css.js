@@ -44,8 +44,8 @@ module.exports = function () {
 		.pipe(concat(config.stylesFileName + '.css'))
 		.pipe(gulpif(config.useCssPleeease, pleeease(pleeeaseConfig)))
 		.pipe(gulpif(
-			config.stylesBanner && (typeof config.stylesBanner === 'string'),
-			header(config.stylesBanner.replace('<%now%>', time.captureNow()))
+			config.banner && (typeof config.banner === 'string'),
+			header(config.banner.replace('<%now%>', time.captureNow()))
 		))
 		.pipe(gulp.dest(path.join(
 			config.publicRootDir,

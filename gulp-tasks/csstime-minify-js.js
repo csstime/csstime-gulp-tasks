@@ -4,7 +4,7 @@ var gulp = require('gulp'),
 	path = require('path'),
 	time = require('../lib/time'),
 	header = require('gulp-header'),
-	csso = require('gulp-csso'),
+	uglify = require('gulp-uglify'),
 	gulpif = require('gulp-if'),
 	config = require('../config.json');
 
@@ -12,9 +12,9 @@ module.exports = function () {
 	return gulp.src(path.join(
 			config.publicRootDir,
 			config.destinationDir,
-			config.stylesFileName + '.css'
+			'*.js'
 		))
-		.pipe(csso(!config.useCssStructureMinimization))
+		.pipe(uglify())
 		.pipe(gulpif(
 			config.banner && (typeof config.banner === 'string'),
 			header(config.banner.replace('<%now%>', time.captureNow()))
@@ -25,4 +25,4 @@ module.exports = function () {
 		)));
 };
 
-module.exports.dependencies = ['csstime-handle-css'];
+module.exports.dependencies = ['csstime-copy-static'];

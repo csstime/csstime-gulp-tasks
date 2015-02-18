@@ -10,5 +10,6 @@ module.exports.dependencies = [
 	'csstime-process-static',
 	'csstime-process-assets',
 	'csstime-minify-css',
+	'csstime-minify-js',
 	'csstime-remove-tmp'
 ];
