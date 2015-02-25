@@ -56,11 +56,12 @@ Here is available tasks which you can see after `gulp --tasks`:
 | `csstime-compile-less`	| `/public/__csstime-tmp` => `/public/static`<br>Compile less											| compiled `styles.css`													|
 | `csstime-handle-css`		| `/public/assets/*/css` => `/public/static`<br>Collect styles.css<br>`/public/static` => `/public/static`<br>Handle css (css.pleeease), add Normalize.css	| append styles from `assets/*/css`<br>and processed `styles.css`	|
 | `csstime-minify-css`		| `/public/static` => `/public/static`<br>Minify css (csso)												| minified `styles.css`													|
-| `csstime-minify-js`		| `/public/static` => `/public/static`<br>Minify js (uglify)											| minified `*.js`													|
+| `csstime-minify-js`		| `/public/static` => `/public/static`<br>Minify js (uglify)											| minified `*.js`														|
 | `csstime-remove-tmp`		| `/public/__csstime-tmp`<br>Remove temporary files														| 																		|
 | `csstime-remove-styles`	| `/public/__csstime-tmp/styles.less`,<br>`/public/static/styles.css`<br>Remove styles files			| 																		|
 | `csstime-remove-sprites`	| `/public/__csstime-tmp/sprites.less`,<br>`/public/static/assets/sprites.png`<br>Remove sprites files	| 																		|
-| `csstime-clean`			| `/public/__csstime-tmp`,<br>`/public/static`<br>Remove created directories														| 																		|
+| `csstime-clean`			| `/public/__csstime-tmp`,<br>`/public/static`<br>Remove created directories							| 																		|
+| `csstime-exec-csscomb`	| `/catberry_components`<br>Refactor styles																| updated styles														|
 
 
 Combining tasks:
@@ -82,6 +83,7 @@ High level tasks:
 Also you can pass custom config in `csstime.loadGulpTasks(config);` to override default params:
 ```javascript
 {
+	"componentsRootDir": "catberry_components", // only for csscomb
 	"staticRootDir": "static",
 	"publicRootDir": "public",
 
