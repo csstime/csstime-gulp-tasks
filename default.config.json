@@ -1,4 +1,5 @@
 {
+	"componentsRootDir": "catberry_components",
 	"staticRootDir": "static",
 	"publicRootDir": "public",
 
