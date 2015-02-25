@@ -31,6 +31,8 @@
 		"node": "^0.10.26"
 	},
 	"devDependencies": {
+		"gulp-csscomb": "^3.0.3",
+		"gulp-csscomb-lint": "0.0.2",
 		"jscs": "^1.11.2",
 		"jshint": "^2.6.0"
 	},

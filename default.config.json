@@ -1,4 +1,5 @@
 {
+	"componentsRootDir": "catberry_components",
 	"staticRootDir": "static",
 	"publicRootDir": "public",
 
@@ -28,6 +29,7 @@
 	"enableCssStructureMinimization": false,
 
 	"banner": "/**\n * csstime\n * <%now%>\n */\n",
+	"csscombConfiguration": "zen",
 
 	"configsPath": "../configs/",
 	"cdnPath": "/static/assets/"
