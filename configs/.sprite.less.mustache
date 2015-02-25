@@ -40,15 +40,32 @@
 	background-image: url('@{CDN}@{SPRITES_IMAGE}');
 }
 
+.mixin-sprite-icon () {
+	.mixin-sprites-url();
+
+	display: inline-block;
+
+	margin: 0;
+	padding: 0;
+
+	border: none;
+	outline: none;
+	background-color: transparent;
+	background-repeat: no-repeat;
+}
+
 /*
- * Sets background-image url
+ * Set sprite icon
+ *	.icon {
+ *		.mixin-sprite-icon();
+ *	}
+ *
+ * Or set just background-image url
  *	.icon {
  *		.mixin-sprites-url();
  *	}
- */
-
-/*
- * Sets sprite attributes
+ *
+ * Add sprite attributes (image name)
  *	.icon--twitter {
  *		.mixin-sprite('twitter');
  *	}
