@@ -10,6 +10,8 @@
 	"dependencies": {
 		"gulp": "^3.8.11",
 		"gulp-concat": "^2.4.3",
+		"gulp-csscomb": "^3.0.3",
+		"gulp-csscomb-lint": "0.0.2",
 		"gulp-csso": "^1.0.0",
 		"gulp-file": "^0.2.0",
 		"gulp-header": "^1.2.2",
@@ -31,8 +33,6 @@
 		"node": "^0.10.26"
 	},
 	"devDependencies": {
-		"gulp-csscomb": "^3.0.3",
-		"gulp-csscomb-lint": "0.0.2",
 		"jscs": "^1.11.2",
 		"jshint": "^2.6.0"
 	},
