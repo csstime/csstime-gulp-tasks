@@ -1,13 +1,11 @@
 'use strict';
 
-var gulp = require('gulp'),
-	path = require('path'),
-	rimraf = require('gulp-rimraf'),
-	config = require('../config.json');
+module.exports = function (cb) {
+	var path = require('path'),
+		del = require('del'),
+		config = require('../config.json');
 
-module.exports = function () {
-	return gulp.src(
-		[
+	del([
 			path.join(
 				config.publicRootDir,
 				config.temporaryDir
@@ -16,6 +14,5 @@ module.exports = function () {
 				config.publicRootDir,
 				config.destinationDir
 			)
-		])
-		.pipe(rimraf({read: false}));
+	], cb);
 };

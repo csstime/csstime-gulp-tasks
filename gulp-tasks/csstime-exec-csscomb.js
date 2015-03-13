@@ -1,15 +1,15 @@
 'use strict';
 
-var gulp = require('gulp'),
-	path = require('path'),
-	csscomb = require('gulp-csscomb'),
-	packageConfig = require('../package.json'),
-	config = require('../config.json');
-
 var NODE_MODULES_DIR = 'node_modules',
 	CONFIGS_DIR = 'configs';
 
 module.exports = function () {
+	var gulp = require('gulp'),
+		path = require('path'),
+		csscomb = require('gulp-csscomb'),
+		packageConfig = require('../package.json'),
+		config = require('../config.json');
+
 	return gulp.src(
 		[
 			path.join(

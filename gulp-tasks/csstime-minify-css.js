@@ -1,14 +1,14 @@
 'use strict';
 
-var gulp = require('gulp'),
-	path = require('path'),
-	time = require('../lib/time'),
-	header = require('gulp-header'),
-	csso = require('gulp-csso'),
-	gulpif = require('gulp-if'),
-	config = require('../config.json');
-
 module.exports = function () {
+	var gulp = require('gulp'),
+		path = require('path'),
+		time = require('../lib/time'),
+		header = require('gulp-header'),
+		csso = require('gulp-csso'),
+		gulpif = require('gulp-if'),
+		config = require('../config.json');
+
 	return gulp.src(path.join(
 			config.publicRootDir,
 			config.destinationDir,

@@ -1,11 +1,11 @@
 'use strict';
 
-var gulp = require('gulp'),
-	path = require('path'),
-	logger = require('../lib/logger'),
-	config = require('../config.json');
-
 module.exports = function () {
+	var gulp = require('gulp'),
+		path = require('path'),
+		logger = require('../lib/logger'),
+		config = require('../config.json');
+
 	gulp.watch(
 		path.join(config.publicRootDir, config.componentsDir, '**', '*'),
 		['csstime-process-assets']

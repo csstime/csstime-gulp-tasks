@@ -8,6 +8,7 @@
 		"url": "git@github.com:csstime/csstime-gulp-tasks.git"
 	},
 	"dependencies": {
+		"del": "^1.1.1",
 		"gulp": "^3.8.11",
 		"gulp-concat": "^2.4.3",
 		"gulp-csscomb": "^3.0.3",
@@ -20,7 +21,6 @@
 		"gulp-pleeease": "^1.1.0",
 		"gulp-raster": "^0.1.0",
 		"gulp-rename": "^1.2.0",
-		"gulp-rimraf": "^0.1.1",
 		"gulp-svgmin": "^1.1.0",
 		"gulp-task-loader": "^1.0.8",
 		"gulp-uglify": "^1.1.0",

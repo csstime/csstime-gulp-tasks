@@ -1,8 +1,7 @@
 'use strict';
 
-var logger = require('../lib/logger');
-
 module.exports = function () {
+	var logger = require('../lib/logger');
 	logger.write('static were rebuilt');
 };
 

@@ -1,18 +1,18 @@
 'use strict';
 
-var gulp = require('gulp'),
-	path = require('path'),
-	util = require('util'),
-	fs = require('fs'),
-	file = require('gulp-file'),
-	components = require('../lib/components'),
-	config = require('../config.json');
-
 var IMPORT_FORMAT = '/*\n * Styles of component "%s"\n */\n@import "%s";',
 	BASE_VARIABLES = '@CDN: "%s";',
 	SPRITES_VARIABLES = '@SPRITES_IMAGE: "%s";';
 
 module.exports = function () {
+	var gulp = require('gulp'),
+		path = require('path'),
+		util = require('util'),
+		fs = require('fs'),
+		file = require('gulp-file'),
+		components = require('../lib/components'),
+		config = require('../config.json');
+
 	var componentsNames = components.getNames(),
 		imports = [];
 

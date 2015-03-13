@@ -1,20 +1,20 @@
 'use strict';
 
-var gulp = require('gulp'),
-	path = require('path'),
-	config = require('../config.json'),
-	gulpif = require('gulp-if'),
-	concat = require('gulp-concat'),
-	time = require('../lib/time'),
-	header = require('gulp-header'),
-	pleeease = require('gulp-pleeease'),
-	pleeeaseConfig = require(config.configsPath + '.pleeeaserc.json'),
-	packageConfig = require('../package.json');
-
 var NODE_MODULES = 'node_modules',
 	NORMALIZE_CSS = 'normalize.css';
 
 module.exports = function () {
+	var gulp = require('gulp'),
+		path = require('path'),
+		config = require('../config.json'),
+		gulpif = require('gulp-if'),
+		concat = require('gulp-concat'),
+		time = require('../lib/time'),
+		header = require('gulp-header'),
+		pleeease = require('gulp-pleeease'),
+		pleeeaseConfig = require(config.configsPath + '.pleeeaserc.json'),
+		packageConfig = require('../package.json');
+
 	var sources = [];
 	// add normalize.css
 	if (config.useNormalizeCss) {
