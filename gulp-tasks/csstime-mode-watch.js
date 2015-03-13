@@ -9,14 +9,14 @@ module.exports = function () {
 	gulp.watch(
 		path.join(config.publicRootDir, config.componentsDir, '**', '*'),
 		['csstime-process-assets']
-	).on('change', function() {
+	).on('change', function () {
 		logger.notify('Rebuilding changed assets...');
 	});
 
 	gulp.watch(
 		path.join(config.staticRootDir, '**', '*'),
 		['csstime-process-static']
-	).on('change', function() {
+	).on('change', function () {
 		logger.notify('Rebuilding changed static files...');
 	});
 
