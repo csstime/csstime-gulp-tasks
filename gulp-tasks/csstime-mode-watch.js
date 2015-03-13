@@ -8,19 +8,17 @@ module.exports = function () {
 
 	gulp.watch(
 		path.join(config.publicRootDir, config.componentsDir, '**', '*'),
-		['csstime-process-assets'],
-		function () {
-			logger.notify('Assets were rebuilt');
-		}
-	);
+		['csstime-process-assets']
+	).on('change', function() {
+		logger.notify('Rebuilding changed assets...');
+	});
 
 	gulp.watch(
 		path.join(config.staticRootDir, '**', '*'),
-		['csstime-process-static'],
-		function () {
-			logger.notify('Static files were rebuilt');
-		}
-	);
+		['csstime-process-static']
+	).on('change', function() {
+		logger.notify('Rebuilding changed static files...');
+	});
 
 	logger.write('watch mode', 'blue');
 	logger.notify('Watch mode is on');
