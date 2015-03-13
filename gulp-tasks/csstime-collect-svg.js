@@ -6,10 +6,9 @@ module.exports = function () {
 		config = require('../config.json'),
 		svgmin = require('gulp-svgmin'),
 		svgminConfig = require(config.configsPath + '.svgmin.json'),
-		raster = require('gulp-raster'),
+		svg2png = require('gulp-svg2png'),
 		imagemin = require('gulp-imagemin'),
 		imageminConfig = require(config.configsPath + '.imagemin.json'),
-		rename = require('gulp-rename'),
 		gulpif = require('gulp-if');
 
 	var destination = path.join(
@@ -31,11 +30,7 @@ module.exports = function () {
 		.pipe(gulp.dest(destination))
 		.pipe(gulpif(
 			config.useSvgRasterization,
-			raster()
-		))
-		.pipe(gulpif(
-			config.useSvgRasterization,
-			rename({extname: '.png'})
+			svg2png()
 		))
 		.pipe(gulpif(
 			config.useSvgRasterization && config.useImageOptimization,
