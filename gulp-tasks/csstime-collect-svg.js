@@ -21,7 +21,8 @@ module.exports = function () {
 			config.componentsDir,
 			'*',
 			config.svgDir,
-			'**'
+			'**',
+			'*.svg'
 		))
 		.pipe(gulpif(
 			config.useSvgOptimization,
