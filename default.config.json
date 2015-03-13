@@ -20,6 +20,7 @@
 
 	"indexComponentName": "document",
 
+	"useNotify": true,
 	"useImageSprites": true,
 	"useImageOptimization": true,
 	"useSvgOptimization": true,
