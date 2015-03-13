@@ -106,6 +106,7 @@ Also you can pass custom config in `csstime.loadGulpTasks(config);` to override 
 
 	"indexComponentName": "document", // "document" styles will be above other components styles in styles.css
 
+    "useNotify": true, // show notifications in watch mode
 	"useImageSprites": true, // see gulp.spritesmith
 	"useImageOptimization": true, // see gulp-imagemin
 	"useSvgOptimization": true, // see gulp-svgmin
