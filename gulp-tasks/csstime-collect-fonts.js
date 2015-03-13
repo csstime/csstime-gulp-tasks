@@ -1,10 +1,10 @@
 'use strict';
 
-var gulp = require('gulp'),
-	path = require('path'),
-	config = require('../config.json');
-
 module.exports = function () {
+	var gulp = require('gulp'),
+		path = require('path'),
+		config = require('../config.json');
+
 	return gulp.src(path.join(
 			config.publicRootDir,
 			config.componentsDir,

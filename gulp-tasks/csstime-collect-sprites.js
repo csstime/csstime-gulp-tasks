@@ -1,19 +1,19 @@
 'use strict';
 
-var gulp = require('gulp'),
-	path = require('path'),
-	config = require('../config.json'),
-	gulpif = require('gulp-if'),
-	imagemin = require('gulp-imagemin'),
-	imageminConfig = require(config.configsPath + '.imagemin.json'),
-	spritesmith = require('gulp.spritesmith'),
-	spritesmithConfig = require(config.configsPath + '.spritesmith.json'),
-	packageConfig = require('../package.json');
-
 var NODE_MODULES_DIR = 'node_modules',
 	CONFIGS_DIR = 'configs';
 
 module.exports = function () {
+	var gulp = require('gulp'),
+		path = require('path'),
+		config = require('../config.json'),
+		gulpif = require('gulp-if'),
+		imagemin = require('gulp-imagemin'),
+		imageminConfig = require(config.configsPath + '.imagemin.json'),
+		spritesmith = require('gulp.spritesmith'),
+		spritesmithConfig = require(config.configsPath + '.spritesmith.json'),
+		packageConfig = require('../package.json');
+
 	var spriteData = gulp.src(path.join(
 			config.publicRootDir,
 			config.componentsDir,

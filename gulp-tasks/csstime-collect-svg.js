@@ -1,17 +1,16 @@
 'use strict';
 
-var gulp = require('gulp'),
-	path = require('path'),
-	config = require('../config.json'),
-	svgmin = require('gulp-svgmin'),
-	svgminConfig = require(config.configsPath + '.svgmin.json'),
-	raster = require('gulp-raster'),
-	imagemin = require('gulp-imagemin'),
-	imageminConfig = require(config.configsPath + '.imagemin.json'),
-	rename = require('gulp-rename'),
-	gulpif = require('gulp-if');
-
 module.exports = function () {
+	var gulp = require('gulp'),
+		path = require('path'),
+		config = require('../config.json'),
+		svgmin = require('gulp-svgmin'),
+		svgminConfig = require(config.configsPath + '.svgmin.json'),
+		svg2png = require('gulp-svg2png'),
+		imagemin = require('gulp-imagemin'),
+		imageminConfig = require(config.configsPath + '.imagemin.json'),
+		gulpif = require('gulp-if');
+
 	var destination = path.join(
 		config.publicRootDir,
 		config.destinationDir,
@@ -22,7 +21,8 @@ module.exports = function () {
 			config.componentsDir,
 			'*',
 			config.svgDir,
-			'**'
+			'**',
+			'*.svg'
 		))
 		.pipe(gulpif(
 			config.useSvgOptimization,
@@ -31,11 +31,7 @@ module.exports = function () {
 		.pipe(gulp.dest(destination))
 		.pipe(gulpif(
 			config.useSvgRasterization,
-			raster()
-		))
-		.pipe(gulpif(
-			config.useSvgRasterization,
-			rename({extname: '.png'})
+			svg2png()
 		))
 		.pipe(gulpif(
 			config.useSvgRasterization && config.useImageOptimization,

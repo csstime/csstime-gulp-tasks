@@ -1,12 +1,12 @@
 'use strict';
 
-var gulp = require('gulp'),
-	path = require('path'),
-	less = require('gulp-less'),
-	concat = require('gulp-concat'),
-	config = require('../config.json');
-
 module.exports = function () {
+	var gulp = require('gulp'),
+		path = require('path'),
+		less = require('gulp-less'),
+		concat = require('gulp-concat'),
+		config = require('../config.json');
+
 	var sources = [];
 
 	// add sprites
