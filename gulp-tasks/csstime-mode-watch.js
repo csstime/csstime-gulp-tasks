@@ -3,13 +3,13 @@
 var path = require('path');
 
 module.exports = function (gulp, plugins, config) {
+	config.isWatchMode = true;
 	return {
 		dependencies: [
 			'csstime-process-static',
 			'csstime-process-assets'
 		],
 		task: function () {
-			config.isWatchMode = true;
 			gulp.watch(
 				path.join(config.publicRootDir, config.componentsDir, '**', '*'),
 				{
