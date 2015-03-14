@@ -7,7 +7,7 @@ module.exports = function (gulp, plugins, config) {
 			'csstime-process-assets'
 		],
 		task: function () {
-			var logger = require('../lib/logger');
+			var logger = require('../lib/logger')(plugins, config);
 			logger.write('debug mode', 'yellow');
 			logger.write('Assets were built in Debug mode', 'yellow');
 		}

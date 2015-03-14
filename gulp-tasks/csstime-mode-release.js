@@ -10,7 +10,7 @@ module.exports = function (gulp, plugins, config) {
 			'csstime-remove-tmp'
 		],
 		task: function () {
-			var logger = require('../lib/logger');
+			var logger = require('../lib/logger')(plugins, config);
 			logger.write('release mode', 'green');
 		}
 	};

@@ -3,7 +3,6 @@
 var path = require('path'),
 	fs = require('fs'),
 	util = require('util'),
-	logger = require('./lib/logger'),
 	packageConfig = require('./package.json');
 
 var CSSTIME_GULP_TASKS_DIR = path.join(
@@ -57,6 +56,7 @@ CsstimeGulpTask.prototype.loadPlugins = function () {
 		plugins[pluginName.substring(5)] = require(pluginName);
 	});
 
+	plugins.notifier = require('node-notifier');
 	plugins.del = require('del');
 	return plugins;
 };
@@ -126,8 +126,6 @@ CsstimeGulpTask.prototype.mergeConfigs = function (currentConfig, options) {
 					.mergeConfigs(currentConfig[key], options[key]);
 			} else {
 				currentConfig[key] = options[key];
-				logger.write('custom config option {' +
-					key + ': ' + String(options[key]) + '}');
 			}
 		});
 

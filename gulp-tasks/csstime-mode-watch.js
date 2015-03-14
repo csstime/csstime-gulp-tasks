@@ -1,7 +1,6 @@
 'use strict';
 
-var path = require('path'),
-	logger = require('../lib/logger');
+var path = require('path');
 
 module.exports = function (gulp, plugins, config) {
 	return {
@@ -20,10 +19,9 @@ module.exports = function (gulp, plugins, config) {
 				['csstime-process-static']
 			);
 
+			var logger = require('../lib/logger')(plugins, config);
 			logger.write('watch mode', 'blue');
-			if (config.useNotify) {
-				logger.notify('Watch mode is on');
-			}
+			logger.notify('Watch mode is on');
 		}
 	};
 };

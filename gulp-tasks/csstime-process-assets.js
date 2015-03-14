@@ -10,7 +10,7 @@ module.exports = function (gulp, plugins, config) {
 			'csstime-collect-other'
 		],
 		task: function () {
-			var logger = require('../lib/logger');
+			var logger = require('../lib/logger')(plugins, config);
 			logger.write('assets were rebuilt');
 		}
 	};
