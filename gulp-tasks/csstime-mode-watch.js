@@ -21,7 +21,9 @@ module.exports = function (gulp, plugins, config) {
 			);
 
 			logger.write('watch mode', 'blue');
-			logger.notify('Watch mode is on');
+			if (config.useNotify) {
+				logger.notify('Watch mode is on');
+			}
 		}
 	};
 };

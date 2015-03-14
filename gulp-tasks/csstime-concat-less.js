@@ -23,7 +23,7 @@ module.exports = function (gulp, plugins, config) {
 	return {
 		dependencies: dependencies,
 		task: function () {
-			var componentsNames = components.getNames(),
+			var componentsNames = components.getNames(config),
 				imports = [];
 
 			// variables
