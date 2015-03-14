@@ -109,7 +109,7 @@ Also you can pass custom config in `csstime.loadGulpTasks(config);` to override 
     "useNotify": true, // show notifications in watch mode
 	"useImageSprites": true, // see gulp.spritesmith
 	"useImageOptimization": true, // see gulp-imagemin
-	"useSvgOptimization": true, // see gulp-svgmin
+	"useSvgOptimization": true, // see gulp-imagemin (svgo)
 	"useSvgRasterization": true, // see gulp-svg2png
 	"useNormalizeCss": false, // see normalize.css
 	"useCssPleeease": true, // see gulp-pleeease
@@ -124,8 +124,7 @@ Also you can pass custom config in `csstime.loadGulpTasks(config);` to override 
 
 	"imagemin": {}, // see ./configs files
 	"pleeease: {},
-	"spritesmith": {},
-	"svgmin": {}
+	"spritesmith": {}
 }
 ```
 

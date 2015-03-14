@@ -13,7 +13,7 @@ module.exports = function (gulp, plugins, config) {
 					'**'
 				))
 				.pipe(plugins.if(
-					config.useImageOptimization,
+					!config.isWatchMode && config.useImageOptimization,
 					plugins.imagemin(config.imageminConfig)
 				))
 				.pipe(gulp.dest(path.join(

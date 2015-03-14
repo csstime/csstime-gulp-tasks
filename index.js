@@ -96,7 +96,6 @@ CsstimeGulpTask.prototype.getConfig = function (options) {
 	var currentConfig = require('./default.config.json');
 	currentConfig.imageminConfig = require('./configs/imagemin.json');
 	currentConfig.spritesmithConfig = require('./configs/spritesmith.json');
-	currentConfig.svgminConfig = require('./configs/svgmin.json');
 	currentConfig.pleeeaseConfig = require('./configs/pleeease.json');
 	currentConfig = this.mergeConfigs(currentConfig, options);
 	return currentConfig;
