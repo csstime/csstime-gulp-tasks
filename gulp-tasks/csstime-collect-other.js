@@ -1,20 +1,22 @@
 'use strict';
 
-module.exports = function () {
-	var gulp = require('gulp'),
-		path = require('path'),
-		config = require('../config.json');
+var path = require('path');
 
-	return gulp.src(path.join(
-			config.publicRootDir,
-			config.componentsDir,
-			'*',
-			config.otherDir,
-			'**'
-		))
-		.pipe(gulp.dest(path.join(
-			config.publicRootDir,
-			config.destinationDir,
-			config.componentsDir
-		)));
+module.exports = function (gulp, plugins, config) {
+	return {
+		task: function () {
+			return gulp.src(path.join(
+					config.publicRootDir,
+					config.componentsDir,
+					'*',
+					config.otherDir,
+					'**'
+				))
+				.pipe(gulp.dest(path.join(
+					config.publicRootDir,
+					config.destinationDir,
+					config.componentsDir
+				)));
+		}
+	};
 };

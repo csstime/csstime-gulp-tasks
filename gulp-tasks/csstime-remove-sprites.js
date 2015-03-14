@@ -1,21 +1,23 @@
 'use strict';
 
-module.exports = function (cb) {
-	var path = require('path'),
-		del = require('del'),
-		config = require('../config.json');
+var path = require('path');
 
-	del([
-		path.join(
-			config.publicRootDir,
-			config.destinationDir,
-			config.componentsDir,
-			config.spritesFileName + '.png'
-		),
-		path.join(
-			config.publicRootDir,
-			config.temporaryDir,
-			config.spritesFileName + '.less'
-		)
-	], cb);
+module.exports = function (gulp, plugins, config) {
+	return {
+		task: function (cb) {
+			plugins.del([
+				path.join(
+					config.publicRootDir,
+					config.destinationDir,
+					config.componentsDir,
+					config.spritesFileName + '.png'
+				),
+				path.join(
+					config.publicRootDir,
+					config.temporaryDir,
+					config.spritesFileName + '.less'
+				)
+			], cb);
+		}
+	};
 };
