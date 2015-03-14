@@ -9,13 +9,20 @@ module.exports = function (gulp, plugins, config) {
 			'csstime-process-assets'
 		],
 		task: function () {
+			config.isWatchMode = true;
 			gulp.watch(
 				path.join(config.publicRootDir, config.componentsDir, '**', '*'),
+				{
+					interval: config.watchInterval
+				},
 				['csstime-process-assets']
 			);
 
 			gulp.watch(
 				path.join(config.staticRootDir, '**', '*'),
+				{
+					interval: config.watchInterval
+				},
 				['csstime-process-static']
 			);
 
