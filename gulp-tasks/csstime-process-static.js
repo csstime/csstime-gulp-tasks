@@ -1,10 +1,14 @@
 'use strict';
 
-module.exports = function () {
-	var logger = require('../lib/logger');
-	logger.write('static were rebuilt');
+module.exports = function (gulp, plugins, config) {
+	return {
+		dependencies: ['csstime-copy-static'],
+		task: function () {
+			var logger = require('../lib/logger')(plugins, config);
+			logger.write('static were rebuilt');
+			if (config.isWatchMode) {
+				logger.notify('Static files were rebuilt');
+			}
+		}
+	};
 };
-
-module.exports.dependencies = [
-	'csstime-copy-static'
-];

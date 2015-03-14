@@ -1,18 +1,17 @@
 'use strict';
 
-module.exports = function (cb) {
-	var path = require('path'),
-		del = require('del'),
-		config = require('../config.json');
+var path = require('path');
 
-	del([
-		path.join(
-			config.publicRootDir,
-			config.temporaryDir
-		)
-	], cb);
+module.exports = function (gulp, plugins, config) {
+	return {
+		dependencies: ['csstime-process-assets'],
+		task: function (cb) {
+			plugins.del([
+				path.join(
+					config.publicRootDir,
+					config.temporaryDir
+				)
+			], cb);
+		}
+	};
 };
-
-module.exports.dependencies = [
-	'csstime-process-assets'
-];

@@ -29,6 +29,8 @@
 	"useCssPleeease": true,
 	"enableCssStructureMinimization": false,
 
+	"watchInterval": 1000,
+
 	"banner": "/**\n * csstime\n * <%now%>\n */\n",
 
 	"configsPath": "../configs/",

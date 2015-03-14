@@ -1,30 +1,34 @@
 'use strict';
 
-module.exports = function () {
-	var gulp = require('gulp'),
-		path = require('path'),
-		logger = require('../lib/logger'),
-		config = require('../config.json');
+var path = require('path');
 
-	gulp.watch(
-		path.join(config.publicRootDir, config.componentsDir, '**', '*'),
-		['csstime-process-assets']
-	).on('change', function () {
-		logger.notify('Rebuilding changed assets...');
-	});
+module.exports = function (gulp, plugins, config) {
+	return {
+		dependencies: [
+			'csstime-process-static',
+			'csstime-process-assets'
+		],
+		task: function () {
+			config.isWatchMode = true;
+			gulp.watch(
+				path.join(config.publicRootDir, config.componentsDir, '**', '*'),
+				{
+					interval: config.watchInterval
+				},
+				['csstime-process-assets']
+			);
 
-	gulp.watch(
-		path.join(config.staticRootDir, '**', '*'),
-		['csstime-process-static']
-	).on('change', function () {
-		logger.notify('Rebuilding changed static files...');
-	});
+			gulp.watch(
+				path.join(config.staticRootDir, '**', '*'),
+				{
+					interval: config.watchInterval
+				},
+				['csstime-process-static']
+			);
 
-	logger.write('watch mode', 'blue');
-	logger.notify('Watch mode is on');
+			var logger = require('../lib/logger')(plugins, config);
+			logger.write('watch mode', 'blue');
+			logger.notify('Watch mode is on');
+		}
+	};
 };
-
-module.exports.dependencies = [
-	'csstime-process-static',
-	'csstime-process-assets'
-];
