@@ -40,8 +40,7 @@ Just write this in your Gulpfile.js:
 ```javascript
 'use strict';
 
-var gulp = require('gulp'),
-	csstime = require('csstime-gulp-tasks');
+var csstime = require('csstime-gulp-tasks');
 
 csstime.loadGulpTasks();
 ```
