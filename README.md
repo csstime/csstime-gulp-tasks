@@ -40,12 +40,31 @@ Just write this in your Gulpfile.js:
 ```javascript
 'use strict';
 
-var csstime = require('csstime-gulp-tasks');
+var gulp = require('gulp'),
+    config = {}, // custom config
+    csstime = require('csstime-gulp-tasks');
 
-csstime.loadGulpTasks();
+csstime.loadGulpTasks(gulp, config);
 ```
 
 Here is available tasks which you can see after `gulp --tasks`:
+
+High level tasks:
+
+| Name						| Dependencies																												|
+|---------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| `csstime-mode-release`	| `csstime-process-static`,<br>`csstime-process-assets`,<br>`csstime-minify-css`,<br>`csstime-remove-tmp`					|
+| `csstime-mode-debug`		| `csstime-process-static`,<br>`csstime-process-assets`																		|
+| `csstime-mode-watch`		| `csstime-process-static`,<br>`csstime-process-assets`																		|
+
+Combining tasks:
+
+| Name						| Dependencies																															|
+|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| `csstime-process-static`	| `csstime-copy-static`																													|
+| `csstime-process-assets`	| `csstime-handle-css`,<br>`csstime-collect-images`,<br>`csstime-collect-fonts`,<br>`csstime-collect-svg`,<br>`csstime-collect-other`	|
+
+Low level tasks:
 
 | Name						| Direction and description																				| Result																|
 |---------------------------|-------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
@@ -53,6 +72,7 @@ Here is available tasks which you can see after `gulp --tasks`:
 | `csstime-collect-sprites`	| `/public/assets/*/sprites` => `/public`<br>Build and optimize sprites									| `__csstime-tmp/sprites.less`,<br>`static/assets/sprites.png`			|
 | `csstime-collect-images`	| `/public/assets/*/images` => `/public/static/assets/*/images`<br>Copy and optimize images				| optimized images														|
 | `csstime-collect-fonts`	| `/public/assets/*/fonts` => `/public/static/assets/*/fonts`<br>Copy fonts								| same fonts															|
+| `csstime-collect-svg`	    | `/public/assets/*/svg` => `/public/static/assets/*/svg`<br>Copy svg, optimise and rasterize them		| optimised svg, png fallbacks											|
 | `csstime-collect-other`	| `/public/assets/*/other` => `/public/static/assets/*/other`<br>Copy files								| same files															|
 | `csstime-concat-less`		| `/public/assets/*/less` => `/public/__csstime-tmp`<br>Create main less file with import references	| `styles.less`															|
 | `csstime-compile-less`	| `/public/__csstime-tmp` => `/public/static`<br>Compile less											| compiled `styles.css`													|
@@ -65,24 +85,7 @@ Here is available tasks which you can see after `gulp --tasks`:
 | `csstime-clean`			| `/public/__csstime-tmp`,<br>`/public/static`<br>Remove created directories							| 																		|
 | `csstime-exec-csscomb`	| `/catberry_components`<br>Refactor styles																| updated styles														|
 
-
-Combining tasks:
-
-| Name						| Dependencies																															|
-|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| `csstime-process-static`	| `csstime-copy-static`																													|
-| `csstime-process-assets`	| `csstime-handle-css`,<br>`csstime-collect-images`,<br>`csstime-collect-fonts`,<br>`csstime-collect-svg`,<br>`csstime-collect-other`	|
-
-
-High level tasks:
-
-| Name						| Dependencies																												|
-|---------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| `csstime-mode-release`	| `csstime-process-static`,<br>`csstime-process-assets`,<br>`csstime-minify-css`,<br>`csstime-remove-tmp`					|
-| `csstime-mode-debug`		| `csstime-process-static`,<br>`csstime-process-assets`																		|
-| `csstime-mode-watch`		| `csstime-process-static`,<br>`csstime-process-assets`																		|
-
-Also you can pass custom config in `csstime.loadGulpTasks(config);` to override default params:
+Also you can pass custom config in `csstime.loadGulpTasks(gulp, config);` to override default params:
 ```javascript
 {
 	"componentsRootDir": "catberry_components", // only for csscomb
