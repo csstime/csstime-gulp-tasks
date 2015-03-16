@@ -8,7 +8,7 @@ var NODE_MODULES_DIR = 'node_modules',
 
 module.exports = function (gulp, plugins, config) {
 	return {
-		dependencies: ['csstime-remove-sprites'],
+		dependencies: ['csstime-remove-tmp-sprites'],
 		task: function () {
 			var spriteData = gulp.src(path.join(
 					config.publicRootDir,

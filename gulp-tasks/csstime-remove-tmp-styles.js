@@ -8,11 +8,6 @@ module.exports = function (gulp, plugins, config) {
 			plugins.del([
 				path.join(
 					config.publicRootDir,
-					config.destinationDir,
-					config.stylesFileName + '.css'
-				),
-				path.join(
-					config.publicRootDir,
 					config.temporaryDir,
 					config.stylesFileName + '.less'
 				)

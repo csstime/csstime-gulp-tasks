@@ -11,7 +11,7 @@ var IMPORT_FORMAT = '/*\n * Styles of component "%s"\n */\n@import "%s";',
 
 module.exports = function (gulp, plugins, config) {
 	var dependencies = [
-		'csstime-remove-styles',
+		'csstime-remove-tmp-styles',
 		'csstime-collect-images',
 		'csstime-collect-svg'
 	];

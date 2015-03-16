@@ -8,12 +8,6 @@ module.exports = function (gulp, plugins, config) {
 			plugins.del([
 				path.join(
 					config.publicRootDir,
-					config.destinationDir,
-					config.componentsDir,
-					config.spritesFileName + '.png'
-				),
-				path.join(
-					config.publicRootDir,
 					config.temporaryDir,
 					config.spritesFileName + '.less'
 				)
