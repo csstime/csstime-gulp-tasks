@@ -1,6 +1,6 @@
 {
 	"name": "csstime-gulp-tasks",
-	"version": "2.1.0",
+	"version": "3.0.0",
 	"author": "Julia Rechkunova",
 	"main": "index.js",
 	"repository": {
@@ -20,6 +20,7 @@
 		"gulp": "^3.8.11"
 	},
 	"dependencies": {
+		"autoprefixer-core": "^5.1.7",
 		"del": "^1.1.1",
 		"gulp-concat": "^2.4.3",
 		"gulp-csscomb": "^3.0.3",
@@ -29,13 +30,15 @@
 		"gulp-if": "^1.2.5",
 		"gulp-imagemin": "^2.2.0",
 		"gulp-less": "^3.0.0",
-		"gulp-pleeease": "^1.1.0",
+		"gulp-postcss": "^4.0.3",
 		"gulp-svg2png": "^0.3.0",
 		"gulp-uglify": "^1.1.0",
 		"gulp-util": "^3.0.4",
 		"gulp.spritesmith": "^2.5.1",
 		"node-notifier": "^4.1.2",
-		"normalize.css": "^3.0.2"
+		"normalize.css": "^3.0.2",
+		"pleeease-filters": "^1.0.0",
+		"postcss-opacity": "^1.0.0"
 	},
 	"engines": {
 		"node": ">=0.10"
@@ -45,6 +48,7 @@
 		"jshint": "^2.6.0"
 	},
 	"scripts": {
-		"lint": "./node_modules/.bin/jshint ./ && ./node_modules/.bin/jscs ./"
+		"lint": "./node_modules/.bin/jshint ./ && ./node_modules/.bin/jscs ./",
+		"test": "npm run lint"
 	}
 }
