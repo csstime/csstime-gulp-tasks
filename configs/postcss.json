@@ -4,6 +4,5 @@
 		"cascade": true
 	},
 	"filters": true,
-	"opacity": true,
-	"minifier": false
+	"opacity": true
 }

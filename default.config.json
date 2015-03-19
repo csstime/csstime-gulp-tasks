@@ -26,7 +26,7 @@
 	"useSvgOptimization": true,
 	"useSvgRasterization": true,
 	"useNormalizeCss": false,
-	"useCssPleeease": true,
+	"usePostCss": true,
 	"enableCssStructureMinimization": false,
 
 	"watchInterval": 1000,

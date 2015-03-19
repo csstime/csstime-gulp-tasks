@@ -58,6 +58,11 @@ CsstimeGulpTask.prototype.loadPlugins = function () {
 
 	plugins.notifier = require('node-notifier');
 	plugins.del = require('del');
+	plugins.postcssProcessors = {
+		filters: require('pleeease-filters'),
+		opacity: require('postcss-opacity'),
+		autoprefixer: require('autoprefixer-core')
+	};
 	return plugins;
 };
 
@@ -96,7 +101,7 @@ CsstimeGulpTask.prototype.getConfig = function (options) {
 	var currentConfig = require('./default.config.json');
 	currentConfig.imageminConfig = require('./configs/imagemin.json');
 	currentConfig.spritesmithConfig = require('./configs/spritesmith.json');
-	currentConfig.pleeeaseConfig = require('./configs/pleeease.json');
+	currentConfig.postcssConfig = require('./configs/postcss.json');
 	currentConfig = this.mergeConfigs(currentConfig, options);
 	return currentConfig;
 };
