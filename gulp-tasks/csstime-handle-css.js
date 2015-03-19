@@ -43,7 +43,8 @@ module.exports = function (gulp, plugins, config) {
 					.autoprefixer(config.postcssConfig.autoprefixer));
 			}
 			if (config.postcssConfig.filters) {
-				processors.push(plugins.postcssProcessors.filters);
+				processors.push(plugins.postcssProcessors
+					.filters(config.postcssConfig.filters));
 			}
 			if (config.postcssConfig.opacity) {
 				processors.push(plugins.postcssProcessors.opacity);
