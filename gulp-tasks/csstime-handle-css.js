@@ -53,7 +53,7 @@ module.exports = function (gulp, plugins, config) {
 			return gulp.src(sources)
 				.pipe(plugins.concat(config.stylesFileName + '.css'))
 				.pipe(plugins.if(
-					config.usePostCss,
+					config.usePostCSS,
 					plugins.postcss(processors)
 				))
 				.pipe(plugins.if(

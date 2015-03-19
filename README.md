@@ -115,7 +115,7 @@ Also you can pass custom config in `csstime.loadGulpTasks(gulp, config);` to ove
 	"useSvgOptimization": true, // see gulp-imagemin (svgo)
 	"useSvgRasterization": true, // see gulp-svg2png
 	"useNormalizeCss": false, // see normalize.css
-	"usePostCss": true, // autoprefixer, opacity, filters
+	"usePostCSS": true, // autoprefixer, opacity, filters
 	"enableCssStructureMinimization": false, // see gulp-csso
 
     "watchInterval": 1000,
