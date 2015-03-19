@@ -38,16 +38,16 @@ module.exports = function (gulp, plugins, config) {
 			));
 
 			var processors = [];
-			if (config.postcssConfig.autoprefixer) {
-				processors.push(plugins.postcssProcessors
-					.autoprefixer(config.postcssConfig.autoprefixer));
-			}
 			if (config.postcssConfig.filters) {
 				processors.push(plugins.postcssProcessors
 					.filters(config.postcssConfig.filters));
 			}
 			if (config.postcssConfig.opacity) {
 				processors.push(plugins.postcssProcessors.opacity);
+			}
+			if (config.postcssConfig.autoprefixer) {
+				processors.push(plugins.postcssProcessors
+					.autoprefixer(config.postcssConfig.autoprefixer));
 			}
 
 			return gulp.src(sources)
