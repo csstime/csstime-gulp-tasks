@@ -125,9 +125,9 @@ Also you can pass custom config in `csstime.loadGulpTasks(gulp, config);` to ove
 	"configsPath": "../configs/", // path to configs for gulp plugins
 	"cdnPath": "/static/assets/", // used in urls for sprites in css
 
-	"imagemin": {}, // see ./configs files
-	"postcss: {},
-	"spritesmith": {}
+	"imageminConfig": {}, // see ./configs files
+	"postcssConfig: {},
+	"spritesmithConfig": {}
 }
 ```
 
