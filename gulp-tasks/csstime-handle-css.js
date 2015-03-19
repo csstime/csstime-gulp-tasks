@@ -36,11 +36,25 @@ module.exports = function (gulp, plugins, config) {
 				config.cssDir,
 				config.stylesFileName + '.css'
 			));
+
+			var processors = [];
+			if (config.postcssConfig.filters) {
+				processors.push(plugins.postcssProcessors
+					.filters(config.postcssConfig.filters));
+			}
+			if (config.postcssConfig.opacity) {
+				processors.push(plugins.postcssProcessors.opacity);
+			}
+			if (config.postcssConfig.autoprefixer) {
+				processors.push(plugins.postcssProcessors
+					.autoprefixer(config.postcssConfig.autoprefixer));
+			}
+
 			return gulp.src(sources)
 				.pipe(plugins.concat(config.stylesFileName + '.css'))
 				.pipe(plugins.if(
-					config.useCssPleeease,
-					plugins.pleeease(config.pleeeaseConfig)
+					config.usePostCSS,
+					plugins.postcss(processors)
 				))
 				.pipe(plugins.if(
 					config.banner && (typeof config.banner === 'string'),

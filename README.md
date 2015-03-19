@@ -76,7 +76,7 @@ Low level tasks:
 | `csstime-collect-other`	| `/public/assets/*/other` => `/public/static/assets/*/other`<br>Copy files								| same files															|
 | `csstime-concat-less`		| `/public/assets/*/less` => `/public/__csstime-tmp`<br>Create main less file with import references	| `styles.less`															|
 | `csstime-compile-less`	| `/public/__csstime-tmp` => `/public/static`<br>Compile less											| compiled `styles.css`													|
-| `csstime-handle-css`		| `/public/assets/*/css` => `/public/static`<br>Collect styles.css<br>`/public/static` => `/public/static`<br>Handle css (css.pleeease), add Normalize.css	| append styles from `assets/*/css`<br>and processed `styles.css`	|
+| `csstime-handle-css`		| `/public/assets/*/css` => `/public/static`<br>Collect styles.css<br>`/public/static` => `/public/static`<br>Handle css (postcss processes), add Normalize.css	| append styles from `assets/*/css`<br>and processed `styles.css`	|
 | `csstime-minify-css`		| `/public/static` => `/public/static`<br>Minify css (csso)												| minified `styles.css`													|
 | `csstime-minify-js`		| `/public/static` => `/public/static`<br>Minify js (uglify)											| minified `*.js`														|
 | `csstime-remove-tmp`		| `/public/__csstime-tmp`<br>Remove temporary files														| 																		|
@@ -115,7 +115,7 @@ Also you can pass custom config in `csstime.loadGulpTasks(gulp, config);` to ove
 	"useSvgOptimization": true, // see gulp-imagemin (svgo)
 	"useSvgRasterization": true, // see gulp-svg2png
 	"useNormalizeCss": false, // see normalize.css
-	"useCssPleeease": true, // see gulp-pleeease
+	"usePostCSS": true, // autoprefixer, opacity, filters
 	"enableCssStructureMinimization": false, // see gulp-csso
 
     "watchInterval": 1000,
@@ -126,7 +126,7 @@ Also you can pass custom config in `csstime.loadGulpTasks(gulp, config);` to ove
 	"cdnPath": "/static/assets/", // used in urls for sprites in css
 
 	"imagemin": {}, // see ./configs files
-	"pleeease: {},
+	"postcss: {},
 	"spritesmith": {}
 }
 ```
