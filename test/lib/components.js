@@ -6,6 +6,7 @@ var path = require('path'),
 	config = require('../../default.config.json');
 
 var TEST_COMPONENTS_DIR = 'test/mocks/app/src/components',
+	FAKE_DIR = TEST_COMPONENTS_DIR + 'fake',
 	TEST_COMPONENTS_PATHS = [
 		'document',
 		'elements/icon',
@@ -16,6 +17,79 @@ var TEST_COMPONENTS_DIR = 'test/mocks/app/src/components',
 	];
 
 describe('lib/components.js', function () {
+
+	describe('getAssetsGlobPatterns()', function () {
+
+		it('should return empty array', function (done) {
+			config.componentsRootDirs = [];
+
+			var patterns = components.getAssetsGlobPatterns(config);
+			assert.deepEqual(patterns, []);
+			done();
+		});
+
+		it('should return array with single pattern', function (done) {
+			config.componentsRootDirs = [TEST_COMPONENTS_DIR];
+
+			var patterns = components.getAssetsGlobPatterns(config, null);
+			assert.deepEqual(
+				patterns,
+				[
+					path.join(
+						process.cwd(),
+						TEST_COMPONENTS_DIR,
+						'**',
+						config.componentAssetsDir
+					)
+				]
+			);
+			done();
+		});
+
+		it('should return array with two patterns', function (done) {
+			config.componentsRootDirs = [TEST_COMPONENTS_DIR, FAKE_DIR];
+
+			var patterns = components.getAssetsGlobPatterns(config, null);
+			assert.deepEqual(
+				patterns,
+				[
+					path.join(
+						process.cwd(),
+						TEST_COMPONENTS_DIR,
+						'**',
+						config.componentAssetsDir
+					),
+					path.join(
+						process.cwd(),
+						FAKE_DIR,
+						'**',
+						config.componentAssetsDir
+					)
+				]
+			);
+			done();
+		});
+
+		it('should return array with single pattern for subdir', function (done) {
+			config.componentsRootDirs = [TEST_COMPONENTS_DIR];
+
+			var patterns = components.getAssetsGlobPatterns(config, config.lessDir);
+			assert.deepEqual(
+				patterns,
+				[
+					path.join(
+						process.cwd(),
+						TEST_COMPONENTS_DIR,
+						'**',
+						config.componentAssetsDir,
+						config.lessDir
+					)
+				]
+			);
+			done();
+		});
+	});
+
 	describe('getAssetsDirectories()', function () {
 
 		it('should return empty array', function (done) {
@@ -27,7 +101,7 @@ describe('lib/components.js', function () {
 		});
 
 		it('should return empty array for zero results', function (done) {
-			config.componentsRootDirs = [TEST_COMPONENTS_DIR + '1'];
+			config.componentsRootDirs = [FAKE_DIR];
 
 			var directories = components.getAssetsDirectories(config);
 			assert.deepEqual(directories, []);
