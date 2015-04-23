@@ -1,4 +1,7 @@
 {
+	"componentsRootDirs": ["src/components"],
+	"componentAssetsDir": "assets",
+
 	"componentsRootDir": "catberry_components",
 	"staticRootDir": "static",
 	"publicRootDir": "public",
