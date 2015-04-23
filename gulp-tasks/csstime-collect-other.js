@@ -5,18 +5,16 @@ var path = require('path');
 module.exports = function (gulp, plugins, config) {
 	return {
 		task: function () {
-			return gulp.src(path.join(
-					config.publicRootDir,
-					config.componentsDir,
-					'*',
-					config.otherDir,
-					'**'
-				))
-				.pipe(gulp.dest(path.join(
-					config.publicRootDir,
-					config.destinationDir,
-					config.componentsDir
-				)));
+			var otherPattern = plugins.lib.components
+					.getAssetsGlobPatterns(
+						config,
+						path.join(config.otherDir, '**')
+					);
+
+			return gulp.src(otherPattern)
+				.pipe(gulp.dest(
+					plugins.lib.components.getAssetsDestinationDirectory(config)
+				));
 		}
 	};
 };

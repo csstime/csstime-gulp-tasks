@@ -5,19 +5,15 @@ var path = require('path');
 module.exports = function (gulp, plugins, config) {
 	return {
 		task: function () {
-			var destination = path.join(
-				config.publicRootDir,
-				config.destinationDir,
-				config.componentsDir
-			);
-			return gulp.src(path.join(
-					config.publicRootDir,
-					config.componentsDir,
-					'*',
-					config.svgDir,
-					'**',
-					'*.svg'
-				))
+			var svgPattern = plugins.lib.components
+					.getAssetsGlobPatterns(
+						config,
+						path.join(config.svgDir, '**', '*.svg')
+					),
+				destination = plugins.lib.components
+					.getAssetsDestinationDirectory(config);
+
+			return gulp.src(svgPattern)
 				.pipe(plugins.if(
 					!config.isWatchMode && config.useSvgOptimization,
 					plugins.imagemin(config.imageminConfig)

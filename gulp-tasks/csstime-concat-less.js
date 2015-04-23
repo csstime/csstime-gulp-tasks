@@ -23,7 +23,7 @@ module.exports = function (gulp, plugins, config) {
 	return {
 		dependencies: dependencies,
 		task: function () {
-			var componentsNames = components.getNames(config),
+			var componentsDirectories = components.getAssetsDirectories(config),
 				imports = [];
 
 			// variables
@@ -38,10 +38,8 @@ module.exports = function (gulp, plugins, config) {
 			}
 
 			// less
-			componentsNames.forEach(function (component) {
+			componentsDirectories.forEach(function (component) {
 				var importingFile = path.join(
-					config.publicRootDir,
-					config.componentsDir,
 					component,
 					config.lessDir,
 					config.stylesFileName + '.less'
@@ -58,10 +56,9 @@ module.exports = function (gulp, plugins, config) {
 					imports.join('\n\n'),
 					{src: true}
 				)
-				.pipe(gulp.dest(path.join(
-					config.publicRootDir,
-					config.temporaryDir
-				)));
+				.pipe(gulp.dest(
+					plugins.lib.components.getTemporaryDirectory(config)
+				));
 		}
 	};
 };

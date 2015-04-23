@@ -63,6 +63,10 @@ CsstimeGulpTask.prototype.loadPlugins = function () {
 		opacity: require('postcss-opacity'),
 		autoprefixer: require('autoprefixer-core')
 	};
+
+	plugins.lib = {};
+	plugins.lib.components = require('./lib/components');
+
 	return plugins;
 };
 
