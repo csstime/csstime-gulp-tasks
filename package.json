@@ -14,7 +14,9 @@
 		"css",
 		"frontend",
 		"gulp",
-		"catberry"
+		"svg",
+		"sprites",
+		"assets"
 	],
 	"peerDependencies": {
 		"gulp": "^3.8.11"

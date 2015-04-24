@@ -1,6 +1,6 @@
 # Default config in csstime-gulp-tasks
 
-```json
+```javascript
 {
 	"packagePath": "node_modules/csstime-gulp-tasks",
 
