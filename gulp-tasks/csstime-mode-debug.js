@@ -3,6 +3,7 @@
 module.exports = function (gulp, plugins, config) {
 	return {
 		dependencies: [
+			'_csstime-set-debug',
 			'csstime-process-static',
 			'csstime-process-assets'
 		],

@@ -5,11 +5,11 @@ var path = require('path');
 module.exports = function (gulp, plugins, config) {
 	return {
 		dependencies: [
+			'_csstime-set-debug',
 			'csstime-process-static',
 			'csstime-process-assets'
 		],
 		task: function () {
-			config.isWatchMode = true;
 			gulp.watch(
 				plugins.lib.pathHelper.getAssetsGlobPatterns(
 					config,

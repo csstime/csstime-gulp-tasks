@@ -24,7 +24,7 @@ module.exports = function (gulp, plugins, config) {
 
 			spriteData.img
 				.pipe(plugins.if(
-					!config.isWatchMode && config.useImageOptimization,
+					!config.isDebug && config.useImageOptimization,
 					plugins.imagemin(config.imageminConfig)
 				))
 				.pipe(gulp.dest(

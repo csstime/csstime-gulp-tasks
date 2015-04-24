@@ -12,7 +12,7 @@ module.exports = function (gulp, plugins, config) {
 		task: function () {
 			var logger = require('../lib/logger')(plugins, config);
 			logger.write('assets were rebuilt');
-			if (config.isWatchMode) {
+			if (config.isDebug) {
 				logger.notify('Assets were rebuilt');
 			}
 		}
