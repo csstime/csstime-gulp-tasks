@@ -6,6 +6,7 @@
 
 	"componentsRootDirs": ["src/components"],
 	"componentAssetsDir": "assets",
+	"componentJSON": "component.json",
 
 	"staticRootDir": "static",
 
