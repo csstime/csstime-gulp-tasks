@@ -21,7 +21,11 @@ module.exports = function (gulp, plugins, config) {
 						.renamePathToComponentName(config, filePath);
 				}))
 				.pipe(gulp.dest(
-					plugins.lib.pathHelper.getAssetsDestinationDirectory(config)
+					config.isRelease ?
+						plugins.lib.pathHelper
+							.getTemporaryAssetsDestinationDirectory(config) :
+						plugins.lib.pathHelper
+							.getAssetsDestinationDirectory(config)
 				));
 		}
 	};

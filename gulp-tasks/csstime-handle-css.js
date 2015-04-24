@@ -22,7 +22,11 @@ module.exports = function (gulp, plugins, config) {
 			}
 			// add styles.css compiled from less
 			sources.push(path.join(
-				plugins.lib.pathHelper.getDestinationDirectory(config),
+				config.isRelease ?
+					plugins.lib.pathHelper
+						.getTemporaryDestinationDirectory(config) :
+					plugins.lib.pathHelper
+						.getDestinationDirectory(config),
 				config.stylesFileName + '.css'
 			));
 			// collect styles.css from all components
@@ -60,7 +64,11 @@ module.exports = function (gulp, plugins, config) {
 						.replace('<%now%>', time.captureNow()))
 				))
 				.pipe(gulp.dest(
-					plugins.lib.pathHelper.getDestinationDirectory(config)
+					config.isRelease ?
+						plugins.lib.pathHelper
+							.getTemporaryDestinationDirectory(config) :
+						plugins.lib.pathHelper
+							.getDestinationDirectory(config)
 				));
 		}
 	};

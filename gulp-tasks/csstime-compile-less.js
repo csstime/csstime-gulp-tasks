@@ -26,7 +26,11 @@ module.exports = function (gulp, plugins, config) {
 				.pipe(plugins.concat(config.stylesFileName + '.less'))
 				.pipe(plugins.less())
 				.pipe(gulp.dest(
-					plugins.lib.pathHelper.getDestinationDirectory(config)
+					config.isRelease ?
+						plugins.lib.pathHelper
+							.getTemporaryDestinationDirectory(config) :
+						plugins.lib.pathHelper
+							.getDestinationDirectory(config)
 				));
 		}
 	};

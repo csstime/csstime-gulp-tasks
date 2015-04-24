@@ -12,7 +12,11 @@ module.exports = function (gulp, plugins, config) {
 					)
 				)
 				.pipe(gulp.dest(
-					plugins.lib.pathHelper.getDestinationDirectory(config)
+					config.isRelease ?
+						plugins.lib.pathHelper
+							.getTemporaryDestinationDirectory(config) :
+						plugins.lib.pathHelper
+							.getDestinationDirectory(config)
 				));
 		}
 	};

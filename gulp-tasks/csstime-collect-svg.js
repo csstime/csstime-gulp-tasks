@@ -10,8 +10,11 @@ module.exports = function (gulp, plugins, config) {
 						config,
 						path.join(config.svgDir, '**', '*.svg')
 					),
-				destination = plugins.lib.pathHelper
-					.getAssetsDestinationDirectory(config);
+				destination = config.isRelease ?
+					plugins.lib.pathHelper
+						.getTemporaryAssetsDestinationDirectory(config) :
+					plugins.lib.pathHelper
+						.getAssetsDestinationDirectory(config);
 
 			return gulp.src(svgPattern, {base: process.cwd()})
 				.pipe(plugins.if(

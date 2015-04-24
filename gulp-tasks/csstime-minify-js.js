@@ -7,10 +7,16 @@ module.exports = function (gulp, plugins, config) {
 	return {
 		dependencies: ['csstime-copy-static'],
 		task: function () {
-			return gulp.src(path.join(
-					plugins.lib.pathHelper.getDestinationDirectory(config),
-					'*.js'
-				))
+			return gulp.src(
+					path.join(
+						config.isRelease ?
+							plugins.lib.pathHelper
+								.getTemporaryDestinationDirectory(config) :
+							plugins.lib.pathHelper
+								.getDestinationDirectory(config),
+						'*.js'
+					)
+				)
 				.pipe(plugins.uglify())
 				.pipe(plugins.if(
 					config.banner && (typeof config.banner === 'string'),
@@ -18,7 +24,11 @@ module.exports = function (gulp, plugins, config) {
 						.replace('<%now%>', time.captureNow()))
 				))
 				.pipe(gulp.dest(
-					plugins.lib.pathHelper.getDestinationDirectory(config)
+					config.isRelease ?
+						plugins.lib.pathHelper
+							.getTemporaryDestinationDirectory(config) :
+						plugins.lib.pathHelper
+							.getDestinationDirectory(config)
 				));
 		}
 	};

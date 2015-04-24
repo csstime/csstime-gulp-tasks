@@ -28,7 +28,11 @@ module.exports = function (gulp, plugins, config) {
 					plugins.imagemin(config.imageminConfig)
 				))
 				.pipe(gulp.dest(
-					plugins.lib.pathHelper.getAssetsDestinationDirectory(config)
+					config.isRelease ?
+						plugins.lib.pathHelper
+							.getTemporaryAssetsDestinationDirectory(config) :
+						plugins.lib.pathHelper
+							.getAssetsDestinationDirectory(config)
 				));
 
 			return spriteData.css.pipe(gulp.dest(
