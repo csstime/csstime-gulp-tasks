@@ -64,7 +64,7 @@ var gulp = require('gulp'),
     config = {}, // custom config
     csstime = require('csstime-gulp-tasks');
 
-config.useNormalizeCss = false; // custom configuration
+config.useNormalizeCss = true; // custom configuration
 csstime.loadGulpTasks(gulp, config);
 ```
 
@@ -78,7 +78,7 @@ Here is high level available tasks which you can see after `gulp --tasks`:
 | `csstime-mode-release`	| Build, optimize and minify all assets. Remove temporary files.				|
 | `csstime-mode-debug`		| Collect and build assets. You can analyze temporary files.					|
 | `csstime-mode-watch`		| Watch changing files and run in debug mode									|
-| `csstime-exec-csscomb`	| Execute csscom																|
+| `csstime-exec-csscomb`	| Execute csscomb																|
 
 Learn more about all tasks in [tasks documentation](/doc/tasks.md).
 
