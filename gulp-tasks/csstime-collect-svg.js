@@ -13,11 +13,15 @@ module.exports = function (gulp, plugins, config) {
 				destination = plugins.lib.pathHelper
 					.getAssetsDestinationDirectory(config);
 
-			return gulp.src(svgPattern)
+			return gulp.src(svgPattern, {base: process.cwd()})
 				.pipe(plugins.if(
 					config.isRelease && config.useSvgOptimization,
 					plugins.imagemin(config.imageminConfig)
 				))
+				.pipe(plugins.rename(function (filePath) {
+					plugins.lib.pathHelper
+						.renamePathToComponentName(config, filePath);
+				}))
 				.pipe(gulp.dest(destination))
 				.pipe(plugins.if(
 					config.useSvgRasterization,

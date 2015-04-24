@@ -11,11 +11,15 @@ module.exports = function (gulp, plugins, config) {
 						path.join(config.imagesDir, '**')
 					);
 
-			return gulp.src(imagesPattern)
+			return gulp.src(imagesPattern, {base: process.cwd()})
 				.pipe(plugins.if(
 					config.isRelease && config.useImageOptimization,
 					plugins.imagemin(config.imageminConfig)
 				))
+				.pipe(plugins.rename(function (filePath) {
+					plugins.lib.pathHelper
+						.renamePathToComponentName(config, filePath);
+				}))
 				.pipe(gulp.dest(
 					plugins.lib.pathHelper.getAssetsDestinationDirectory(config)
 				));

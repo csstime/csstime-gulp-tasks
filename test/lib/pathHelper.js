@@ -121,4 +121,47 @@ describe('lib/pathHelper.js', function () {
 			done();
 		});
 	});
+
+	describe('renamePathToComponentName()', function () {
+
+		it('should return renamed path with subdir', function (done) {
+			var filePath = {
+					dirname: TEST_COMPONENTS_DIR + '/elements/logo/assets/images'
+				};
+
+			pathHelper.renamePathToComponentName(config, filePath);
+			assert.equal(filePath.dirname, 'logo/images');
+			done();
+		});
+
+		it('should return renamed path', function (done) {
+			var filePath = {
+				dirname: TEST_COMPONENTS_DIR + '/elements/logo/assets'
+			};
+
+			pathHelper.renamePathToComponentName(config, filePath);
+			assert.equal(filePath.dirname, 'logo');
+			done();
+		});
+
+		it('should return renamed path with subdir', function (done) {
+			var filePath = {
+				dirname: TEST_COMPONENTS_DIR + '/document/assets/images'
+			};
+
+			pathHelper.renamePathToComponentName(config, filePath);
+			assert.equal(filePath.dirname, 'document/images');
+			done();
+		});
+
+		it('should return renamed path', function (done) {
+			var filePath = {
+				dirname: TEST_COMPONENTS_DIR + '/document/assets'
+			};
+
+			pathHelper.renamePathToComponentName(config, filePath);
+			assert.equal(filePath.dirname, 'document');
+			done();
+		});
+	});
 });
