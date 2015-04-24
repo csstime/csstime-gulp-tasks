@@ -27,12 +27,14 @@ module.exports = function (gulp, plugins, config) {
 				config.stylesFileName + '.css'
 			));
 			// collect styles.css from all components
-			sources.push(plugins.lib.pathHelper
-					.getAssetsGlobPatterns(
-						config,
-						path.join(config.cssDir, config.stylesFileName + '.css')
-					)
-			);
+			plugins.lib.pathHelper
+				.getAssetsGlobPatterns(
+					config,
+					path.join(config.cssDir, config.stylesFileName + '.css')
+				)
+				.forEach(function (pattern) {
+					sources.push(pattern);
+				});
 
 			var processors = [];
 			if (config.postcssConfig.filters) {
