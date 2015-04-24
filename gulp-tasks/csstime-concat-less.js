@@ -47,12 +47,7 @@ module.exports = function (gulp, plugins, config) {
 				if (!fs.existsSync(importingFile)) {
 					return;
 				}
-				var match = component.match(/\/([^\/]+)\/assets$/);
-				imports.push(
-					util.format(IMPORT_FORMAT,
-						match.length >= 2 ? match[1] : component,
-						importingFile)
-				);
+				imports.push(util.format(IMPORT_FORMAT, component, importingFile));
 			});
 
 			// create file

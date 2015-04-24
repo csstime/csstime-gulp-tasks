@@ -36,7 +36,6 @@ describe('lib/pathHelper.js', function () {
 				patterns,
 				[
 					path.join(
-						process.cwd(),
 						TEST_COMPONENTS_DIR,
 						'**',
 						config.componentAssetsDir
@@ -54,13 +53,11 @@ describe('lib/pathHelper.js', function () {
 				patterns,
 				[
 					path.join(
-						process.cwd(),
 						TEST_COMPONENTS_DIR,
 						'**',
 						config.componentAssetsDir
 					),
 					path.join(
-						process.cwd(),
 						FAKE_DIR,
 						'**',
 						config.componentAssetsDir
@@ -78,7 +75,6 @@ describe('lib/pathHelper.js', function () {
 				patterns,
 				[
 					path.join(
-						process.cwd(),
 						TEST_COMPONENTS_DIR,
 						'**',
 						config.componentAssetsDir,
@@ -116,7 +112,6 @@ describe('lib/pathHelper.js', function () {
 				directories,
 				TEST_COMPONENTS_PATHS.map(function (componentPath) {
 					return path.join(
-						process.cwd(),
 						TEST_COMPONENTS_DIR,
 						componentPath,
 						config.componentAssetsDir
