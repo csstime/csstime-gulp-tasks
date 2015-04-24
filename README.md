@@ -16,24 +16,27 @@ static/ #always stored in a repository
 ├──favicon.ico
 ├──robots.txt
 └──...
-public/ #destination directory for built project
-└──assets/
+src/ #source directory
+└──components/
 	└──document/
-		├──other/
-		├──fonts/
-		├──images/
-		├──sprites/
-		└──less/
-			└──styles.less
-		└──svg/
+		└──assets
+			├──other/
+			├──fonts/
+			├──images/
+			├──sprites/
+			└──less/
+				└──styles.less
+			└──svg/
 	└──componentA/
-		├──sprites/
-		└──less/
-        	└──styles.less
-		└──svg/
+		└──assets
+			├──sprites/
+			└──less/
+				└──styles.less
+			└──svg/
 	└──componentB/
-		└──css/
-			└──styles.css
+		└──assets
+			└──css/
+				└──styles.css
 ```
 
 Just write this in your Gulpfile.js:
@@ -88,9 +91,15 @@ Low level tasks:
 Also you can pass custom config in `csstime.loadGulpTasks(gulp, config);` to override default params:
 ```javascript
 {
+	"packagePath": "node_modules/csstime-gulp-tasks",
+	"packageConfigsPath": "node_modules/csstime-gulp-tasks/configs",
+
+	"componentsRootDirs": ["src/components"],
+	"componentAssetsDir": "assets",
+
 	"staticRootDir": "static",
 
-	"destinationDir": "static",
+	"destinationDir": "build",
 	"temporaryDir": "__csstime-tmp",
 
 	"spritesDir": "sprites",
@@ -119,12 +128,12 @@ Also you can pass custom config in `csstime.loadGulpTasks(gulp, config);` to ove
 
 	"banner": "/**\n * csstime\n * <%now%>\n */\n", // header in styles.css, see gulp-header
 
-	"configsPath": "../configs/", // path to configs for gulp plugins
 	"cdnPath": "/static/assets/", // used in urls for sprites in css
 
 	"imageminConfig": {}, // see ./configs files
 	"postcssConfig: {},
-	"spritesmithConfig": {}
+	"spritesmithConfig": {},
+	"csscombConfig": {}
 }
 ```
 
@@ -132,9 +141,8 @@ After `csstime-mode-release` you will get following structure:
 ```
 gulpfile.js
 static/ #without changes
-public/
-└──assets/ #without changes
-└──static/ #all generated files here
+src/ #without changes
+build/ #all generated files here
 	├──favicon.ico
     ├──robots.txt
     ├──...
@@ -148,4 +156,5 @@ public/
 			└──svg/
 		└──componentA/
 			└──svg/
+
 ```

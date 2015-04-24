@@ -1,15 +1,11 @@
 'use strict';
 
 var path = require('path'),
-	fs = require('fs'),
 	util = require('util'),
+	gulpTasksLoader = require('./lib/gulpTasksLoader'),
 	packageConfig = require('./package.json');
 
-var CSSTIME_GULP_TASKS_DIR = path.join(
-	'node_modules',
-	packageConfig.name,
-	'gulp-tasks'
-);
+var CSSTIME_GULP_TASKS_DIR = 'gulp-tasks';
 
 module.exports = {
 
@@ -77,23 +73,8 @@ CsstimeGulpTask.prototype.loadPlugins = function () {
  * @param {Object} config
  */
 CsstimeGulpTask.prototype.loadTasks = function (gulp, plugins, config) {
-	function cropExtension(fileName) {
-		return fileName.replace(/\.js$/i, '');
-	}
-
-	function loadTask(taskName) {
-		var taskData = require(path.join(
-				process.cwd(),
-				CSSTIME_GULP_TASKS_DIR,
-				taskName
-			))(gulp, plugins, config);
-
-		gulp.task(taskName, taskData.dependencies || [], taskData.task);
-	}
-
-	fs.readdirSync(CSSTIME_GULP_TASKS_DIR)
-		.map(cropExtension)
-		.forEach(loadTask);
+	gulpTasksLoader.loadAllTasks(gulp,
+		path.join(config.packagePath, CSSTIME_GULP_TASKS_DIR), plugins, config);
 };
 
 /**
