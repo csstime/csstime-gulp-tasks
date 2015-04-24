@@ -4,6 +4,10 @@
 
 Prepared Gulp tasks to build and optimize assets of your project (LESS, CSS, SVG, images, sprites and more).
 
+```
+npm install csstime-gulp-tasks
+```
+
 List of used packages:
 * autoprefixer-core,
 * gulp-concat,
@@ -17,13 +21,9 @@ List of used packages:
 * gulp-uglify,
 * gulp.spritesmith,
 * node-notifier,
-* normalize.css",
+* normalize.css,
 * pleeease-filters,
-* postcss-opacity
-
-```
-npm install csstime-gulp-tasks
-```
+* postcss-opacity.
 
 If your project has following structure you can use these tasks or some of them.
 
@@ -72,12 +72,14 @@ You can pass custom config in `csstime.loadGulpTasks(gulp, config);` to override
 Learn more about default params in [configs documentation](/doc/configs.md).
 
 Here is high level available tasks which you can see after `gulp --tasks`:
+
 | Name						| Action																		|
 |---------------------------|-------------------------------------------------------------------------------|
 | `csstime-mode-release`	| Build, optimize and minify all assets. Remove temporary files.				|
 | `csstime-mode-debug`		| Collect and build assets. You can analyze temporary files.					|
 | `csstime-mode-watch`		| Watch changing files and run in debug mode									|
 | `csstime-exec-csscomb`	| Execute csscom																|
+
 Learn more about all tasks in [tasks documentation](/doc/tasks.md).
 
 After `csstime-mode-release` you will get following structure:

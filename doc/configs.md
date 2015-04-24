@@ -1,6 +1,6 @@
 # Default config in csstime-gulp-tasks
 
-```javascript
+```json
 {
 	"packagePath": "node_modules/csstime-gulp-tasks",
 
@@ -50,7 +50,10 @@
 You can pass custom configuration options in `csstime.loadGulpTasks(gulp, config);` to override default options:
 ```javascript
 config = {
-	useNotify: false
+	useNotify: false,
+	imageminConfig: {
+		optimizationLevel: 5
+	}
 };
 csstime.loadGulpTasks(gulp, config);
 ```
