@@ -26,6 +26,7 @@ List of used packages:
 * postcss-opacity.
 
 If your project has following structure you can use these tasks or some of them.
+You component.json should has "name" of component.
 
 ```
 gulpfile.js
@@ -36,6 +37,7 @@ static/ #always stored in a repository
 src/ #source directory
 └──components/
 	└──document/
+		├──component.json
 		└──assets
 			├──other/
 			├──fonts/
@@ -45,12 +47,14 @@ src/ #source directory
 				└──styles.less
 			└──svg/
 	└──componentA/
+		├──component.json
 		└──assets
 			├──sprites/
 			└──less/
 				└──styles.less
 			└──svg/
 	└──componentB/
+		├──component.json
 		└──assets
 			└──css/
 				└──styles.css
@@ -95,13 +99,13 @@ build/ #all generated files here
 	└──components/
 		├──sprites.png
 		└──document/ #without less, css, sprites
-			└──assets/
-				├──other/
-				├──fonts/
-				├──images/
-				└──svg/
+			├──other/
+			├──fonts/
+			├──images/
+			└──svg/
 		└──componentA/
-			└──assets/
-				└──svg/
+			└──svg/
 
 ```
+
+Learn how to migrate to version 4 [here](/doc/migrations.md).
