@@ -44,10 +44,15 @@ module.exports = function (gulp, plugins, config) {
 					config.lessDir,
 					config.stylesFileName + '.less'
 				);
-				if (!fs.existsSync(path.join(process.cwd(), importingFile))) {
+				if (!fs.existsSync(importingFile)) {
 					return;
 				}
-				imports.push(util.format(IMPORT_FORMAT, component, importingFile));
+				var match = component.match(/\/([^\/]+)\/assets$/);
+				imports.push(
+					util.format(IMPORT_FORMAT,
+						match.length >= 2 ? match[1] : component,
+						importingFile)
+				);
 			});
 
 			// create file
