@@ -1,8 +1,7 @@
 'use strict';
 
 var path = require('path'),
-	time = require('../lib/time'),
-	packageConfig = require('../package.json');
+	time = require('../lib/time');
 
 var NODE_MODULES = 'node_modules',
 	NORMALIZE_CSS = 'normalize.css';
