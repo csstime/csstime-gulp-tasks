@@ -15,6 +15,7 @@ Combining tasks:
 
 | Name						| Dependencies																															|
 |---------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| `csstime-process-all` 	| `csstime-process-static`,<br>`csstime-process-assets`																													|
 | `csstime-process-static`	| `csstime-copy-static`																													|
 | `csstime-process-assets`	| `csstime-handle-css`,<br>`csstime-collect-images`,<br>`csstime-collect-fonts`,<br>`csstime-collect-svg`,<br>`csstime-collect-other`	|
 
@@ -33,8 +34,11 @@ Low level tasks:
 | `csstime-handle-css`		| `/src/components/**/assets/css` => `/build`<br>Collect styles.css<br>`/build` => `/build`<br>Handle css (postcss processes), add Normalize.css	| append styles from `src/components/**/assets/css`<br>and processed `styles.css`	|
 | `csstime-minify-css`		| `/build` => `/build`<br>Minify css (csso)												                            | minified `styles.css`													|
 | `csstime-minify-js`		| `/build` => `/build`<br>Minify js (uglify)											                            | minified `*.js`														|
+| `csstime-publish-tmp`		| `/build/__csstime-tmp/build`<br>Build all assets to temporary directory								            | 																		|
+| `csstime-publish-and-remove-tmp`		| `/build`<br>Build all assets to temporary directory, move to destination directory and remove temporary files|																|
 | `csstime-remove-tmp`		| `/build/__csstime-tmp`<br>Remove temporary files														            | 																		|
 | `csstime-remove-tmp-styles`| `/build/__csstime-tmp/styles.less`<br>Remove tmp styles files			                                        | 																		|
 | `csstime-remove-tmp-sprites`| `/build/__csstime-tmp/sprites.less`<br>Remove tmp sprites files	                                                | 																		|
 | `csstime-clean`			| `/build/__csstime-tmp`,<br>`/build`<br>Remove created directories							                        | 																		|
+| `csstime-clean-tmp`		| `/build/__csstime-tmp`<br>Remove temporary directory          							                        | 																		|
 | `csstime-exec-csscomb`	| `/src/components`<br>Refactor styles							    									            | updated styles														|
