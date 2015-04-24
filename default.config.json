@@ -35,5 +35,5 @@
 
 	"banner": "/**\n * csstime\n * <%now%>\n */\n",
 
-	"cdnPath": "/static/assets/"
+	"cdnPath": "/assets/"
 }
