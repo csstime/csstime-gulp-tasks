@@ -6,7 +6,7 @@ module.exports = function (gulp, plugins, config) {
 		task: function () {
 			var logger = require('../lib/logger')(plugins, config);
 			logger.write('static were rebuilt');
-			if (config.isDebug) {
+			if (!config.isRelease) {
 				logger.notify('Static files were rebuilt');
 			}
 		}

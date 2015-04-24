@@ -15,7 +15,7 @@ module.exports = function (gulp, plugins, config) {
 
 			return gulp.src(svgPattern)
 				.pipe(plugins.if(
-					!config.isDebug && config.useSvgOptimization,
+					config.isRelease && config.useSvgOptimization,
 					plugins.imagemin(config.imageminConfig)
 				))
 				.pipe(gulp.dest(destination))
@@ -24,7 +24,7 @@ module.exports = function (gulp, plugins, config) {
 					plugins.svg2png()
 				))
 				.pipe(plugins.if(
-					!config.isDebug &&
+					config.isRelease &&
 						config.useSvgRasterization && config.useImageOptimization,
 					plugins.imagemin(config.imageminConfig)
 				))

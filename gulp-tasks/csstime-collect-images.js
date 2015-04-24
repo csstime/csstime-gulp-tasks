@@ -13,7 +13,7 @@ module.exports = function (gulp, plugins, config) {
 
 			return gulp.src(imagesPattern)
 				.pipe(plugins.if(
-					!config.isDebug && config.useImageOptimization,
+					config.isRelease && config.useImageOptimization,
 					plugins.imagemin(config.imageminConfig)
 				))
 				.pipe(gulp.dest(
