@@ -10,6 +10,7 @@
 	"staticRootDir": "static",
 
 	"destinationDir": "build",
+	"destinationComponentsDir": "components",
 	"temporaryDir": "__csstime-tmp",
 
 	"spritesDir": "sprites",
@@ -38,7 +39,7 @@
 
 	"banner": "/**\n * csstime\n * <%now%>\n */\n", // header in styles.css, see gulp-header
 
-	"cdnPath": "/assets/", // used in urls for sprites in css
+	"cdnPath": "/components/", // used in urls for sprites in css
 
 	"imageminConfig": {}, // see ./configs files or read further
 	"postcssConfig: {},

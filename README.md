@@ -92,14 +92,16 @@ build/ #all generated files here
     ├──robots.txt
     ├──...
 	├──styles.css
-	└──assets/
+	└──components/
 		├──sprites.png
 		└──document/ #without less, css, sprites
-			├──other/
-			├──fonts/
-			├──images/
-			└──svg/
+			└──assets/
+				├──other/
+				├──fonts/
+				├──images/
+				└──svg/
 		└──componentA/
-			└──svg/
+			└──assets/
+				└──svg/
 
 ```
