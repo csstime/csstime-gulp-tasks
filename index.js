@@ -107,10 +107,7 @@ CsstimeGulpTask.prototype.mergeConfigs = function (currentConfig, options) {
 
 	Object.keys(options)
 		.forEach(function (key) {
-			if (util.isArray(options[key]) &&
-				util.isArray(currentConfig[key])) {
-				currentConfig[key] = currentConfig[key].concat(options[key]);
-			} else if (typeof(options[key]) === 'object' &&
+			if (typeof(options[key]) === 'object' &&
 				typeof(currentConfig[key]) === 'object') {
 				currentConfig[key] = self
 					.mergeConfigs(currentConfig[key], options[key]);
