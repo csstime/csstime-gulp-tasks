@@ -19,7 +19,7 @@ New options:
 * "componentAssetsDir": "assets",
 * "componentJSON": "component.json".
 
-If you use [Catberry.js](http://catberryjs.org) v4 and csstime-gulp-tasks v3,
+If you use [Catberry.js](http://catberry.org) v4 and csstime-gulp-tasks v3,
 you can simple migrate to csstime-gulp-tasks v4 doing so:
 ```javascript
 'use strict';
