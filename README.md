@@ -92,7 +92,6 @@ Also you can pass custom config in `csstime.loadGulpTasks(gulp, config);` to ove
 ```javascript
 {
 	"packagePath": "node_modules/csstime-gulp-tasks",
-	"packageConfigsPath": "node_modules/csstime-gulp-tasks/configs",
 
 	"componentsRootDirs": ["src/components"],
 	"componentAssetsDir": "assets",
