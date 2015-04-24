@@ -65,7 +65,7 @@ CsstimeGulpTask.prototype.loadPlugins = function () {
 	};
 
 	plugins.lib = {};
-	plugins.lib.components = require('./lib/components');
+	plugins.lib.pathHelper = require('./lib/pathHelper');
 
 	return plugins;
 };
@@ -106,6 +106,7 @@ CsstimeGulpTask.prototype.getConfig = function (options) {
 	currentConfig.imageminConfig = require('./configs/imagemin.json');
 	currentConfig.spritesmithConfig = require('./configs/spritesmith.json');
 	currentConfig.postcssConfig = require('./configs/postcss.json');
+	currentConfig.csscombConfig = require('./configs/csscomb.json');
 	currentConfig = this.mergeConfigs(currentConfig, options);
 	return currentConfig;
 };

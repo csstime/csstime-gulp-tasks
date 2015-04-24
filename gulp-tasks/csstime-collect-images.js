@@ -5,7 +5,7 @@ var path = require('path');
 module.exports = function (gulp, plugins, config) {
 	return {
 		task: function () {
-			var imagesPattern = plugins.lib.components
+			var imagesPattern = plugins.lib.pathHelper
 					.getAssetsGlobPatterns(
 						config,
 						path.join(config.imagesDir, '**')
@@ -17,7 +17,7 @@ module.exports = function (gulp, plugins, config) {
 					plugins.imagemin(config.imageminConfig)
 				))
 				.pipe(gulp.dest(
-					plugins.lib.components.getAssetsDestinationDirectory(config)
+					plugins.lib.pathHelper.getAssetsDestinationDirectory(config)
 				));
 		}
 	};

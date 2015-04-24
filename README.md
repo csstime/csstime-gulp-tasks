@@ -88,12 +88,9 @@ Low level tasks:
 Also you can pass custom config in `csstime.loadGulpTasks(gulp, config);` to override default params:
 ```javascript
 {
-	"componentsRootDir": "catberry_components", // only for csscomb
 	"staticRootDir": "static",
-	"publicRootDir": "public",
 
 	"destinationDir": "static",
-	"componentsDir": "assets",
 	"temporaryDir": "__csstime-tmp",
 
 	"spritesDir": "sprites",

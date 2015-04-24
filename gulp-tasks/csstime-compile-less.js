@@ -11,14 +11,14 @@ module.exports = function (gulp, plugins, config) {
 			// add sprites
 			if (config.useImageSprites) {
 				sources.push(path.join(
-					plugins.lib.components.getTemporaryDirectory(config),
+					plugins.lib.pathHelper.getTemporaryDirectory(config),
 					config.spritesFileName + '.less'
 				));
 			}
 
 			// add main less file
 			sources.push(path.join(
-				plugins.lib.components.getTemporaryDirectory(config),
+				plugins.lib.pathHelper.getTemporaryDirectory(config),
 				config.stylesFileName + '.less'
 			));
 
@@ -26,7 +26,7 @@ module.exports = function (gulp, plugins, config) {
 				.pipe(plugins.concat(config.stylesFileName + '.less'))
 				.pipe(plugins.less())
 				.pipe(gulp.dest(
-					plugins.lib.components.getDestinationDirectory(config)
+					plugins.lib.pathHelper.getDestinationDirectory(config)
 				));
 		}
 	};

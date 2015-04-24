@@ -1,16 +1,12 @@
 'use strict';
 
-var path = require('path'),
-	packageConfig = require('../package.json');
-
-var NODE_MODULES_DIR = 'node_modules',
-	CONFIGS_DIR = 'configs';
+var path = require('path');
 
 module.exports = function (gulp, plugins, config) {
 	return {
 		dependencies: ['csstime-remove-tmp-sprites'],
 		task: function () {
-			var spriteImagesPattern = plugins.lib.components
+			var spriteImagesPattern = plugins.lib.pathHelper
 					.getAssetsGlobPatterns(
 						config,
 						path.join(config.spritesDir, '**', '*.png')
@@ -22,12 +18,7 @@ module.exports = function (gulp, plugins, config) {
 					imgName: config.spritesFileName + '.png',
 					cssName: config.spritesFileName + '.less',
 					algorithm: config.spritesmithConfig.algorithm,
-					cssTemplate: path.join(
-						NODE_MODULES_DIR,
-						packageConfig.name,
-						CONFIGS_DIR,
-						config.spritesmithConfig.cssTemplate
-					),
+					cssTemplate: config.spritesmithConfig.cssTemplatePath,
 					padding: config.spritesmithConfig.padding
 				}));
 
@@ -37,11 +28,11 @@ module.exports = function (gulp, plugins, config) {
 					plugins.imagemin(config.imageminConfig)
 				))
 				.pipe(gulp.dest(
-					plugins.lib.components.getAssetsDestinationDirectory(config)
+					plugins.lib.pathHelper.getAssetsDestinationDirectory(config)
 				));
 
 			return spriteData.css.pipe(gulp.dest(
-				plugins.lib.components.getTemporaryDirectory(config)
+				plugins.lib.pathHelper.getTemporaryDirectory(config)
 			));
 		}
 	};

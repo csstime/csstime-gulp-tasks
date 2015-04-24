@@ -5,7 +5,7 @@ var path = require('path');
 module.exports = function (gulp, plugins, config) {
 	return {
 		task: function () {
-			var fontsPattern = plugins.lib.components
+			var fontsPattern = plugins.lib.pathHelper
 					.getAssetsGlobPatterns(
 						config,
 						path.join(config.fontsDir, '**')
@@ -13,7 +13,7 @@ module.exports = function (gulp, plugins, config) {
 
 			return gulp.src(fontsPattern)
 				.pipe(gulp.dest(
-					plugins.lib.components.getAssetsDestinationDirectory(config)
+					plugins.lib.pathHelper.getAssetsDestinationDirectory(config)
 				));
 		}
 	};

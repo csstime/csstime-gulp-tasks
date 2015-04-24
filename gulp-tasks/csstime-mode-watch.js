@@ -11,7 +11,10 @@ module.exports = function (gulp, plugins, config) {
 		task: function () {
 			config.isWatchMode = true;
 			gulp.watch(
-				path.join(config.publicRootDir, config.componentsDir, '**', '*'),
+				plugins.lib.pathHelper.getAssetsGlobPatterns(
+					config,
+					path.join('**', '*')
+				),
 				{
 					interval: config.watchInterval
 				},
@@ -19,7 +22,10 @@ module.exports = function (gulp, plugins, config) {
 			);
 
 			gulp.watch(
-				path.join(config.staticRootDir, '**', '*'),
+				plugins.lib.pathHelper.getStaticFilesGlobPattern(
+					config,
+					path.join('**', '*')
+				),
 				{
 					interval: config.watchInterval
 				},

@@ -7,10 +7,7 @@ module.exports = function (gulp, plugins, config) {
 		dependencies: ['csstime-process-assets'],
 		task: function (cb) {
 			plugins.del([
-				path.join(
-					config.publicRootDir,
-					config.temporaryDir
-				)
+				plugins.lib.pathHelper.getTemporaryDirectory(config)
 			], cb);
 		}
 	};

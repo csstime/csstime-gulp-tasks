@@ -5,9 +5,14 @@ var path = require('path');
 module.exports = function (gulp, plugins, config) {
 	return {
 		task: function () {
-			return gulp.src(path.join(config.staticRootDir, '**'))
+			return gulp.src(
+					plugins.lib.pathHelper.getStaticFilesGlobPattern(
+						config,
+						'**'
+					)
+				)
 				.pipe(gulp.dest(
-					plugins.lib.components.getDestinationDirectory(config)
+					plugins.lib.pathHelper.getDestinationDirectory(config)
 				));
 		}
 	};

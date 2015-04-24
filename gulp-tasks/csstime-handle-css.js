@@ -15,8 +15,7 @@ module.exports = function (gulp, plugins, config) {
 			// add normalize.css
 			if (config.useNormalizeCss) {
 				sources.push(path.join(
-					NODE_MODULES,
-					packageConfig.name,
+					config.packagePath,
 					NODE_MODULES,
 					NORMALIZE_CSS,
 					NORMALIZE_CSS
@@ -24,18 +23,16 @@ module.exports = function (gulp, plugins, config) {
 			}
 			// add styles.css compiled from less
 			sources.push(path.join(
-				config.publicRootDir,
-				config.destinationDir,
+				plugins.lib.pathHelper.getDestinationDirectory(config),
 				config.stylesFileName + '.css'
 			));
 			// collect styles.css from all components
-			sources.push(path.join(
-				config.publicRootDir,
-				config.componentsDir,
-				'*',
-				config.cssDir,
-				config.stylesFileName + '.css'
-			));
+			sources.push(plugins.lib.pathHelper
+					.getAssetsGlobPatterns(
+						config,
+						path.join(config.cssDir, config.stylesFileName + '.css')
+					)
+			);
 
 			var processors = [];
 			if (config.postcssConfig.filters) {
@@ -61,10 +58,9 @@ module.exports = function (gulp, plugins, config) {
 					plugins.header(config.banner
 						.replace('<%now%>', time.captureNow()))
 				))
-				.pipe(gulp.dest(path.join(
-					config.publicRootDir,
-					config.destinationDir
-				)));
+				.pipe(gulp.dest(
+					plugins.lib.pathHelper.getDestinationDirectory(config)
+				));
 		}
 	};
 };

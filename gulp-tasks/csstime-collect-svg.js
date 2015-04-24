@@ -5,12 +5,12 @@ var path = require('path');
 module.exports = function (gulp, plugins, config) {
 	return {
 		task: function () {
-			var svgPattern = plugins.lib.components
+			var svgPattern = plugins.lib.pathHelper
 					.getAssetsGlobPatterns(
 						config,
 						path.join(config.svgDir, '**', '*.svg')
 					),
-				destination = plugins.lib.components
+				destination = plugins.lib.pathHelper
 					.getAssetsDestinationDirectory(config);
 
 			return gulp.src(svgPattern)

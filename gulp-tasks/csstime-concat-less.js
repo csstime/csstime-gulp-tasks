@@ -2,8 +2,7 @@
 
 var path = require('path'),
 	util = require('util'),
-	fs = require('fs'),
-	components = require('../lib/components');
+	fs = require('fs');
 
 var IMPORT_FORMAT = '/*\n * Styles of component "%s"\n */\n@import "%s";',
 	BASE_VARIABLES = '@CDN: "%s";',
@@ -23,7 +22,8 @@ module.exports = function (gulp, plugins, config) {
 	return {
 		dependencies: dependencies,
 		task: function () {
-			var componentsDirectories = components.getAssetsDirectories(config),
+			var componentsDirectories = plugins.lib.pathHelper
+					.getAssetsDirectories(config),
 				imports = [];
 
 			// variables
@@ -57,7 +57,7 @@ module.exports = function (gulp, plugins, config) {
 					{src: true}
 				)
 				.pipe(gulp.dest(
-					plugins.lib.components.getTemporaryDirectory(config)
+					plugins.lib.pathHelper.getTemporaryDirectory(config)
 				));
 		}
 	};

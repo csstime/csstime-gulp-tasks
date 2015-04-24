@@ -1,13 +1,13 @@
 {
+	"packagePath": "node_modules/csstime-gulp-tasks",
+	"packageConfigsPath": "node_modules/csstime-gulp-tasks/configs",
+
 	"componentsRootDirs": ["src/components"],
 	"componentAssetsDir": "assets",
 
-	"componentsRootDir": "catberry_components",
 	"staticRootDir": "static",
-	"publicRootDir": "public",
 
-	"destinationDir": "static",
-	"componentsDir": "assets",
+	"destinationDir": "build",
 	"temporaryDir": "__csstime-tmp",
 
 	"spritesDir": "sprites",
@@ -36,6 +36,5 @@
 
 	"banner": "/**\n * csstime\n * <%now%>\n */\n",
 
-	"configsPath": "../configs/",
 	"cdnPath": "/static/assets/"
 }
