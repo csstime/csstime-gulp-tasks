@@ -35,6 +35,7 @@
 	"useNormalizeCss": false, // see normalize.css
 	"usePostCSS": true, // autoprefixer, opacity, filters
 	"enableCssStructureMinimization": false, // see gulp-csso
+	"shouldClearDestinationDuringRelease": true,
 
     "watchInterval": 1000,
 

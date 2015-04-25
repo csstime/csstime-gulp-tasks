@@ -17,7 +17,8 @@ New options:
 * "packagePath": "node_modules/csstime-gulp-tasks",
 * "componentsRootDirs": ["src/components"],
 * "componentAssetsDir": "assets",
-* "componentJSON": "component.json".
+* "componentJSON": "component.json",
+* "shouldClearDestinationDuringRelease": true.
 
 If you use [Catberry.js](http://catberry.org) v4 and csstime-gulp-tasks v3,
 you can simple migrate to csstime-gulp-tasks v4 doing so:

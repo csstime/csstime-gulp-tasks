@@ -8,18 +8,36 @@ module.exports = function (gulp, plugins, config) {
 			'_csstime-set-release',
 			'csstime-process-all'
 		],
-		task: function () {
-			return gulp.src(
-					path.join(
-						plugins.lib.pathHelper
-							.getTemporaryDestinationDirectory(config),
-						'**',
-						'*.*'
-					)
+		task: function (cb) {
+			if (!config.shouldClearDestinationDuringRelease) {
+				publish();
+				return;
+			}
+
+			plugins.del([
+				plugins.lib.pathHelper.getAssetsDestinationDirectory(config),
+				path.join(
+					plugins.lib.pathHelper.getDestinationDirectory(config),
+					'*.*'
 				)
-				.pipe(gulp.dest(
-					plugins.lib.pathHelper.getDestinationDirectory(config)
-				));
+			], publish);
+
+			function publish () {
+				gulp.src(
+						path.join(
+							plugins.lib.pathHelper
+								.getTemporaryDestinationDirectory(config),
+							'**',
+							'*.*'
+						)
+					)
+					.pipe(gulp.dest(
+						plugins.lib.pathHelper.getDestinationDirectory(config)
+					))
+					.on('end', function () {
+						cb();
+					});
+			}
 		}
 	};
 };
