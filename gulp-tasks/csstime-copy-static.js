@@ -11,6 +11,11 @@ module.exports = function (gulp, plugins, config) {
 						'**'
 					)
 				)
+				.pipe(plugins.if(
+					!config.isRelease,
+					plugins.changed(plugins.lib.pathHelper
+						.getDestinationDirectory(config))
+				))
 				.pipe(gulp.dest(
 					config.isRelease ?
 						plugins.lib.pathHelper

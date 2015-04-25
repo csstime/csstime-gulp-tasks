@@ -12,6 +12,11 @@ module.exports = function (gulp, plugins, config) {
 					);
 
 			return gulp.src(fontsPattern, {base: process.cwd()})
+				.pipe(plugins.if(
+					!config.isRelease,
+					plugins.changed(plugins.lib.pathHelper
+						.getAssetsDestinationDirectory(config))
+				))
 				.pipe(plugins.rename(function (filePath) {
 					plugins.lib.pathHelper
 						.renamePathToComponentName(config, filePath);

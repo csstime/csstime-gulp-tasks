@@ -17,6 +17,11 @@ module.exports = function (gulp, plugins, config) {
 						'*.js'
 					)
 				)
+				.pipe(plugins.if(
+					!config.isRelease,
+					plugins.changed(plugins.lib.pathHelper
+						.getDestinationDirectory(config))
+				))
 				.pipe(plugins.uglify())
 				.pipe(plugins.if(
 					config.banner && (typeof config.banner === 'string'),

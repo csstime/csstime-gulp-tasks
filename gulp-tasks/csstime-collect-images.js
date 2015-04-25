@@ -13,6 +13,11 @@ module.exports = function (gulp, plugins, config) {
 
 			return gulp.src(imagesPattern, {base: process.cwd()})
 				.pipe(plugins.if(
+					!config.isRelease,
+					plugins.changed(plugins.lib.pathHelper
+						.getAssetsDestinationDirectory(config))
+				))
+				.pipe(plugins.if(
 					config.isRelease && config.useImageOptimization,
 					plugins.imagemin(config.imageminConfig)
 				))

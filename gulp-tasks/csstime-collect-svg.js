@@ -18,6 +18,11 @@ module.exports = function (gulp, plugins, config) {
 
 			return gulp.src(svgPattern, {base: process.cwd()})
 				.pipe(plugins.if(
+					!config.isRelease,
+					plugins.changed(plugins.lib.pathHelper
+						.getAssetsDestinationDirectory(config))
+				))
+				.pipe(plugins.if(
 					config.isRelease && config.useSvgOptimization,
 					plugins.imagemin(config.imageminConfig)
 				))

@@ -25,6 +25,7 @@
 		"autoprefixer-core": "^5.1.7",
 		"del": "^1.1.1",
 		"glob": "^5.0.5",
+		"gulp-changed": "^1.2.1",
 		"gulp-concat": "^2.4.3",
 		"gulp-csscomb": "^3.0.3",
 		"gulp-csso": "^1.0.0",
