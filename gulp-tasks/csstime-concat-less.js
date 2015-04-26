@@ -2,8 +2,7 @@
 
 var path = require('path'),
 	util = require('util'),
-	fs = require('fs'),
-	components = require('../lib/components');
+	fs = require('fs');
 
 var IMPORT_FORMAT = '/*\n * Styles of component "%s"\n */\n@import "%s";',
 	BASE_VARIABLES = '@CDN: "%s";',
@@ -23,7 +22,8 @@ module.exports = function (gulp, plugins, config) {
 	return {
 		dependencies: dependencies,
 		task: function () {
-			var componentsNames = components.getNames(config),
+			var componentsDirectories = plugins.lib.pathHelper
+					.getAssetsDirectories(config),
 				imports = [];
 
 			// variables
@@ -38,15 +38,13 @@ module.exports = function (gulp, plugins, config) {
 			}
 
 			// less
-			componentsNames.forEach(function (component) {
+			componentsDirectories.forEach(function (component) {
 				var importingFile = path.join(
-					config.publicRootDir,
-					config.componentsDir,
 					component,
 					config.lessDir,
 					config.stylesFileName + '.less'
 				);
-				if (!fs.existsSync(path.join(process.cwd(), importingFile))) {
+				if (!fs.existsSync(importingFile)) {
 					return;
 				}
 				imports.push(util.format(IMPORT_FORMAT, component, importingFile));
@@ -58,10 +56,9 @@ module.exports = function (gulp, plugins, config) {
 					imports.join('\n\n'),
 					{src: true}
 				)
-				.pipe(gulp.dest(path.join(
-					config.publicRootDir,
-					config.temporaryDir
-				)));
+				.pipe(gulp.dest(
+					plugins.lib.pathHelper.getTemporaryDirectory(config)
+				));
 		}
 	};
 };

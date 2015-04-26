@@ -3,10 +3,7 @@
 module.exports = function (gulp, plugins, config) {
 	return {
 		dependencies: [
-			'csstime-process-static',
-			'csstime-process-assets',
-			'csstime-minify-css',
-			'csstime-minify-js',
+			'csstime-publish-tmp',
 			'csstime-remove-tmp'
 		],
 		task: function () {

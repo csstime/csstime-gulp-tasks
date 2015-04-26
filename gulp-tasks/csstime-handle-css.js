@@ -1,8 +1,7 @@
 'use strict';
 
 var path = require('path'),
-	time = require('../lib/time'),
-	packageConfig = require('../package.json');
+	time = require('../lib/time');
 
 var NODE_MODULES = 'node_modules',
 	NORMALIZE_CSS = 'normalize.css';
@@ -15,8 +14,7 @@ module.exports = function (gulp, plugins, config) {
 			// add normalize.css
 			if (config.useNormalizeCss) {
 				sources.push(path.join(
-					NODE_MODULES,
-					packageConfig.name,
+					config.packagePath,
 					NODE_MODULES,
 					NORMALIZE_CSS,
 					NORMALIZE_CSS
@@ -24,18 +22,22 @@ module.exports = function (gulp, plugins, config) {
 			}
 			// add styles.css compiled from less
 			sources.push(path.join(
-				config.publicRootDir,
-				config.destinationDir,
+				config.isRelease ?
+					plugins.lib.pathHelper
+						.getTemporaryDestinationDirectory(config) :
+					plugins.lib.pathHelper
+						.getDestinationDirectory(config),
 				config.stylesFileName + '.css'
 			));
 			// collect styles.css from all components
-			sources.push(path.join(
-				config.publicRootDir,
-				config.componentsDir,
-				'*',
-				config.cssDir,
-				config.stylesFileName + '.css'
-			));
+			plugins.lib.pathHelper
+				.getAssetsGlobPatterns(
+					config,
+					path.join(config.cssDir, config.stylesFileName + '.css')
+				)
+				.forEach(function (pattern) {
+					sources.push(pattern);
+				});
 
 			var processors = [];
 			if (config.postcssConfig.filters) {
@@ -61,10 +63,13 @@ module.exports = function (gulp, plugins, config) {
 					plugins.header(config.banner
 						.replace('<%now%>', time.captureNow()))
 				))
-				.pipe(gulp.dest(path.join(
-					config.publicRootDir,
-					config.destinationDir
-				)));
+				.pipe(gulp.dest(
+					config.isRelease ?
+						plugins.lib.pathHelper
+							.getTemporaryDestinationDirectory(config) :
+						plugins.lib.pathHelper
+							.getDestinationDirectory(config)
+				));
 		}
 	};
 };
