@@ -1,0 +1,4 @@
+{
+	"sources": "src/components",
+	"configPath": "node_modules/csstime-gulp-tasks/configs/.csscomb.json"
+}

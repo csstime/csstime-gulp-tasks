@@ -1,15 +1,11 @@
 'use strict';
 
 var path = require('path'),
-	fs = require('fs'),
 	util = require('util'),
+	gulpTasksLoader = require('./lib/gulpTasksLoader'),
 	packageConfig = require('./package.json');
 
-var CSSTIME_GULP_TASKS_DIR = path.join(
-	'node_modules',
-	packageConfig.name,
-	'gulp-tasks'
-);
+var CSSTIME_GULP_TASKS_DIR = 'gulp-tasks';
 
 module.exports = {
 
@@ -63,6 +59,10 @@ CsstimeGulpTask.prototype.loadPlugins = function () {
 		opacity: require('postcss-opacity'),
 		autoprefixer: require('autoprefixer-core')
 	};
+
+	plugins.lib = {};
+	plugins.lib.pathHelper = require('./lib/pathHelper');
+
 	return plugins;
 };
 
@@ -73,23 +73,8 @@ CsstimeGulpTask.prototype.loadPlugins = function () {
  * @param {Object} config
  */
 CsstimeGulpTask.prototype.loadTasks = function (gulp, plugins, config) {
-	function cropExtension(fileName) {
-		return fileName.replace(/\.js$/i, '');
-	}
-
-	function loadTask(taskName) {
-		var taskData = require(path.join(
-				process.cwd(),
-				CSSTIME_GULP_TASKS_DIR,
-				taskName
-			))(gulp, plugins, config);
-
-		gulp.task(taskName, taskData.dependencies || [], taskData.task);
-	}
-
-	fs.readdirSync(CSSTIME_GULP_TASKS_DIR)
-		.map(cropExtension)
-		.forEach(loadTask);
+	gulpTasksLoader.loadAllTasks(gulp,
+		path.join(config.packagePath, CSSTIME_GULP_TASKS_DIR), plugins, config);
 };
 
 /**
@@ -102,6 +87,7 @@ CsstimeGulpTask.prototype.getConfig = function (options) {
 	currentConfig.imageminConfig = require('./configs/imagemin.json');
 	currentConfig.spritesmithConfig = require('./configs/spritesmith.json');
 	currentConfig.postcssConfig = require('./configs/postcss.json');
+	currentConfig.csscombConfig = require('./configs/csscomb.json');
 	currentConfig = this.mergeConfigs(currentConfig, options);
 	return currentConfig;
 };
@@ -121,10 +107,7 @@ CsstimeGulpTask.prototype.mergeConfigs = function (currentConfig, options) {
 
 	Object.keys(options)
 		.forEach(function (key) {
-			if (util.isArray(options[key]) &&
-				util.isArray(currentConfig[key])) {
-				currentConfig[key] = currentConfig[key].concat(options[key]);
-			} else if (typeof(options[key]) === 'object' &&
+			if (typeof(options[key]) === 'object' &&
 				typeof(currentConfig[key]) === 'object') {
 				currentConfig[key] = self
 					.mergeConfigs(currentConfig[key], options[key]);

@@ -1,10 +1,14 @@
 {
-	"componentsRootDir": "catberry_components",
-	"staticRootDir": "static",
-	"publicRootDir": "public",
+	"packagePath": "node_modules/csstime-gulp-tasks",
 
-	"destinationDir": "static",
-	"componentsDir": "assets",
+	"componentsRootDirs": ["src/components"],
+	"componentAssetsDir": "assets",
+	"componentJSON": "component.json",
+
+	"staticRootDir": "static",
+
+	"destinationDir": "build",
+	"destinationComponentsDir": "components",
 	"temporaryDir": "__csstime-tmp",
 
 	"spritesDir": "sprites",
@@ -28,11 +32,11 @@
 	"useNormalizeCss": false,
 	"usePostCSS": true,
 	"enableCssStructureMinimization": false,
+	"shouldClearDestinationDuringRelease": true,
 
 	"watchInterval": 1000,
 
 	"banner": "/**\n * csstime\n * <%now%>\n */\n",
 
-	"configsPath": "../configs/",
-	"cdnPath": "/static/assets/"
+	"cdnPath": "/components/"
 }

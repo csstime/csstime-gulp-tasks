@@ -11,26 +11,27 @@ module.exports = function (gulp, plugins, config) {
 			// add sprites
 			if (config.useImageSprites) {
 				sources.push(path.join(
-					config.publicRootDir,
-					config.temporaryDir,
+					plugins.lib.pathHelper.getTemporaryDirectory(config),
 					config.spritesFileName + '.less'
 				));
 			}
 
 			// add main less file
 			sources.push(path.join(
-				config.publicRootDir,
-				config.temporaryDir,
+				plugins.lib.pathHelper.getTemporaryDirectory(config),
 				config.stylesFileName + '.less'
 			));
 
 			return gulp.src(sources)
 				.pipe(plugins.concat(config.stylesFileName + '.less'))
 				.pipe(plugins.less())
-				.pipe(gulp.dest(path.join(
-					config.publicRootDir,
-					config.destinationDir
-				)));
+				.pipe(gulp.dest(
+					config.isRelease ?
+						plugins.lib.pathHelper
+							.getTemporaryDestinationDirectory(config) :
+						plugins.lib.pathHelper
+							.getDestinationDirectory(config)
+				));
 		}
 	};
 };
