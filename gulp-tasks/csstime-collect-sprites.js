@@ -1,6 +1,7 @@
 'use strict';
 
-var path = require('path');
+var path = require('path'),
+	defaultSpritesmithConfig = require('../configs/spritesmith.json');
 
 module.exports = function (gulp, plugins, config) {
 	return {
@@ -12,13 +13,20 @@ module.exports = function (gulp, plugins, config) {
 						path.join(config.spritesDir, '**', '*.png')
 					);
 
+			var cssTemplate =
+				(config.spritesmithConfig.cssTemplatePath ===
+					defaultSpritesmithConfig.cssTemplatePath) ?
+					path.join(config.packagePath,
+						defaultSpritesmithConfig.cssTemplatePath) :
+					config.spritesmithConfig.cssTemplatePath;
+
 			var	spriteData =
 				gulp.src(spriteImagesPattern)
 				.pipe(plugins.spritesmith({
 					imgName: config.spritesFileName + '.png',
 					cssName: config.spritesFileName + '.less',
 					algorithm: config.spritesmithConfig.algorithm,
-					cssTemplate: config.spritesmithConfig.cssTemplatePath,
+					cssTemplate: cssTemplate,
 					padding: config.spritesmithConfig.padding
 				}));
 

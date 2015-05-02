@@ -1,6 +1,6 @@
 {
 	"name": "csstime-gulp-tasks",
-	"version": "4.0.1",
+	"version": "4.0.2",
 	"description": "Prepared Gulp tasks to build and optimize assets of your project (LESS, CSS, SVG, images, sprites and more)",
 	"author": "Julia Rechkunova",
 	"main": "index.js",

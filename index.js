@@ -89,6 +89,7 @@ CsstimeGulpTask.prototype.getConfig = function (options) {
 	currentConfig.postcssConfig = require('./configs/postcss.json');
 	currentConfig.csscombConfig = require('./configs/csscomb.json');
 	currentConfig = this.mergeConfigs(currentConfig, options);
+	currentConfig.packagePath = __dirname;
 	return currentConfig;
 };
 
@@ -107,6 +108,9 @@ CsstimeGulpTask.prototype.mergeConfigs = function (currentConfig, options) {
 
 	Object.keys(options)
 		.forEach(function (key) {
+			if (currentConfig[key] === null) {
+				return;
+			}
 			if (typeof(options[key]) === 'object' &&
 				typeof(currentConfig[key]) === 'object') {
 				currentConfig[key] = self
