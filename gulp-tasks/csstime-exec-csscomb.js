@@ -9,7 +9,7 @@ module.exports = function (gulp, plugins, config) {
 			var configPath =
 				(config.csscombConfig.configPath ===
 					defaultCsscombConfig.configPath) ?
-					path.join(configPath.packagePath,
+					path.join(config.packagePath,
 						defaultCsscombConfig.configPath) :
 					config.csscombConfig.configPath;
 
