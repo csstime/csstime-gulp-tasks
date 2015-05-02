@@ -2,8 +2,6 @@
 
 ```javascript
 {
-	"packagePath": "node_modules/csstime-gulp-tasks",
-
 	"componentsRootDirs": ["src/components"],
 	"componentAssetsDir": "assets",
 	"componentJSON": "component.json",
@@ -95,7 +93,7 @@ To override use "spritesmithConfig" option.
 {
 	"padding": 10,
 	"algorithm": "binary-tree",
-	"cssTemplatePath": "node_modules/csstime-gulp-tasks/configs/.sprite.less.mustache"
+	"cssTemplatePath": "configs/.sprite.less.mustache"
 }
 ```
 
@@ -104,6 +102,6 @@ To override use "csscombConfig" option.
 ```json
 {
 	"sources": "src/components",
-	"configPath": "node_modules/csstime-gulp-tasks/configs/.csscomb.json"
+	"configPath": "configs/.csscomb.json"
 }
 ```

@@ -1,5 +1,5 @@
 {
 	"padding": 10,
 	"algorithm": "binary-tree",
-	"cssTemplatePath": "node_modules/csstime-gulp-tasks/configs/.sprite.less.mustache"
+	"cssTemplatePath": "configs/.sprite.less.mustache"
 }

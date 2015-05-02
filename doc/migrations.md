@@ -14,7 +14,6 @@ Changed options:
 * "cdnPath": "/components/".
 
 New options:
-* "packagePath": "node_modules/csstime-gulp-tasks",
 * "componentsRootDirs": ["src/components"],
 * "componentAssetsDir": "assets",
 * "componentJSON": "component.json",
