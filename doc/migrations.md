@@ -17,7 +17,7 @@ New options:
 * "componentsRootDirs": ["src/components"],
 * "componentAssetsDir": "assets",
 * "componentJSON": "component.json",
-* "shouldClearDestinationDuringRelease": true.
+* "shouldClearDestinationDuringRelease": false.
 
 If you use [Catberry.js](http://catberry.org) v4 and csstime-gulp-tasks v3,
 you can simple migrate to csstime-gulp-tasks v4 doing so:
