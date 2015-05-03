@@ -30,7 +30,7 @@
 	"useNormalizeCss": false,
 	"usePostCSS": true,
 	"enableCssStructureMinimization": false,
-	"shouldClearDestinationDuringRelease": true,
+	"shouldClearDestinationDuringRelease": false,
 
 	"watchInterval": 1000,
 

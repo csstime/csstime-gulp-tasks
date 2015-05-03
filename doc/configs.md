@@ -33,7 +33,7 @@
 	"useNormalizeCss": false, // see normalize.css
 	"usePostCSS": true, // autoprefixer, opacity, filters
 	"enableCssStructureMinimization": false, // see gulp-csso
-	"shouldClearDestinationDuringRelease": true,
+	"shouldClearDestinationDuringRelease": false,
 
     "watchInterval": 1000,
 
@@ -58,6 +58,9 @@ config = {
 };
 csstime.loadGulpTasks(gulp, config);
 ```
+
+If you want to clear destination directory during release process to remove deprecated files,
+you can set configuration option `shouldClearDestinationDuringRelease` to `true`.
 
 ## Imagemin default config
 To override use "imageminConfig" option.
