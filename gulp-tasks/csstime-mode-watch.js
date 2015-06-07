@@ -9,17 +9,62 @@ module.exports = function (gulp, plugins, config) {
 			'csstime-process-assets'
 		],
 		task: function () {
+
+			// fonts
 			gulp.watch(
 				plugins.lib.pathHelper.getAssetsGlobPatterns(
 					config,
-					path.join('**', '*')
+					path.join(config.fontsDir, '**')
 				),
 				{
 					interval: config.watchInterval
 				},
-				['csstime-process-assets']
+				['csstime-collect-fonts']
 			);
 
+			// other files
+			gulp.watch(
+				plugins.lib.pathHelper.getAssetsGlobPatterns(
+					config,
+					path.join(config.otherDir, '**')
+				),
+				{
+					interval: config.watchInterval
+				},
+				['csstime-collect-other']
+			);
+
+			// svg, images, sprites, css and less
+			gulp.watch(
+				[
+					plugins.lib.pathHelper.getAssetsGlobPatterns(
+						config,
+						path.join(config.imagesDir, '**')
+					),
+					plugins.lib.pathHelper.getAssetsGlobPatterns(
+						config,
+						path.join(config.svgDir, '**', '*.svg')
+					),
+					plugins.lib.pathHelper.getAssetsGlobPatterns(
+						config,
+						path.join(config.spritesDir, '**', '*.png')
+					),
+					plugins.lib.pathHelper.getAssetsGlobPatterns(
+						config,
+						path.join(config.lessDir, '**', '*.less')
+					),
+					plugins.lib.pathHelper.getAssetsGlobPatterns(
+						config,
+						path.join(config.cssDir, '**', '*.css')
+					)
+				],
+				{
+					interval: config.watchInterval
+				},
+				['csstime-handle-css']
+			);
+
+			// static files
 			gulp.watch(
 				plugins.lib.pathHelper.getStaticFilesGlobPattern(
 					config,
