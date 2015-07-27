@@ -24,6 +24,7 @@ module.exports = {
 				stylesName + '.css'
 			)
 		)
+			.pipe(plugins.concat(stylesName + '.css'))
 			.pipe(plugins.csso(!config.useCssStructureMinimization))
 			.pipe(plugins.if(
 				config.banner && (typeof config.banner === 'string'),
