@@ -7,7 +7,7 @@ module.exports = function (gulp, plugins, config) {
 	return {
 		dependencies: ['csstime-concat-less'],
 		task: function () {
-			return task.run(config.spritesFileName, gulp, plugins, config);
+			return task.run(config.stylesFileName, gulp, plugins, config);
 		}
 	};
 };
