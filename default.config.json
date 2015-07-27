@@ -16,9 +16,11 @@
 	"lessDir": "less",
 	"cssDir": "css",
 	"otherDir": "other",
+	"lessThemesDir": "themes",
 
 	"stylesFileName": "styles",
 	"spritesFileName": "sprites",
+	"themedStylesFileNames": [],
 
 	"indexComponentName": "document",
 

@@ -54,6 +54,8 @@ CsstimeGulpTask.prototype.loadPlugins = function () {
 
 	plugins.notifier = require('node-notifier');
 	plugins.del = require('del');
+	plugins.runSequence = require('run-sequence');
+	plugins.mergeStream = require('merge-stream');
 	plugins.postcssProcessors = {
 		filters: require('pleeease-filters'),
 		opacity: require('postcss-opacity'),

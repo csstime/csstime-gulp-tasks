@@ -9,12 +9,15 @@ module.exports = function (gulp, plugins, config) {
 			'csstime-collect-svg',
 			'csstime-collect-other'
 		],
-		task: function () {
-			var logger = require('../lib/logger')(plugins, config);
-			logger.write('assets were rebuilt');
-			if (!config.isRelease) {
-				logger.notify('Assets were rebuilt');
-			}
+		task: function (cb) {
+			plugins.runSequence('csstime-handle-themed-css', function () {
+				var logger = require('../lib/logger')(plugins, config);
+				logger.write('assets were rebuilt');
+				if (!config.isRelease) {
+					logger.notify('Assets were rebuilt');
+				}
+				cb();
+			});
 		}
 	};
 };

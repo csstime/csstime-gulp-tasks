@@ -5,7 +5,6 @@ var path = require('path');
 module.exports = function (gulp, plugins, config) {
 	return {
 		dependencies: [
-			'_csstime-set-release',
 			'csstime-process-all'
 		],
 		task: function (cb) {
