@@ -11,6 +11,11 @@ module.exports = function (gulp, plugins, config) {
 			'csstime-minify-js'
 		],
 		task: function (cb) {
+			if (!config.themedStylesFileNames.length) {
+				cb();
+				return;
+			}
+
 			plugins.runSequence('csstime-minify-themed-css', cb);
 		}
 	};

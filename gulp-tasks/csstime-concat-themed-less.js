@@ -11,7 +11,7 @@ var IMPORT_FORMAT = '/*\n * Themed styles of component "%s"' +
 
 module.exports = function (gulp, plugins, config) {
 	return {
-		dependencies: 'csstime-remove-tmp-themed-styles',
+		dependencies: ['csstime-remove-tmp-themed-styles'],
 		task: function () {
 			var tasks = config.themedStylesFileNames.map(
 				function (themeName) {
