@@ -6,7 +6,10 @@ module.exports = function (gulp, plugins, config) {
 	return {
 		task: function (cb) {
 			plugins.del([
-				plugins.lib.pathHelper.getTemporaryDirectory(config)
+				path.join(
+					plugins.lib.pathHelper.getTemporaryDirectory(config),
+					config.lessThemesDir
+				)
 			], cb);
 		}
 	};

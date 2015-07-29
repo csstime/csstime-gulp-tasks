@@ -3,6 +3,7 @@
 [![Join the chat at https://gitter.im/csstime/csstime-gulp-tasks](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/csstime/csstime-gulp-tasks?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Prepared Gulp tasks to build and optimize assets of your project (LESS, CSS, SVG, images, sprites and more).
+Themes are supported via separated additional css-bundles.
 
 ```
 npm install csstime-gulp-tasks
@@ -44,6 +45,8 @@ src/ #source directory
 			├──images/
 			├──sprites/
 			└──less/
+				└──themes/
+					└──mobile.less
 				└──styles.less
 			└──svg/
 	└──componentA/
@@ -51,6 +54,8 @@ src/ #source directory
 		└──assets
 			├──sprites/
 			└──less/
+				└──themes/
+					└──mobile.less
 				└──styles.less
 			└──svg/
 	└──componentB/
@@ -69,6 +74,7 @@ var gulp = require('gulp'),
     csstime = require('csstime-gulp-tasks');
 
 config.useNormalizeCss = true; // custom configuration
+config.themedStylesFileNames = ['mobile']; // separated themes
 csstime.loadGulpTasks(gulp, config);
 ```
 
@@ -97,6 +103,8 @@ build/ #all generated files here
     ├──robots.txt
     ├──...
 	├──styles.css
+	└──themes/
+		└──mobile.css
 	└──components/
 		├──sprites.png
 		└──document/ #without less, css, sprites

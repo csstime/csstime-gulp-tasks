@@ -1,6 +1,6 @@
 {
 	"name": "csstime-gulp-tasks",
-	"version": "4.1.1",
+	"version": "4.2.0",
 	"description": "Prepared Gulp tasks to build and optimize assets of your project (LESS, CSS, SVG, images, sprites and more)",
 	"author": "Julia Rechkunova",
 	"main": "index.js",
@@ -41,10 +41,12 @@
 		"gulp-uglify": "^1.1.0",
 		"gulp-util": "^3.0.4",
 		"gulp.spritesmith": "^3.5.4",
+		"merge-stream": "^0.1.8",
 		"node-notifier": "^4.1.2",
 		"normalize.css": "^3.0.2",
 		"pleeease-filters": "^1.0.0",
-		"postcss-opacity": "^2.0.0"
+		"postcss-opacity": "^2.0.0",
+		"run-sequence": "^1.1.2"
 	},
 	"engines": {
 		"node": ">=0.10"
