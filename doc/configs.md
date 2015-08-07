@@ -15,6 +15,7 @@
 	"spritesDir": "sprites",
 	"imagesDir": "images",
 	"svgDir": "svg",
+	"svgSymbolsDir": "symbols",
 	"fontsDir": "fonts",
 	"lessDir": "less",
 	"cssDir": "css",

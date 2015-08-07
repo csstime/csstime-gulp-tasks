@@ -4,11 +4,16 @@ var path = require('path');
 
 module.exports = function (gulp, plugins, config) {
 	return {
-		task: function () {
+		task: function (cb) {
+			if (!config.useSvgSymbols) {
+				cb();
+				return;
+			}
+
 			var svgPattern = plugins.lib.pathHelper
 					.getAssetsGlobPatterns(
 						config,
-						path.join(config.svgDir, '**', '*.svg')
+						path.join(config.svgSymbolsDir, '**', '*.svg')
 					),
 				destination = config.isRelease ?
 					plugins.lib.pathHelper
@@ -26,24 +31,10 @@ module.exports = function (gulp, plugins, config) {
 					config.isRelease && config.useSvgOptimization,
 					plugins.imagemin(config.imageminConfig)
 				))
-				.pipe(plugins.rename(function (filePath) {
-					plugins.lib.pathHelper
-						.renamePathToComponentName(config, filePath);
-				}))
-				.pipe(gulp.dest(destination))
-				.pipe(plugins.if(
-					config.useSvgRasterization,
-					plugins.svg2png()
-				))
-				.pipe(plugins.if(
-					config.isRelease &&
-						config.useSvgRasterization && config.useImageOptimization,
-					plugins.imagemin(config.imageminConfig)
-				))
-				.pipe(plugins.if(
-					config.useSvgRasterization,
-					gulp.dest(destination)
-				));
+				.pipe(plugins.rename({prefix: config.svgSymbolsPrefix}))
+				.pipe(plugins.svgstore(config.svstoreConfig))
+				.pipe(plugins.rename(config.svgSymbolsFileName + '.svg'))
+				.pipe(gulp.dest(destination));
 		}
 	};
 };

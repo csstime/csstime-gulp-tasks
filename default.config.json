@@ -12,6 +12,7 @@
 	"spritesDir": "sprites",
 	"imagesDir": "images",
 	"svgDir": "svg",
+	"svgSymbolsDir": "symbols",
 	"fontsDir": "fonts",
 	"lessDir": "less",
 	"cssDir": "css",
@@ -32,7 +33,7 @@
 
 	"useSvgOptimization": true,
 	"useSvgRasterization": true,
-	"useSvgSymbols": false,
+	"useSvgSymbols": true,
 	"svgSymbolsPrefix": "icon-",
 
 	"useNormalizeCss": false,
