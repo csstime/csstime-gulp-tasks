@@ -16,6 +16,22 @@ module.exports = function (gulp, plugins, config) {
 					plugins.lib.pathHelper
 						.getAssetsDestinationDirectory(config);
 
+			if (config.useSvgSymbols) {
+				return gulp.src(svgPattern, {base: process.cwd()})
+					.pipe(plugins.if(
+						!config.isRelease,
+						plugins.changed(plugins.lib.pathHelper
+							.getAssetsDestinationDirectory(config))
+					))
+					.pipe(plugins.if(
+						config.isRelease && config.useSvgOptimization,
+						plugins.imagemin(config.imageminConfig)
+					))
+					.pipe(plugins.rename({prefix: config.svgSymbolsPrefix}))
+					.pipe(plugins.svgstore())
+					.pipe(gulp.dest(destination));
+			}
+
 			return gulp.src(svgPattern, {base: process.cwd()})
 				.pipe(plugins.if(
 					!config.isRelease,

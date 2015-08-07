@@ -19,17 +19,24 @@
 	"lessDir": "less",
 	"cssDir": "css",
 	"otherDir": "other",
+	"lessThemesDir": "themes",
 
 	"stylesFileName": "styles",
 	"spritesFileName": "sprites",
+	"themedStylesFileNames": [],
 
 	"indexComponentName": "document", // "document" styles will be above other components styles in styles.css
 
     "useNotify": true, // show notifications in watch mode
+
 	"useImageSprites": true, // see gulp.spritesmith
 	"useImageOptimization": true, // see gulp-imagemin
+
 	"useSvgOptimization": true, // see gulp-imagemin (svgo)
 	"useSvgRasterization": true, // see gulp-svg2png
+	"useSvgSymbols": false,
+   	"svgSymbolsPrefix": "icon-",
+
 	"useNormalizeCss": false, // see normalize.css
 	"usePostCSS": true, // autoprefixer, opacity, filters
 	"enableCssStructureMinimization": false, // see gulp-csso

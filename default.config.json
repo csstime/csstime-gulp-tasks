@@ -25,10 +25,15 @@
 	"indexComponentName": "document",
 
 	"useNotify": true,
+
 	"useImageSprites": true,
 	"useImageOptimization": true,
+
 	"useSvgOptimization": true,
 	"useSvgRasterization": true,
+	"useSvgSymbols": false,
+	"svgSymbolsPrefix": "icon-",
+
 	"useNormalizeCss": false,
 	"usePostCSS": true,
 	"enableCssStructureMinimization": false,
