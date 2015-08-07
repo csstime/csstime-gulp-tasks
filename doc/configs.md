@@ -23,6 +23,7 @@
 
 	"stylesFileName": "styles",
 	"spritesFileName": "sprites",
+	"svgSymbolsFileName": "symbols",
 	"themedStylesFileNames": [],
 
 	"indexComponentName": "document", // "document" styles will be above other components styles in styles.css
@@ -113,5 +114,13 @@ To override use "csscombConfig" option.
 {
 	"sources": "src/components",
 	"configPath": "configs/.csscomb.json"
+}
+```
+
+## Svgstore default config
+To override use "svgstoreConfig" option.
+```json
+{
+	"inlineSvg": true
 }
 ```

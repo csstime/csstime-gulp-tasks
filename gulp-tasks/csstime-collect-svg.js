@@ -28,7 +28,8 @@ module.exports = function (gulp, plugins, config) {
 						plugins.imagemin(config.imageminConfig)
 					))
 					.pipe(plugins.rename({prefix: config.svgSymbolsPrefix}))
-					.pipe(plugins.svgstore())
+					.pipe(plugins.svgstore(config.svstoreConfig))
+					.pipe(plugins.rename(config.svgSymbolsFileName + '.svg'))
 					.pipe(gulp.dest(destination));
 			}
 
