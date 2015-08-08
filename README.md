@@ -49,7 +49,10 @@ src/ #source directory
 				└──themes/
 					└──mobile.less
 				└──styles.less
-			└──svg/
+			├──svg/
+			└──symbols/
+				├──icon1.svg
+				└──icon2.svg
 	└──componentA/
 		├──component.json
 		└──assets
@@ -58,7 +61,10 @@ src/ #source directory
 				└──themes/
 					└──mobile.less
 				└──styles.less
-			└──svg/
+			├──svg/
+			└──symbols/
+				├──icon3.svg
+				└──icon4.svg
 	└──componentB/
 		├──component.json
 		└──assets
@@ -74,7 +80,7 @@ var gulp = require('gulp'),
     config = {}, // custom config
     csstime = require('csstime-gulp-tasks');
 
-config.useNormalizeCss = true; // custom configuration
+config.useSvgSymbols = true; // custom configuration
 config.themedStylesFileNames = ['mobile']; // separated themes
 csstime.loadGulpTasks(gulp, config);
 ```
@@ -108,6 +114,7 @@ build/ #all generated files here
 		└──mobile.css
 	└──components/
 		├──sprites.png
+		├──symbols.svg
 		└──document/ #without less, css, sprites
 			├──other/
 			├──fonts/

@@ -17,7 +17,7 @@ Combining tasks:
 |---------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
 | `csstime-process-all` 	| `csstime-process-static`,<br>`csstime-process-assets`																													|
 | `csstime-process-static`	| `csstime-copy-static`																													|
-| `csstime-process-assets`	| `csstime-handle-css`,<br>`csstime-collect-images`,<br>`csstime-collect-fonts`,<br>`csstime-collect-svg`,<br>`csstime-collect-other`	|
+| `csstime-process-assets`	| `csstime-handle-css`,<br>`csstime-collect-images`,<br>`csstime-collect-fonts`,<br>`csstime-collect-svg`,<br>`csstime-combine-svg`,<br>`csstime-collect-other`	|
 
 Low level tasks:
 
