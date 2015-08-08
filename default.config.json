@@ -12,6 +12,7 @@
 	"spritesDir": "sprites",
 	"imagesDir": "images",
 	"svgDir": "svg",
+	"svgSymbolsDir": "symbols",
 	"fontsDir": "fonts",
 	"lessDir": "less",
 	"cssDir": "css",
@@ -20,15 +21,21 @@
 
 	"stylesFileName": "styles",
 	"spritesFileName": "sprites",
+	"svgSymbolsFileName": "symbols",
 	"themedStylesFileNames": [],
 
 	"indexComponentName": "document",
 
 	"useNotify": true,
+
 	"useImageSprites": true,
 	"useImageOptimization": true,
+
 	"useSvgOptimization": true,
 	"useSvgRasterization": true,
+	"useSvgSymbols": true,
+	"svgSymbolsPrefix": "icon-",
+
 	"useNormalizeCss": false,
 	"usePostCSS": true,
 	"enableCssStructureMinimization": false,

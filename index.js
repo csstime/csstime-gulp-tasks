@@ -90,6 +90,7 @@ CsstimeGulpTask.prototype.getConfig = function (options) {
 	currentConfig.spritesmithConfig = require('./configs/spritesmith.json');
 	currentConfig.postcssConfig = require('./configs/postcss.json');
 	currentConfig.csscombConfig = require('./configs/csscomb.json');
+	currentConfig.svstoreConfig = require('./configs/svgstore.json');
 	currentConfig = this.mergeConfigs(currentConfig, options);
 	currentConfig.packagePath = __dirname;
 	return currentConfig;

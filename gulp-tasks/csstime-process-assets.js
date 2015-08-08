@@ -7,6 +7,7 @@ module.exports = function (gulp, plugins, config) {
 			'csstime-collect-images',
 			'csstime-collect-fonts',
 			'csstime-collect-svg',
+			'csstime-combine-svg',
 			'csstime-collect-other'
 		],
 		task: function (cb) {

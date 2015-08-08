@@ -19,6 +19,7 @@ List of used packages:
 * gulp-less,
 * gulp-postcss,
 * gulp-svg2png,
+* gulp-svgstore,
 * gulp-uglify,
 * gulp.spritesmith,
 * node-notifier,
