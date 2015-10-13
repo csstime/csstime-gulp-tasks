@@ -51,7 +51,7 @@
 	"cdnPath": "/components/", // used in urls for sprites in css
 
 	"imageminConfig": {}, // see ./configs files or read further
-	"postcssConfig: {},
+	"postcssConfig": {},
 	"spritesmithConfig": {},
 	"csscombConfig": {}
 }
