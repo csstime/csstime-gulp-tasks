@@ -18,7 +18,6 @@ List of used packages:
 * gulp-imagemin,
 * gulp-less,
 * gulp-postcss,
-* gulp-svg2png,
 * gulp-svgstore,
 * gulp-uglify,
 * gulp.spritesmith,

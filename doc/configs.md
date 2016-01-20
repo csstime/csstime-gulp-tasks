@@ -35,7 +35,6 @@
 	"useImageOptimization": true, // see gulp-imagemin
 
 	"useSvgOptimization": true, // see gulp-imagemin (svgo)
-	"useSvgRasterization": true, // see gulp-svg2png
 	"useSvgSymbols": false,
    	"svgSymbolsPrefix": "icon-",
 

@@ -30,20 +30,7 @@ module.exports = function (gulp, plugins, config) {
 					plugins.lib.pathHelper
 						.renamePathToComponentName(config, filePath);
 				}))
-				.pipe(gulp.dest(destination))
-				.pipe(plugins.if(
-					config.useSvgRasterization,
-					plugins.svg2png()
-				))
-				.pipe(plugins.if(
-					config.isRelease &&
-						config.useSvgRasterization && config.useImageOptimization,
-					plugins.imagemin(config.imageminConfig)
-				))
-				.pipe(plugins.if(
-					config.useSvgRasterization,
-					gulp.dest(destination)
-				));
+				.pipe(gulp.dest(destination));
 		}
 	};
 };
