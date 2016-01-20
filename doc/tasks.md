@@ -27,7 +27,7 @@ Low level tasks:
 | `csstime-collect-sprites`	| `/src/components/**/assets/sprites` => `/public`<br>Build and optimize sprites									| `__csstime-tmp/sprites.less`,<br>`build/assets/sprites.png`			|
 | `csstime-collect-images`	| `/src/components/**/assets/images` => `/build/assets/*/images`<br>Copy and optimize images				        | optimized images														|
 | `csstime-collect-fonts`	| `/src/components/**/assets/fonts` => `/build/assets/*/fonts`<br>Copy fonts								        | same fonts															|
-| `csstime-collect-svg`	    | `/src/components/**/assets/svg` => `/build/assets/*/svg`<br>Copy svg, optimise and rasterize them		            | optimised svg, png fallbacks											|
+| `csstime-collect-svg`	    | `/src/components/**/assets/svg` => `/build/assets/*/svg`<br>Copy svg and optimise them        		            | optimised svg											                |
 | `csstime-combine-svg`	    | `/src/components/**/assets/symbols` => `/build/assets/symbols.svg`<br>Combine svg             		            | optimised and combined svg											|
 | `csstime-collect-other`	| `/src/components/**/assets/other` => `/build/assets/*/other`<br>Copy files								        | same files															|
 | `csstime-concat-less`		| `/src/components/**/assets/less` => `/build/__csstime-tmp`<br>Create main less file with import references	    | `styles.less`															|
