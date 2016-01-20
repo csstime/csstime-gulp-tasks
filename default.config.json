@@ -32,7 +32,6 @@
 	"useImageOptimization": true,
 
 	"useSvgOptimization": true,
-	"useSvgRasterization": true,
 	"useSvgSymbols": false,
 	"svgSymbolsPrefix": "icon-",
 
