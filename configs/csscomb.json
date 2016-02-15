@@ -1,4 +1,5 @@
 {
 	"sources": "src/components",
+	"excludes": [],
 	"configPath": "configs/.csscomb.json"
 }
