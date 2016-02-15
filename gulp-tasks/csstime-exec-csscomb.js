@@ -12,15 +12,20 @@ module.exports = function (gulp, plugins, config) {
 					path.join(config.packagePath,
 						defaultCsscombConfig.configPath) :
 					config.csscombConfig.configPath,
-				excludes = config.csscombConfig.excludes.map(function(path) {
-					return '!' + path;
-				}),
+				excludes = config.csscombConfig.excludes || null,
 				sources = [
 					path.join(config.csscombConfig.sources, '**', '*.less'),
 					path.join(config.csscombConfig.sources, '**', '*.css')
 				];
 
-			return gulp.src(sources.concat(excludes))
+			if (Array.isArray(excludes) && excludes.length > 0) {
+				excludes = excludes.map(function(path) {
+					return '!' + path;
+				});
+				sources = sources.concat(excludes);
+			}
+
+			return gulp.src(sources)
 				.pipe(plugins.csscomb(configPath))
 				.pipe(gulp.dest(config.csscombConfig.sources));
 		}
