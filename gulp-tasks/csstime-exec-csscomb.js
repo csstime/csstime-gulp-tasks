@@ -12,7 +12,7 @@ module.exports = function (gulp, plugins, config) {
 					path.join(config.packagePath,
 						defaultCsscombConfig.configPath) :
 					config.csscombConfig.configPath,
-				excludes = config.csscombConfig.excludes || null,
+				excludes = config.csscombConfig.excludes || [],
 				sources = [
 					path.join(config.csscombConfig.sources, '**', '*.less'),
 					path.join(config.csscombConfig.sources, '**', '*.css')
