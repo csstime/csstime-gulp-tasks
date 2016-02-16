@@ -113,6 +113,7 @@ To override use "csscombConfig" option.
 ```json
 {
 	"sources": "src/components",
+	"excludes": [],
 	"configPath": "configs/.csscomb.json"
 }
 ```
