@@ -5,8 +5,14 @@ var path = require('path'),
 	fs = require('fs');
 
 var IMPORT_FORMAT = '/*\n * Styles of component "%s"\n */\n@import "%s";',
-	BASE_VARIABLES = '@CDN: "%s";',
-	SPRITES_VARIABLES = '@SPRITES_IMAGE: "%s";';
+	BASE_VARIABLES = {
+		less: '@CDN: "%s";',
+		sass: '$CDN: "%s";'
+	},
+	SPRITES_VARIABLES = {
+		less: '@SPRITES_IMAGE: "%s";',
+		sass: '$SPRITES_IMAGE: "%s";'
+	};
 
 module.exports = {
 
@@ -24,22 +30,22 @@ module.exports = {
 			imports = [];
 
 		// variables
-		imports.push(util.format(BASE_VARIABLES, config.cdnPath));
+		imports.push(util.format(BASE_VARIABLES[config.preprocessor], config.cdnPath));
 
 		// sprites
 		if (config.useImageSprites) {
 			imports.push(util.format(
-				SPRITES_VARIABLES,
+				SPRITES_VARIABLES[config.preprocessor],
 				config.spritesFileName + '.png'
 			));
 		}
 
-		// less
+		// less/sass
 		componentsDirectories.forEach(function (component) {
 			var importingFile = path.join(
 				component,
-				config.lessDir,
-				stylesName + '.less'
+				config[config.preprocessor + 'Dir'],
+				stylesName + '.' + config.preprocessorExt
 			);
 			if (!fs.existsSync(importingFile)) {
 				return;
@@ -49,7 +55,7 @@ module.exports = {
 
 		// create file
 		return plugins.file(
-			stylesName + '.less',
+			stylesName + '.' + config.preprocessorExt,
 			imports.join('\n\n'),
 			{src: true}
 		)

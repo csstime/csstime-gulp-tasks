@@ -1,5 +1,6 @@
 {
 	"padding": 10,
 	"algorithm": "binary-tree",
-	"cssTemplatePath": "configs/.sprite.less.mustache"
+	"lessTemplatePath": "configs/.sprite.less.mustache",
+	"sassTemplatePath": "configs/.sprite.sass.mustache"
 }

@@ -13,18 +13,19 @@ module.exports = function (gulp, plugins, config) {
 						path.join(config.spritesDir, '**', '*.png')
 					);
 
-			var cssTemplate =
-				(config.spritesmithConfig.cssTemplatePath ===
-					defaultSpritesmithConfig.cssTemplatePath) ?
+			var cssTempleteFilePath = config.preprocessor + 'TemplatePath',
+				cssTemplate =
+				(config.spritesmithConfig[cssTempleteFilePath] ===
+					defaultSpritesmithConfig[cssTempleteFilePath]) ?
 					path.join(config.packagePath,
-						defaultSpritesmithConfig.cssTemplatePath) :
-					config.spritesmithConfig.cssTemplatePath;
+						defaultSpritesmithConfig[cssTempleteFilePath]) :
+					config.spritesmithConfig[cssTempleteFilePath];
 
 			var	spriteData =
 				gulp.src(spriteImagesPattern)
 				.pipe(plugins.spritesmith({
 					imgName: config.spritesFileName + '.png',
-					cssName: config.spritesFileName + '.less',
+					cssName: config.spritesFileName + '.' + config.preprocessorExt,
 					algorithm: config.spritesmithConfig.algorithm,
 					cssTemplate: cssTemplate,
 					padding: config.spritesmithConfig.padding

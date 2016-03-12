@@ -15,9 +15,21 @@
 	"svgSymbolsDir": "symbols",
 	"fontsDir": "fonts",
 	"lessDir": "less",
+	"sassDir": "sass",
 	"cssDir": "css",
 	"otherDir": "other",
 	"lessThemesDir": "themes",
+	"sassThemesDir": "themes",
+
+	"preprocessor": "less",
+	"preprocessorsConfig": {
+		"less": {
+			"ext": "less"
+		},
+		"sass": {
+			"ext": "scss"
+		}
+	},
 
 	"stylesFileName": "styles",
 	"spritesFileName": "sprites",

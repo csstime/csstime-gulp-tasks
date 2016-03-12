@@ -9,7 +9,7 @@ module.exports = function (gulp, plugins, config) {
 			var tasks = config.themedStylesFileNames.map(
 				function (themeName) {
 					return task.run(
-						path.join(config.lessThemesDir, themeName),
+						path.join(config[config.preprocessor + 'ThemesDir'], themeName),
 						gulp, plugins, config
 					);
 				}

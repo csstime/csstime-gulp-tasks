@@ -93,6 +93,8 @@ CsstimeGulpTask.prototype.getConfig = function (options) {
 	currentConfig.svstoreConfig = require('./configs/svgstore.json');
 	currentConfig = this.mergeConfigs(currentConfig, options);
 	currentConfig.packagePath = __dirname;
+	currentConfig.preprocessorExt =
+		currentConfig.preprocessorsConfig[currentConfig.preprocessor].ext;
 	return currentConfig;
 };
 
