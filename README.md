@@ -2,7 +2,7 @@
 
 [![Join the chat at https://gitter.im/csstime/csstime-gulp-tasks](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/csstime/csstime-gulp-tasks?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Prepared Gulp tasks to build and optimize assets of your project (SASS, LESS, CSS, SVG, images, sprites and more).
+Prepared Gulp tasks to build and optimize assets for your project (SASS, LESS, CSS, SVG, images, sprites and more).
 Themes are supported via separated additional css-bundles.
 
 ```
@@ -28,7 +28,7 @@ List of used packages:
 * postcss-opacity.
 
 If your project has following structure you can use these tasks or some of them.
-You component.json should has "name" of component.
+`component.json` should have "name" of component.
 
 ```
 gulpfile.js
@@ -72,7 +72,9 @@ src/ #source directory
 				└──styles.css
 ```
 
-Just write this in your Gulpfile.js:
+Example App with such structure you can find here [csstime-example](https://github.com/csstime/csstime-example).
+
+Just write this in your `gulpfile.js`:
 ```javascript
 'use strict';
 
@@ -88,7 +90,7 @@ csstime.loadGulpTasks(gulp, config);
 You can pass custom config in `csstime.loadGulpTasks(gulp, config);` to override default params.
 Learn more about default params in [configs documentation](/doc/configs.md).
 
-Here is high level available tasks which you can see after `gulp --tasks`:
+Here is available high level tasks which you can see for `gulp --tasks`:
 
 | Name						| Action																		|
 |---------------------------|-------------------------------------------------------------------------------|
@@ -125,4 +127,4 @@ build/ #all generated files here
 
 ```
 
-Learn how to migrate to version 4 [here](/doc/migrations.md).
+Learn how to migrate from version 3 to version 4 [here](/doc/migrations.md).
