@@ -1,5 +1,32 @@
 # Migrations
 
+## Migration from 5.* to 6.*
+Added SASS support.
+
+Removed options:
+* "spritesmithConfig.cssTemplatePath"
+
+New options:
+* "spritesmithConfig.lessTemplatePath": "configs/.sprite.less.mustache",
+* "spritesmithConfig.sassTemplatePath": "configs/.sprite.sass.mustache""
+* "preprocessor": "less", // can be sass
+  	"preprocessorsConfig": {
+  		"less": {
+  			"ext": "less"
+  		},
+  		"sass": {
+  			"ext": "scss"
+  		}
+  	},
+* "sassDir": "sass",
+* "sassThemesDir": "themes".
+
+## Migration from 4.* to 5.*
+Removed SVG rasterization support.
+
+Removed options:
+* "useSvgRasterization"
+
 ## Migration from 3.* to 4.*
 Changed expected file system structure. See current state in [readme](../README.md).
 File `component.json` (you can configure this name) is required now in component directory.

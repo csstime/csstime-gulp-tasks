@@ -1,6 +1,6 @@
 # Default config in csstime-gulp-tasks
 
-```javascript
+```json
 {
 	"componentsRootDirs": ["src/components"],
 	"componentAssetsDir": "assets",
@@ -18,9 +18,21 @@
 	"svgSymbolsDir": "symbols",
 	"fontsDir": "fonts",
 	"lessDir": "less",
+	"sassDir": "sass",
 	"cssDir": "css",
 	"otherDir": "other",
 	"lessThemesDir": "themes",
+	"sassThemesDir": "themes",
+
+	"preprocessor": "less",
+	"preprocessorsConfig": {
+		"less": {
+			"ext": "less"
+		},
+		"sass": {
+			"ext": "scss"
+		}
+	},
 
 	"stylesFileName": "styles",
 	"spritesFileName": "sprites",
@@ -29,7 +41,7 @@
 
 	"indexComponentName": "document", // "document" styles will be above other components styles in styles.css
 
-    "useNotify": true, // show notifications in watch mode
+	"useNotify": true, // show notifications in watch mode
 
 	"useImageSprites": true, // see gulp.spritesmith
 	"useImageOptimization": true, // see gulp-imagemin
@@ -43,7 +55,7 @@
 	"enableCssStructureMinimization": false, // see gulp-csso
 	"shouldClearDestinationDuringRelease": false,
 
-    "watchInterval": 1000,
+	"watchInterval": 1000,
 
 	"banner": "/**\n * csstime\n * <%now%>\n */\n", // header in styles.css, see gulp-header
 
@@ -104,7 +116,8 @@ To override use "spritesmithConfig" option.
 {
 	"padding": 10,
 	"algorithm": "binary-tree",
-	"cssTemplatePath": "configs/.sprite.less.mustache"
+	"lessTemplatePath": "configs/.sprite.less.mustache",
+	"sassTemplatePath": "configs/.sprite.sass.mustache"
 }
 ```
 

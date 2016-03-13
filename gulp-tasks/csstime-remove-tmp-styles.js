@@ -8,7 +8,7 @@ module.exports = function (gulp, plugins, config) {
 			plugins.del([
 				path.join(
 					plugins.lib.pathHelper.getTemporaryDirectory(config),
-					config.stylesFileName + '.less'
+					config.stylesFileName + '.' + config.preprocessorExt
 				)
 			], cb);
 		}

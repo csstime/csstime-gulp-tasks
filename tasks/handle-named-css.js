@@ -29,7 +29,7 @@ module.exports = {
 			));
 		}
 
-		// add themed.css compiled from less
+		// add themed.css compiled from less/sass
 		sources.push(path.join(
 			config.isRelease ?
 				plugins.lib.pathHelper

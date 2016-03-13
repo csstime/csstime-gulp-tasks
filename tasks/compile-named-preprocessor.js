@@ -14,24 +14,25 @@ module.exports = {
 	 */
 	run: function (stylesName, gulp, plugins, config) {
 		var sources = [];
+		var stylesFileName = stylesName + '.' + config.preprocessorExt;
 
 		// add sprites
 		if (config.useImageSprites) {
 			sources.push(path.join(
 				plugins.lib.pathHelper.getTemporaryDirectory(config),
-				config.spritesFileName + '.less'
+				config.spritesFileName + '.' + config.preprocessorExt
 			));
 		}
 
-		// add main less file
+		// add main less/sass file
 		sources.push(path.join(
 			plugins.lib.pathHelper.getTemporaryDirectory(config),
-			stylesName + '.less'
+			stylesFileName
 		));
 
 		return gulp.src(sources)
-			.pipe(plugins.concat(stylesName + '.less'))
-			.pipe(plugins.less())
+			.pipe(plugins.concat(stylesFileName))
+			.pipe(plugins[config.preprocessor]())
 			.pipe(gulp.dest(
 				config.isRelease ?
 					plugins.lib.pathHelper

@@ -14,12 +14,13 @@ module.exports = function (gulp, plugins, config) {
 					config.csscombConfig.configPath,
 				excludes = config.csscombConfig.excludes || [],
 				sources = [
-					path.join(config.csscombConfig.sources, '**', '*.less'),
+					path.join(config.csscombConfig.sources, '**',
+						'*.' + config.preprocessorExt),
 					path.join(config.csscombConfig.sources, '**', '*.css')
 				];
 
 			if (Array.isArray(excludes) && excludes.length > 0) {
-				excludes = excludes.map(function(path) {
+				excludes = excludes.map(function (path) {
 					return '!' + path;
 				});
 				sources = sources.concat(excludes);

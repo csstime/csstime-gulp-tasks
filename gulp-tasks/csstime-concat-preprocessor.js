@@ -1,6 +1,6 @@
 'use strict';
 
-var task = require('../tasks/concat-named-less');
+var task = require('../tasks/concat-named-preprocessor');
 
 module.exports = function (gulp, plugins, config) {
 	var dependencies = [
