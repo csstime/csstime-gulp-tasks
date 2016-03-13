@@ -127,4 +127,6 @@ build/ #all generated files here
 
 ```
 
-Learn how to migrate from version 3 to version 4 [here](/doc/migrations.md).
+## Migration
+
+Learn how to migrate from previous versions [here](/doc/migrations.md).
