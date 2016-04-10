@@ -6,8 +6,8 @@ var path = require('path'),
 module.exports = function (gulp, plugins, config) {
 	return {
 		dependencies: ['csstime-concat-preprocessor'],
-		task: function () {
-			return task.run(config.stylesFileName, gulp, plugins, config);
+		task: function (cb) {
+			return task.run(config.stylesFileName, gulp, plugins, config, cb);
 		}
 	};
 };
