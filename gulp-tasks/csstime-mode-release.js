@@ -7,10 +7,10 @@ module.exports = function (gulp, plugins, config) {
 			plugins.runSequence(
 				'csstime-publish-tmp',
 				'csstime-remove-tmp',
-				function () {
+				function (error) {
 					var logger = require('../lib/logger')(plugins, config);
 					logger.write('release mode', 'green');
-					cb();
+					cb(error);
 				}
 			);
 		}

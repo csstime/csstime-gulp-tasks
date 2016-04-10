@@ -10,9 +10,10 @@ module.exports = {
 	 * @param {Object} gulp
 	 * @param {Object} plugins
 	 * @param {Object} config
+	 * @param {Function} cb
 	 * @return {Stream}
 	 */
-	run: function (stylesName, gulp, plugins, config) {
+	run: function (stylesName, gulp, plugins, config, cb) {
 		var sources = [];
 		var stylesFileName = stylesName + '.' + config.preprocessorExt;
 
@@ -33,6 +34,9 @@ module.exports = {
 		return gulp.src(sources)
 			.pipe(plugins.concat(stylesFileName))
 			.pipe(plugins[config.preprocessor]())
+			.on('error', function (error) {
+				cb(error);
+			})
 			.pipe(gulp.dest(
 				config.isRelease ?
 					plugins.lib.pathHelper

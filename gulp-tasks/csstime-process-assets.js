@@ -12,17 +12,22 @@ module.exports = function (gulp, plugins, config) {
 		],
 		task: function (cb) {
 			if (!config.themedStylesFileNames.length) {
-				done(cb);
+				done(null, cb);
 				return;
 			}
 
-			plugins.runSequence('csstime-handle-themed-css', function () {
-				done(cb);
+			plugins.runSequence('csstime-handle-themed-css', function (error) {
+				done(error, cb);
 			});
 		}
 	};
 
-	function done (cb) {
+	function done (error, cb) {
+		if (error) {
+			cb(error);
+			return;
+		}
+
 		var logger = require('../lib/logger')(plugins, config);
 		logger.write('assets were rebuilt');
 		if (!config.isRelease) {
