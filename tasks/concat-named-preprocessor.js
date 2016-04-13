@@ -42,11 +42,10 @@ module.exports = {
 
 		// less/sass
 		componentsDirectories.forEach(function (component) {
-			var importingFile = path.join(
-				component,
-				config[config.preprocessor + 'Dir'],
-				stylesName + '.' + config.preprocessorExt
-			);
+			var importingFile = component + '/' +
+				config[config.preprocessor + 'Dir'] + '/' +
+				stylesName + '.' + config.preprocessorExt;
+
 			if (!fs.existsSync(importingFile)) {
 				return;
 			}
