@@ -16,7 +16,7 @@ module.exports = {
 	 * @param {Object} config
 	 * @return {Stream}
 	 */
-	run: function (stylesName, gulp, plugins, config) {
+	run: function (stylesName, gulp, plugins, config, cb) {
 		var sources = [];
 
 		// add normalize.css
@@ -72,6 +72,9 @@ module.exports = {
 				plugins.header(config.banner
 					.replace('<%now%>', time.captureNow()))
 			))
+			.on('error', function (error) {
+				cb(error);
+			})
 			.pipe(gulp.dest(
 				config.isRelease ?
 					plugins.lib.pathHelper
