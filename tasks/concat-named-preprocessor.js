@@ -30,7 +30,8 @@ module.exports = {
 			imports = [];
 
 		// variables
-		imports.push(util.format(BASE_VARIABLES[config.preprocessor], config.cdnPath));
+		imports.push(util.format(BASE_VARIABLES[config.preprocessor],
+			config.cdnPath));
 
 		// sprites
 		if (config.useImageSprites) {

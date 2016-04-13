@@ -6,7 +6,7 @@ var path = require('path'),
 module.exports = function (gulp, plugins, config) {
 	return {
 		dependencies: ['csstime-remove-tmp-sprites'],
-		task: function () {
+		task: function (cb) {
 			var spriteImagesPattern = plugins.lib.pathHelper
 					.getAssetsGlobPatterns(
 						config,
@@ -36,6 +36,9 @@ module.exports = function (gulp, plugins, config) {
 					config.isRelease && config.useImageOptimization,
 					plugins.imagemin(config.imageminConfig)
 				))
+				.on('error', function (error) {
+					cb(error);
+				})
 				.pipe(gulp.dest(
 					config.isRelease ?
 						plugins.lib.pathHelper

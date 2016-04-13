@@ -4,7 +4,7 @@ var path = require('path');
 
 module.exports = function (gulp, plugins, config) {
 	return {
-		task: function () {
+		task: function (cb) {
 			var imagesPattern = plugins.lib.pathHelper
 					.getAssetsGlobPatterns(
 						config,
@@ -25,6 +25,9 @@ module.exports = function (gulp, plugins, config) {
 					plugins.lib.pathHelper
 						.renamePathToComponentName(config, filePath);
 				}))
+				.on('error', function (error) {
+					cb(error);
+				})
 				.pipe(gulp.dest(
 					config.isRelease ?
 						plugins.lib.pathHelper
