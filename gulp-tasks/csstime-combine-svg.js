@@ -34,6 +34,9 @@ module.exports = function (gulp, plugins, config) {
 				.pipe(plugins.rename({prefix: config.svgSymbolsPrefix}))
 				.pipe(plugins.svgstore(config.svstoreConfig))
 				.pipe(plugins.rename(config.svgSymbolsFileName + '.svg'))
+				.on('error', function (error) {
+					cb(error);
+				})
 				.pipe(gulp.dest(destination));
 		}
 	};

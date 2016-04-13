@@ -30,7 +30,8 @@ module.exports = {
 			imports = [];
 
 		// variables
-		imports.push(util.format(BASE_VARIABLES[config.preprocessor], config.cdnPath));
+		imports.push(util.format(BASE_VARIABLES[config.preprocessor],
+			config.cdnPath));
 
 		// sprites
 		if (config.useImageSprites) {
@@ -42,11 +43,10 @@ module.exports = {
 
 		// less/sass
 		componentsDirectories.forEach(function (component) {
-			var importingFile = path.join(
-				component,
-				config[config.preprocessor + 'Dir'],
-				stylesName + '.' + config.preprocessorExt
-			);
+			var importingFile = component + '/' +
+				config[config.preprocessor + 'Dir'] + '/' +
+				stylesName + '.' + config.preprocessorExt;
+
 			if (!fs.existsSync(importingFile)) {
 				return;
 			}

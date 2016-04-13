@@ -6,7 +6,7 @@ var path = require('path'),
 module.exports = function (gulp, plugins, config) {
 	return {
 		dependencies: ['csstime-copy-static'],
-		task: function () {
+		task: function (cb) {
 			return gulp.src(
 					path.join(
 						config.isRelease ?
@@ -28,6 +28,9 @@ module.exports = function (gulp, plugins, config) {
 					plugins.header(config.banner
 						.replace('<%now%>', time.captureNow()))
 				))
+				.on('error', function (error) {
+					cb(error);
+				})
 				.pipe(gulp.dest(
 					config.isRelease ?
 						plugins.lib.pathHelper
