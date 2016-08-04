@@ -2,7 +2,7 @@
 
 [![Join the chat at https://gitter.im/csstime/csstime-gulp-tasks](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/csstime/csstime-gulp-tasks?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Prepared Gulp tasks to build and optimize assets for your project (SASS, LESS, CSS, SVG, images, sprites and more).
+Prepared Gulp tasks to build and optimize assets for your project (SASS, LESS, Stylus, CSS, SVG, images, sprites and more).
 Themes are supported via separated additional css-bundles.
 
 ```
@@ -18,6 +18,7 @@ List of used packages:
 * gulp-imagemin,
 * gulp-less,
 * gulp-sass,
+* gulp-stylus,
 * gulp-postcss,
 * gulp-svgstore,
 * gulp-uglify,

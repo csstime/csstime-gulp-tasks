@@ -7,11 +7,13 @@ var path = require('path'),
 var IMPORT_FORMAT = '/*\n * Styles of component "%s"\n */\n@import "%s";',
 	BASE_VARIABLES = {
 		less: '@CDN: "%s";',
-		sass: '$CDN: "%s";'
+		sass: '$CDN: "%s";',
+		stylus: '$CDN = "%s"'
 	},
 	SPRITES_VARIABLES = {
 		less: '@SPRITES_IMAGE: "%s";',
-		sass: '$SPRITES_IMAGE: "%s";'
+		sass: '$SPRITES_IMAGE: "%s";',
+		stylus: '$SPRITES_IMAGE = "%s"'
 	};
 
 module.exports = {
