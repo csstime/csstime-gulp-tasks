@@ -20,8 +20,7 @@ mixin-sprite-size($sprite)
 
 mixin-sprite-image($sprite)
     $sprite-image = sprite-param($sprite, 8)
-    background-image: url('%s%s' % ($CDN $SPRITES_IMAGE))
-}
+    background-image: url($CDN + $SPRITES_IMAGE)
 
 mixin-sprite-width($sprite)
     width: sprite-param($sprite, 4)
@@ -36,7 +35,7 @@ mixin-sprite($sprite)
     mixin-sprite-height($sprite)
 
 mixin-sprites-url()
-    background-image: url('%s%s' % ($CDN $SPRITES_IMAGE))
+    background-image: url($CDN + $SPRITES_IMAGE)
 
 mixin-sprite-icon()
     mixin-sprites-url()

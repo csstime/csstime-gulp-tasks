@@ -21,6 +21,7 @@
 	"otherDir": "other",
 	"lessThemesDir": "themes",
 	"sassThemesDir": "themes",
+	"stylusThemesDir": "themes",
 
 	"preprocessor": "less",
 	"preprocessorsConfig": {

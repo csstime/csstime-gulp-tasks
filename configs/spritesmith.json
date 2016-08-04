@@ -2,5 +2,6 @@
 	"padding": 10,
 	"algorithm": "binary-tree",
 	"lessTemplatePath": "configs/.sprite.less.mustache",
-	"sassTemplatePath": "configs/.sprite.sass.mustache"
+	"sassTemplatePath": "configs/.sprite.sass.mustache",
+	"stylusTemplatePath": "configs/.sprite.stylus.mustache"
 }

@@ -97,6 +97,7 @@ CsstimeGulpTask.prototype.getConfig = function (options) {
 		currentConfig.preprocessorsConfig[currentConfig.preprocessor].ext;
 	currentConfig.preprocessorOptions =
 		currentConfig.preprocessorsConfig[currentConfig.preprocessor].options;
+	currentConfig.preprocessorOptions.paths = currentConfig.preprocessorOptions.paths || [process.cwd()];
 	return currentConfig;
 };
 
