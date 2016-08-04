@@ -33,7 +33,7 @@ module.exports = {
 
 		return gulp.src(sources)
 			.pipe(plugins.concat(stylesFileName))
-			.pipe(plugins[config.preprocessor]())
+			.pipe(plugins[config.preprocessor](config.preprocessorOptions))
 			.on('error', function (error) {
 				cb(error);
 			})

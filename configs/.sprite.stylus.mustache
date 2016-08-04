@@ -1,0 +1,63 @@
+sprite-param($sprite-name, $index)
+{{#items}}
+    $sprite-{{name}} = {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total_width}} {{px.total_height}} '{{{escaped_image}}}' '{{{source_image}}}'
+{{/items}}
+
+{{#items}}
+    if $sprite-name == '{{name}}'
+        return $sprite-{{name}}[$index]
+{{/items}}
+
+mixin-sprite-position($sprite)
+    $sprite-offset-x = sprite-param($sprite, 2)
+    $sprite-offset-y = sprite-param($sprite, 3)
+    background-position: $sprite-offset-x $sprite-offset-y
+
+mixin-sprite-size($sprite)
+    $sprite-width = sprite-param($sprite, 6)
+    $sprite-height = sprite-param($sprite, 7)
+    background-size: $sprite-width $sprite-height
+
+mixin-sprite-image($sprite)
+    $sprite-image = sprite-param($sprite, 8)
+    background-image: url('%s%s' % ($CDN $SPRITES_IMAGE))
+}
+
+mixin-sprite-width($sprite)
+    width: sprite-param($sprite, 4)
+
+mixin-sprite-height($sprite)
+    height: sprite-param($sprite, 5)
+
+mixin-sprite($sprite)
+    mixin-sprite-position($sprite)
+    mixin-sprite-size($sprite)
+    mixin-sprite-width($sprite)
+    mixin-sprite-height($sprite)
+
+mixin-sprites-url()
+    background-image: url('%s%s' % ($CDN $SPRITES_IMAGE))
+
+mixin-sprite-icon()
+    mixin-sprites-url()
+    display: inline-block
+    margin: 0
+    padding: 0
+    border: none
+    outline: none
+    background-color: transparent
+    background-repeat: no-repeat
+
+/*
+* Set sprite icon
+*	.icon
+*		mixin-sprite-icon()
+*
+* Or set just background-image url
+*	.icon
+*		mixin-sprites-url()
+*
+* Add sprite attributes (image name)
+*	.icon--twitter
+*		mixin-sprite('twitter')
+*/

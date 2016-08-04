@@ -17,6 +17,7 @@
 	"lessDir": "less",
 	"sassDir": "sass",
 	"cssDir": "css",
+	"stylusDir": "stylus",
 	"otherDir": "other",
 	"lessThemesDir": "themes",
 	"sassThemesDir": "themes",
@@ -24,10 +25,16 @@
 	"preprocessor": "less",
 	"preprocessorsConfig": {
 		"less": {
-			"ext": "less"
+			"ext": "less",
+			"options": {}
 		},
 		"sass": {
-			"ext": "scss"
+			"ext": "scss",
+			"options": {}
+		},
+		"stylus": {
+			"ext": "styl",
+			"options": {}
 		}
 	},
 
