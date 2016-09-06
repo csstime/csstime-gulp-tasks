@@ -59,7 +59,7 @@ CsstimeGulpTask.prototype.loadPlugins = function () {
 	plugins.postcssProcessors = {
 		filters: require('pleeease-filters'),
 		opacity: require('postcss-opacity'),
-		autoprefixer: require('autoprefixer-core')
+		autoprefixer: require('autoprefixer')
 	};
 
 	plugins.lib = {};
