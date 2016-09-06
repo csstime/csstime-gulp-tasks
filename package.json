@@ -48,7 +48,8 @@
     "normalize.css": "^4.2.0",
     "pleeease-filters": "^3.0.0",
     "postcss-opacity": "^4.0.0",
-    "run-sequence": "^1.2.2"
+    "run-sequence": "^1.2.2",
+    "vinyl-buffer": "^1.0.0"
   },
   "engines": {
     "node": ">=0.10"
