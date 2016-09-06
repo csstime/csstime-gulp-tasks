@@ -19,7 +19,7 @@ module.exports = function (gulp, plugins, config) {
 					plugins.lib.pathHelper.getDestinationDirectory(config),
 					'*.*'
 				)
-			], publish);
+			]).then(publish);
 
 			function publish () {
 				gulp.src(
