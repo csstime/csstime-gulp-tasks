@@ -60,6 +60,7 @@
 	"banner": "/**\n * csstime\n * <%now%>\n */\n", // header in styles.css, see gulp-header
 
 	"cdnPath": "/components/", // used in urls for sprites in css
+	"cdnAbsolutePath": "", // absolute path to your assets directory
 
 	"imageminConfig": {}, // see ./configs files or read further
 	"postcssConfig": {},
