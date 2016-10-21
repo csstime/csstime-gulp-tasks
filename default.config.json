@@ -56,5 +56,6 @@
 
 	"banner": "/**\n * csstime\n * <%now%>\n */\n",
 
-	"cdnPath": "/components/"
+	"cdnPath": "/components/",
+	"cdnAbsolutePath": ""
 }

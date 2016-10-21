@@ -6,8 +6,14 @@ var path = require('path'),
 
 var IMPORT_FORMAT = '/*\n * Styles of component "%s"\n */\n@import "%s";',
 	BASE_VARIABLES = {
-		less: '@CDN: "%s";',
-		sass: '$CDN: "%s";'
+		cdnPath: {
+			less: '@CDN: "%s";',
+			sass: '$CDN: "%s";'
+		},
+		cdnAbsolutePath: {
+			less: '@CDN_ABSOLUTE: "%s";',
+			sass: '$CDN_ABSOLUTE: "%s";'
+		}
 	},
 	SPRITES_VARIABLES = {
 		less: '@SPRITES_IMAGE: "%s";',
@@ -30,8 +36,12 @@ module.exports = {
 			imports = [];
 
 		// variables
-		imports.push(util.format(BASE_VARIABLES[config.preprocessor],
-			config.cdnPath));
+		Object.keys(BASE_VARIABLES)
+			.forEach(function (key) {
+				imports.push(
+					util.format(BASE_VARIABLES[key][config.preprocessor], config[key])
+				);
+			});
 
 		// sprites
 		if (config.useImageSprites) {
