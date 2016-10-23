@@ -95,6 +95,7 @@ CsstimeGulpTask.prototype.getConfig = function (options) {
 	currentConfig.packagePath = __dirname;
 	currentConfig.preprocessorExt =
 		currentConfig.preprocessorsConfig[currentConfig.preprocessor].ext;
+	currentConfig.variables = currentConfig.variables || {};
 	return currentConfig;
 };
 

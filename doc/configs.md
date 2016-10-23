@@ -61,6 +61,8 @@
 
 	"cdnPath": "/components/", // used in urls for sprites in css
 
+	"variables": {}, // pass custom variables to use them in preprocessors
+
 	"imageminConfig": {}, // see ./configs files or read further
 	"postcssConfig": {},
 	"spritesmithConfig": {},
