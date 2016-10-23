@@ -5,13 +5,9 @@ var path = require('path'),
 	fs = require('fs');
 
 var IMPORT_FORMAT = '/*\n * Styles of component "%s"\n */\n@import "%s";',
-	BASE_VARIABLES = {
-		less: '@CDN: "%s";',
-		sass: '$CDN: "%s";'
-	},
-	SPRITES_VARIABLES = {
-		less: '@SPRITES_IMAGE: "%s";',
-		sass: '$SPRITES_IMAGE: "%s";'
+	VARIABLE_FORMAT = {
+		less: '@%s: "%s";',
+		sass: '$%s: "%s";'
 	};
 
 module.exports = {
@@ -29,17 +25,30 @@ module.exports = {
 				.getAssetsDirectories(config),
 			imports = [];
 
-		// variables
-		imports.push(util.format(BASE_VARIABLES[config.preprocessor],
-			config.cdnPath));
+		// cdn variable
+		imports.push(util.format(
+			VARIABLE_FORMAT[config.preprocessor],
+			'CDN',
+			config.cdnPath
+		));
 
-		// sprites
+		// sprites variable
 		if (config.useImageSprites) {
 			imports.push(util.format(
-				SPRITES_VARIABLES[config.preprocessor],
+				VARIABLE_FORMAT[config.preprocessor],
+				'SPRITES_IMAGE',
 				config.spritesFileName + '.png'
 			));
 		}
+		
+		// custom variables
+		Object.keys(config.variables).forEach(function (variableKey) {
+			imports.push(util.format(
+				VARIABLE_FORMAT[config.preprocessor],
+				variableKey,
+				config.variables[variableKey]
+			));
+		});
 
 		// less/sass
 		componentsDirectories.forEach(function (component) {
