@@ -56,10 +56,11 @@ CsstimeGulpTask.prototype.loadPlugins = function () {
 	plugins.del = require('del');
 	plugins.runSequence = require('run-sequence');
 	plugins.mergeStream = require('merge-stream');
+	plugins.vinylBuffer = require('vinyl-buffer');
 	plugins.postcssProcessors = {
 		filters: require('pleeease-filters'),
 		opacity: require('postcss-opacity'),
-		autoprefixer: require('autoprefixer-core')
+		autoprefixer: require('autoprefixer')
 	};
 
 	plugins.lib = {};

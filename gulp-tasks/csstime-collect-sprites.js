@@ -32,6 +32,7 @@ module.exports = function (gulp, plugins, config) {
 				}));
 
 			spriteData.img
+				.pipe(plugins.vinylBuffer())
 				.pipe(plugins.if(
 					config.isRelease && config.useImageOptimization,
 					plugins.imagemin(config.imageminConfig)
