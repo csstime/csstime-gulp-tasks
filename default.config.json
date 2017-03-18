@@ -47,6 +47,8 @@
 	"useSvgSymbols": false,
 	"svgSymbolsPrefix": "icon-",
 
+	"useSourceMaps": true,
+
 	"useNormalizeCss": false,
 	"usePostCSS": true,
 	"enableCssStructureMinimization": false,

@@ -33,7 +33,15 @@ module.exports = {
 
 		return gulp.src(sources)
 			.pipe(plugins.concat(stylesFileName))
+			.pipe(plugins.if(
+				config.useSourceMaps && !config.isRelease,
+				plugins.sourcemaps.init()
+			))
 			.pipe(plugins[config.preprocessor]())
+			.pipe(plugins.if(
+				config.useSourceMaps && !config.isRelease,
+				plugins.sourcemaps.write()
+			))
 			.on('error', function (error) {
 				cb(error);
 			})

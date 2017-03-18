@@ -50,6 +50,8 @@
 	"useSvgSymbols": false,
    	"svgSymbolsPrefix": "icon-",
 
+   	"useSourceMaps": true,
+
 	"useNormalizeCss": false, // see normalize.css
 	"usePostCSS": true, // autoprefixer, opacity, filters
 	"enableCssStructureMinimization": false, // see gulp-csso
